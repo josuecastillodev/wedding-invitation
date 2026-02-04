@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { asset } from "~/utils/assets";
 
 interface EnvelopeOpeningProps {
   children: React.ReactNode;
@@ -6,21 +7,38 @@ interface EnvelopeOpeningProps {
 
 export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
   const [isOpening, setIsOpening] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [flapBehind, setFlapBehind] = useState(false);
+  const [showWhiteFlash, setShowWhiteFlash] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [isFullyOpen, setIsFullyOpen] = useState(false);
 
   const handleOpen = () => {
-    if (isOpening || isOpen) return;
+    if (isOpening || isFullyOpen) return;
     setIsOpening(true);
 
-    // After animation completes, show content
+    // Move flap behind after it's halfway rotated
     setTimeout(() => {
-      setIsOpen(true);
-    }, 1500);
+      setFlapBehind(true);
+    }, 900);
+
+    // After flap animation, show white flash
+    setTimeout(() => {
+      setShowWhiteFlash(true);
+    }, 1600);
+
+    // Start showing content with blur
+    setTimeout(() => {
+      setShowContent(true);
+    }, 2000);
+
+    // Fully reveal content
+    setTimeout(() => {
+      setIsFullyOpen(true);
+    }, 3000);
   };
 
-  // Prevent scroll when envelope is closed
   useEffect(() => {
-    if (!isOpen) {
+    if (!isFullyOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -29,161 +47,242 @@ export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isFullyOpen]);
 
-  if (isOpen) {
+  if (isFullyOpen) {
     return <>{children}</>;
   }
 
-  const textureStyle = {
-    backgroundImage: 'url("/images/bg-fijo.jpg")',
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
+  // Altura como referencia principal (proporción ~1.44:1)
+  // En móvil: altura completa, ancho se desborda creando efecto zoom
+  const envelopeHeight = "100vh";
+  const envelopeWidth = "calc(100vh * 1.44)";
 
   return (
     <div
       className="fixed inset-0 z-50 overflow-hidden flex items-center justify-center"
-      style={{ perspective: "1000px" }}
+      style={{ perspective: "1200px" }}
     >
       {/* Background */}
       <div
         className="absolute inset-0"
         style={{
-          ...textureStyle,
-          filter: "brightness(0.89)",
+          backgroundImage: `url("${asset("/images/bg-fijo.jpg")}")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "brightness(0.91)",
         }}
       />
 
-      {/* Envelope Container - maintains square aspect ratio based on width */}
+      {/* Envelope Wrapper with rotation */}
       <div
-        className="relative"
+        className="relative flex flex-col items-center"
         style={{
-          width: "min(100vw, 100vh)",
-          height: "min(100vw, 100vh)",
+          opacity: showWhiteFlash ? 0 : 1,
+          transition: "opacity 0.5s ease-out",
         }}
       >
-        {/* Envelope Back/Base */}
+        {/* Envelope Container - rectangular */}
         <div
-          className="absolute inset-0"
+          className="relative"
           style={{
-            ...textureStyle,
-            filter: "brightness(0.85)",
-          }}
-        />
-
-        {/* Top Flap (Triangle) - Opens upward */}
-        <div
-          className={`absolute top-0 left-0 right-0 origin-top transition-transform duration-1000 ease-in-out ${
-            isOpening ? "envelope-flap-open" : ""
-          }`}
-          style={{
-            height: "50%",
-            clipPath: "polygon(0 0, 100% 0, 50% 100%)",
-            ...textureStyle,
-            filter: "brightness(1.0)",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-            transformStyle: "preserve-3d",
-            zIndex: isOpening ? 10 : 30,
+            width: envelopeWidth,
+            height: envelopeHeight,
           }}
         >
-          {/* Inner shadow for depth */}
+          {/* Envelope Back - the base rectangle */}
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.05) 100%)",
-              clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+              backgroundImage: `url("${asset("/images/bg-fijo.jpg")}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "brightness(0.91)",
             }}
           />
+
+          {/* Bottom Flap - Triangle pointing up (opens downward) */}
+          <div
+            className="absolute bottom-0 left-0 right-0 origin-bottom transition-transform duration-[1800ms] ease-in-out"
+            style={{
+              height: "75%",
+              filter: `brightness(0.94) drop-shadow(0 -8px 16px rgba(0,0,0,0.2))`,
+              transformStyle: "preserve-3d",
+              transform: isOpening ? "rotateX(180deg)" : "rotateX(0deg)",
+              zIndex: 5,
+            }}
+          >
+            {/* Flap shape with texture */}
+            <div
+              className="absolute inset-0"
+              style={{
+                clipPath: "polygon(0 100%, 50% 0%, 100% 100%)",
+                backgroundImage: `url("${asset("/images/bg-fijo.jpg")}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            {/* Shadow overlay for depth */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(0deg, transparent 70%, rgba(0,0,0,0.06) 100%)",
+                clipPath: "polygon(0 100%, 50% 0%, 100% 100%)",
+              }}
+            />
+          </div>
+
+          {/* Left Flap - Triangle pointing right */}
+          <div
+            className="absolute left-0 top-0 bottom-0"
+            style={{
+              width: "50%",
+              clipPath: "polygon(0 0, 100% 50%, 0 100%)",
+              backgroundImage: `url("${asset("/images/bg-fijo.jpg")}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "brightness(0.91)",
+              zIndex: 10,
+            }}
+          >
+            {/* Shadow overlay for depth */}
+            <div
+              className="absolute inset-0"
+              style={{
+                filter: "brightness(0.91)",
+                clipPath: "polygon(0 0, 100% 50%, 0 100%)",
+              }}
+            />
+          </div>
+
+          {/* Right Flap - Triangle pointing left */}
+          <div
+            className="absolute right-0 top-0 bottom-0"
+            style={{
+              width: "50%",
+              clipPath: "polygon(100% 0, 0% 50%, 100% 100%)",
+              backgroundImage: `url("${asset("/images/bg-fijo.jpg")}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "brightness(0.91)",
+              zIndex: 10,
+            }}
+          >
+            {/* Shadow overlay for depth */}
+            <div
+              className="absolute inset-0"
+              style={{
+                filter: "brightness(0.91)",
+                clipPath: "polygon(100% 0, 0% 50%, 100% 100%)",
+              }}
+            />
+          </div>
+
+          {/* Top Flap - Triangle pointing down (opens) */}
+          <div
+            className="absolute top-0 left-0 right-0 origin-top transition-transform duration-1800 ease-in-out"
+            style={{
+              height: "70%",
+              filter: `brightness(0.98) drop-shadow(0 8px 16px rgba(0,0,0,0.25))`,
+              transformStyle: "preserve-3d",
+              transform: isOpening ? "rotateX(-180deg)" : "rotateX(0deg)",
+              zIndex: flapBehind ? 5 : 25,
+            }}
+          >
+            {/* Flap shape with texture */}
+            <div
+              className="absolute inset-0"
+              style={{
+                clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+                backgroundImage: `url("${asset("/images/bg-fijo.jpg")}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
+            {/* Shadow overlay for depth */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.12) 100%)",
+                clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+              }}
+            />
+          </div>
+
+          {/* Wax Seal - positioned at flap tip (70% from top) */}
+          <button
+            onClick={handleOpen}
+            className="absolute left-1/2 z-40 cursor-pointer transition-all duration-300 active:scale-95"
+            style={{
+              top: "63%",
+              width: "min(250px, 50vw)",
+              height: "min(250px, 50vw)",
+              transform: isOpening
+                ? "translate(-50%, -50%) scale(1.2)"
+                : "translate(-50%, -50%)",
+              opacity: isOpening ? 0 : 1,
+              transition: "transform 0.5s ease-out, opacity 0.4s ease-out",
+            }}
+            aria-label="Abrir invitación"
+          >
+            <img
+              src={asset("/images/sello-nuestra-boda.png")}
+              alt="Sello de boda"
+              className="w-full h-full object-contain"
+              style={{
+                filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.4))",
+              }}
+            />
+          </button>
         </div>
-
-        {/* Left Flap - slightly lighter (light from left) */}
-        <div
-          className="absolute left-0 top-0 bottom-0"
-          style={{
-            width: "50%",
-            clipPath: "polygon(0 0, 0 100%, 100% 50%)",
-            ...textureStyle,
-            filter: "brightness(0.89)",
-            zIndex: 15,
-          }}
-        />
-
-        {/* Right Flap - slightly darker */}
-        <div
-          className="absolute right-0 top-0 bottom-0"
-          style={{
-            width: "50%",
-            clipPath: "polygon(100% 0, 100% 100%, 0 50%)",
-            ...textureStyle,
-            filter: "brightness(0.89)",
-            zIndex: 15,
-          }}
-        />
-
-        {/* Wax Seal Button */}
-        <button
-          onClick={handleOpen}
-          className={`absolute top-1/2 left-1/2 z-40 cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 ${
-            isOpening ? "seal-break" : ""
-          }`}
-          style={{
-            width: "min(180px, 30vw)",
-            height: "min(180px, 30vw)",
-            transform: "translate(-50%, -50%)",
-          }}
-          aria-label="Abrir invitación"
-        >
-          <img
-            src="/images/sello-nuestra-boda.png"
-            alt="Sello de boda"
-            className="w-full h-full object-contain drop-shadow-2xl"
-          />
-        </button>
       </div>
 
-      {/* Tap hint text */}
+      {/* Tap hint */}
       <p
-        className={`absolute bottom-16 md:bottom-20 left-1/2 transform -translate-x-1/2 text-text-dark/60 font-serif text-xs md:text-sm tracking-[0.2em] uppercase z-40 transition-opacity duration-500 ${
+        className={`absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 text-amber-900/40 font-serif text-[10px] md:text-xs tracking-[0.25em] uppercase z-40 transition-opacity duration-500 ${
           isOpening ? "opacity-0" : "opacity-100"
         }`}
       >
-        Toca para abrir
+        Toca el sello para abrir
       </p>
 
-      {/* Opening Animation Overlay */}
+      {/* White flash overlay */}
       <div
-        className={`absolute inset-0 transition-opacity duration-500 ${
-          isOpening ? "opacity-100 delay-1000" : "opacity-0 pointer-events-none"
-        }`}
+        className="absolute inset-0 bg-white pointer-events-none"
         style={{
-          zIndex: 45,
-          ...textureStyle,
+          opacity: showWhiteFlash ? 1 : 0,
+          transition: "opacity 0.6s ease-in-out",
+          zIndex: 50,
         }}
       />
 
-      <style>{`
-        .envelope-flap-open {
-          transform: rotateX(-180deg);
-        }
+      {/* Content with blur reveal */}
+      {showContent && (
+        <div
+          className="absolute inset-0 z-40"
+          style={{
+            opacity: showContent ? 1 : 0,
+            filter: isFullyOpen ? "blur(0px)" : "blur(20px)",
+            transform: isFullyOpen ? "scale(1)" : "scale(1.1)",
+            transition:
+              "opacity 0.8s ease-out, filter 1s ease-out, transform 1s ease-out",
+          }}
+        >
+          {children}
+        </div>
+      )}
 
-        .seal-break {
-          transform: translate(-50%, -50%);
-          animation: sealBreak 0.6s ease-out forwards;
-        }
-
-        @keyframes sealBreak {
-          0% {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(1.1);
-            opacity: 0;
-          }
-        }
-      `}</style>
+      {/* Final white fade out */}
+      <div
+        className="absolute inset-0 bg-white pointer-events-none"
+        style={{
+          opacity: showContent ? (isFullyOpen ? 0 : 0.7) : 0,
+          transition: "opacity 1s ease-out",
+          zIndex: 45,
+        }}
+      />
     </div>
   );
 }

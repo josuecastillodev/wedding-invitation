@@ -34,8 +34,8 @@ export default function Home() {
         <VenueSection />
         <GiftRegistry />
         <AdultsOnlySection />
-        <DressCode />
-        <Itinerary />
+        {/* <DressCode /> */}
+        {/* <Itinerary /> */}
         {/* <Hospedaje /> */}
         <Footer />
       </main>

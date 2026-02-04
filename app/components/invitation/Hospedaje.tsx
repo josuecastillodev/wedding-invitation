@@ -1,4 +1,5 @@
 import { SectionWrapper } from "~/components/ui/SectionWrapper";
+import { asset } from "~/utils/assets";
 
 export function Hospedaje() {
   return (
@@ -18,7 +19,7 @@ export function Hospedaje() {
         {/* Image */}
         <div className="w-full md:w-auto">
           <img
-            src="/images/hospedaje.jpg"
+            src={asset("/images/hospedaje.jpg")}
             alt="Hotel"
             className="w-full md:w-[400px] lg:w-[500px] h-auto object-cover"
           />

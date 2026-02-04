@@ -1,4 +1,3 @@
-import { FloralDivider } from "~/components/ui/FloralDivider";
 import { CountdownTimer } from "./CountdownTimer";
 
 export function HeroSection() {
@@ -9,33 +8,29 @@ export function HeroSection() {
 
       {/* Main content - centered */}
       <div className="relative z-10 text-center flex-1 flex flex-col justify-center">
-        {/* <FloralDivider variant="flor-1" className="mb-8 opacity-60" /> */}
-
-        <p className="font-script text-burgundy text-5xl md:text-6xl mb-4">
+        <p className="font-script text-burgundy text-5xl md:text-6xl mb-4 animate-fade-in-up">
           Nuestra Boda
         </p>
 
         <h1 className="font-serif text-text-dark">
-          <span className="block text-4xl md:text-4xl tracking-[0.3em] uppercase">
+          <span className="block text-4xl md:text-4xl tracking-[0.3em] uppercase animate-fade-in-up delay-100">
             Yareli
           </span>
-          <span className="block font-script text-burgundy text-5xl md:text-7xl my-2">
+          <span className="block font-script text-burgundy text-5xl md:text-7xl my-2 animate-scale-in delay-200">
             &
           </span>
-          <span className="block text-4xl md:text-4xl tracking-[0.3em] uppercase">
+          <span className="block text-4xl md:text-4xl tracking-[0.3em] uppercase animate-fade-in-up delay-300">
             Luis
           </span>
         </h1>
 
-        <p className="text-burgundy tracking-[0.10em] uppercase text-md md:text-lg mt-6">
+        <p className="text-burgundy tracking-[0.10em] uppercase text-md md:text-lg mt-6 animate-fade-in delay-400">
           10 de abril de 2026
         </p>
-
-        {/* <FloralDivider variant="flor-2" className="my-12 opacity-60" /> */}
       </div>
 
       {/* Countdown - fixed at bottom */}
-      <div className="relative z-10 mb-12">
+      <div className="relative z-10 mb-12 animate-fade-in-up delay-500">
         <CountdownTimer />
       </div>
     </section>

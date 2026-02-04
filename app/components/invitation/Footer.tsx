@@ -1,12 +1,17 @@
+import { useInView } from "~/hooks/useInView";
+import { asset } from "~/utils/assets";
+
 export function Footer() {
+  const { ref, isInView } = useInView({ threshold: 0.1 });
+
   return (
-    <footer className="relative">
+    <footer ref={ref} className="relative mt-16">
       {/* Top Section - Textured Background (continues from previous sections) */}
       <div
         className="relative h-40 md:h-48"
         style={{
           backgroundImage: `
-            url("/images/bg-fijo.jpg"),
+            url("${asset("/images/bg-fijo.jpg")}"),
             repeating-linear-gradient(
               45deg,
               transparent,
@@ -34,24 +39,43 @@ export function Footer() {
       <div className="bg-burgundy text-white text-center relative -mt-24 md:-mt-28">
         <div className="relative text-center px-6 pt-24 md:pt-28">
           {/* Photo - Positioned to overlap both sections */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 rounded-full shadow-lg z-10">
+          <div
+            className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 rounded-full shadow-lg z-10 transition-all duration-700 ${
+              isInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+            }`}
+          >
             <img
-              src="/images/miguel-angel-ramirez.png"
+              src={asset("/images/miguel-angel-ramirez.png")}
               alt="Miguel Angel Ramírez"
+              loading="lazy"
               className="w-full h-full object-cover rounded-full"
             />
           </div>
 
           {/* Greeting */}
-          <p className="font-script text-3xl md:text-4xl mt-8">—Hola,</p>
+          <p
+            className={`font-script text-3xl md:text-4xl mt-8 transition-all duration-500 delay-100 ${
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            —Hola,
+          </p>
 
           {/* Name */}
-          <h3 className="font-serif text-sm md:text-base uppercase tracking-[0.2em] mt-4">
+          <h3
+            className={`font-serif text-sm md:text-base uppercase tracking-[0.2em] mt-4 transition-all duration-500 delay-200 ${
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             Soy Miguel Angel Ramírez
           </h3>
 
           {/* Description */}
-          <div className="max-w-2xl mx-auto mt-6 space-y-4 text-xs md:text-sm leading-relaxed text-center md:text-left">
+          <div
+            className={`max-w-2xl mx-auto mt-6 space-y-4 text-xs md:text-sm leading-relaxed text-center md:text-left transition-all duration-500 delay-300 ${
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             <p>
               Estoy aquí para acompañarte en cada paso hacia ese día tan
               especial. Si tienes dudas sobre el evento, paquetes o
@@ -69,39 +93,56 @@ export function Footer() {
         </div>
 
         {/* Logo */}
-        <div className="w-20 h-20 md:w-24 md:h-24 mx-auto my-6">
+        <div
+          className={`w-20 h-20 md:w-24 md:h-24 mx-auto my-6 transition-all duration-500 delay-400 ${
+            isInView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+          }`}
+        >
           <img
-            src="/images/logotipo.png"
+            src={asset("/images/logotipo.png")}
             alt="Conceptos Finos"
+            loading="lazy"
             className="w-full h-full object-contain"
           />
         </div>
 
         {/* Contact Info */}
-        <p className="font-serif text-sm md:text-base uppercase tracking-[0.15em]">
+        <p
+          className={`font-serif text-sm md:text-base uppercase tracking-[0.15em] transition-all duration-500 delay-500 ${
+            isInView ? "opacity-100" : "opacity-0"
+          }`}
+        >
           Miguel Angel Ramírez
         </p>
         <a
           href="mailto:gerencia@conceptosfinos.com.mx"
-          className="block text-sm md:text-base mt-2 hover:underline"
+          className={`block text-sm md:text-base mt-2 hover:underline transition-all duration-500 delay-500 ${
+            isInView ? "opacity-100" : "opacity-0"
+          }`}
         >
           gerencia@conceptosfinos.com.mx
         </a>
         <a
           href="tel:+523332233868"
-          className="block text-sm md:text-base mt-1 hover:underline"
+          className={`block text-sm md:text-base mt-1 hover:underline transition-all duration-500 delay-500 ${
+            isInView ? "opacity-100" : "opacity-0"
+          }`}
         >
           33 3223 3868
         </a>
 
         {/* Instagram */}
-        <div className="flex items-center justify-center gap-2 mt-6">
+        <div
+          className={`flex items-center justify-center gap-2 mt-6 transition-all duration-500 delay-600 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
+        >
           <span className="text-sm">Sigue nuestras bodas en Instagram</span>
           <a
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 hover:scale-110 transition-all duration-300"
             aria-label="Instagram"
           >
             <svg
@@ -125,7 +166,11 @@ export function Footer() {
         </div>
 
         {/* Credits */}
-        <p className="text-xs md:text-sm mt-1 opacity-80 pb-4">
+        <p
+          className={`text-xs md:text-sm mt-1 opacity-80 pb-4 transition-all duration-500 delay-700 ${
+            isInView ? "opacity-80" : "opacity-0"
+          }`}
+        >
           © Diseñado por Dizaru. 2025.
         </p>
       </div>

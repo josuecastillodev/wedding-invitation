@@ -1,8 +1,28 @@
 import { useInView } from "~/hooks/useInView";
 import { asset } from "~/utils/assets";
+import { EVENT_CONFIG } from "~/config/event";
 
-export function AdultsOnlySection() {
+interface AdultsOnlySectionProps {
+  nombre?: string;
+  pases?: string;
+}
+
+export function AdultsOnlySection({ nombre = "", pases = "" }: AdultsOnlySectionProps) {
   const { ref, isInView } = useInView({ threshold: 0.2 });
+
+  // Construir URL de Tally con parámetros
+  const buildTallyUrl = () => {
+    const baseUrl = `https://tally.so/r/${EVENT_CONFIG.tallyFormId}`;
+    const params = new URLSearchParams();
+
+    if (nombre) params.set("Nombre", nombre);
+    if (pases) params.set("Pases", pases);
+
+    const queryString = params.toString();
+    return queryString ? `${baseUrl}?${queryString}` : baseUrl;
+  };
+
+  const tallyUrl = buildTallyUrl();
 
   return (
     <section ref={ref} className="flex items-center justify-center">
@@ -79,7 +99,9 @@ export function AdultsOnlySection() {
 
             {/* RSVP Button */}
             <a
-              href="#rsvp"
+              href={tallyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`inline-block bg-mauve/60 hover:bg-mauve/80 transition-all duration-300 px-8 py-4 md:py-3 text-burgundy cursor-pointer hover:scale-105 ${
                 isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}

@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import { useSearchParams } from "react-router";
 import { HeroSection } from "~/components/invitation/HeroSection";
 import { PhotoGallery } from "~/components/invitation/PhotoGallery";
 import { VenueSection } from "~/components/invitation/VenueSection";
@@ -26,6 +27,10 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const [searchParams] = useSearchParams();
+  const nombre = searchParams.get("Nombre") || "";
+  const pases = searchParams.get("Pases") || "";
+
   return (
     <EnvelopeOpening>
       <main>
@@ -33,7 +38,7 @@ export default function Home() {
         <PhotoGallery />
         <VenueSection />
         <GiftRegistry />
-        <AdultsOnlySection />
+        <AdultsOnlySection nombre={nombre} pases={pases} />
         {/* <DressCode /> */}
         {/* <Itinerary /> */}
         {/* <Hospedaje /> */}

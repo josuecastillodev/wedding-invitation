@@ -1,0 +1,107 @@
+---
+import { EVENT_CONFIG } from '../config/event';
+const baseUrl = EVENT_CONFIG.baseUrl;
+
+interface ItineraryItem {
+  icon: string;
+  time: string;
+  title: string;
+  location: string;
+  mapUrl?: string;
+}
+
+const itineraryItems: ItineraryItem[] = [
+  {
+    icon: `${baseUrl}/images/itinerary-01.svg`,
+    time: "5:00 PM",
+    title: "Ceremonia Religiosa",
+    location: "Parroquia de Santa Sofía",
+    mapUrl: "https://maps.app.goo.gl/zqXC8E8VmT7TNr8eA",
+  },
+  {
+    icon: `${baseUrl}/images/itinerary-02.svg`,
+    time: "6:15 PM",
+    title: "Cóctel de bienvenida",
+    location: "Ingreso a la recepción",
+  },
+  {
+    icon: `${baseUrl}/images/itinerary-03.svg`,
+    time: "7:30 PM",
+    title: "Banquete nupcial",
+    location: "Recepción",
+  },
+  // {
+  //   icon: `${baseUrl}/images/itinerary-04.svg`,
+  //   time: "11:30 PM",
+  //   title: "Cena de desvelados",
+  //   location: "Recepción",
+  // },
+];
+---
+
+<section class="px-6 py-16 text-center">
+  <!-- Decorative Flower -->
+  <div
+    data-animate
+    class="flex justify-center mb-6"
+  >
+    <img
+      src={`${baseUrl}/images/itinerary.svg`}
+      alt=""
+      loading="lazy"
+      class="w-12 h-14 md:w-14 md:h-16 object-contain"
+    />
+  </div>
+
+  <!-- Title -->
+  <h2
+    data-animate
+    data-delay="100"
+    class="font-serif text-2xl md:text-3xl uppercase tracking-[0.3em] text-text-dark mb-12 md:mb-16"
+  >
+    Itinerario
+  </h2>
+
+  <!-- Grid Layout -->
+  <div class="max-w-4xl mx-auto md:px-4 px-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-x-16 md:gap-y-12 text-left">
+      {itineraryItems.map((item, index) => (
+        <div
+          data-animate
+          data-delay={`${(index + 1) * 100}`}
+          class="flex flex-col"
+        >
+          <!-- Icon + Line -->
+          <div class="flex items-center gap-4 mb-4">
+            <img
+              src={item.icon}
+              alt=""
+              loading="lazy"
+              class="w-10 h-10 object-contain"
+            />
+            <div class="flex-1 h-px bg-text-dark/30" />
+          </div>
+
+          <!-- Content -->
+          <div class="pl-16">
+            <p class="text-sm md:text-base text-text-dark/80 mb-1">{item.time}</p>
+            <h3 class="font-serif text-base md:text-lg uppercase text-text-dark mb-1">
+              {item.title}
+            </h3>
+            <p class="text-sm text-text-dark/70 mb-3">{item.location}</p>
+            {item.mapUrl && (
+              <a
+                href={item.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block px-4 py-1.5 border border-burgundy text-burgundy text-xs uppercase tracking-wider hover:bg-burgundy hover:text-white transition-colors duration-300"
+              >
+                Ver Mapa
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

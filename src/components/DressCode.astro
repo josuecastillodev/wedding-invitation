@@ -1,0 +1,90 @@
+---
+import { EVENT_CONFIG } from '../config/event';
+const baseUrl = EVENT_CONFIG.baseUrl;
+
+// Fila superior (5 colores)
+const TOP_COLORS = [
+  { name: "Azul acero", color: "#97A7C3" },
+  { name: "Rosa empolvado", color: "#D1ABBA" },
+  { name: "Rosa", color: "#E48BA5" },
+  { name: "Dorado", color: "#BBA94E" },
+  { name: "Camel", color: "#B4926B" },
+];
+
+// Fila inferior (4 colores)
+const BOTTOM_COLORS = [
+  { name: "Terracota", color: "#C98050" },
+  { name: "Verde oliva", color: "#6B7B4E" },
+  { name: "Morado", color: "#6E3F6E" },
+  { name: "Azul marino", color: "#2C3050" },
+];
+---
+
+<section class="text-center mt-24 px-6">
+  <!-- Title -->
+  <div data-animate>
+    <h2
+      class="font-serif text-2xl md:text-3xl uppercase tracking-[0.2em] text-text-dark"
+    >
+      Dress Code
+    </h2>
+    <p
+      data-animate
+      data-delay="100"
+      class="font-script text-[#4a4c35] text-3xl md:text-4xl mt-2"
+    >
+      Formal (No blanco)
+    </p>
+  </div>
+
+  <!-- Two column layout: image left, colors right (desktop) / stacked (mobile) -->
+  <div class="mt-8 max-w-4xl mx-auto flex flex-col md:flex-row md:items-center md:gap-12">
+    <!-- Couple formal photo - Left side on desktop -->
+    <div
+      data-animate
+      data-delay="200"
+      class="mx-auto md:mx-0 max-w-xs md:max-w-sm md:flex-shrink-0 relative"
+    >
+      <img
+        src={`${baseUrl}/images/dresscode-example.png`}
+        alt="Ejemplo de vestimenta formal"
+        loading="lazy"
+        class="w-full h-auto relative z-10"
+      />
+      <!-- Ground shadow -->
+      <div
+        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-8 md:h-10 z-0"
+        style="background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 35%, transparent 65%);"
+      />
+    </div>
+
+    <!-- Color palettes - Right side on desktop -->
+    <div class="mt-10 md:mt-0 flex-1">
+      <!-- Fila superior -->
+      <div data-animate data-delay="300">
+        <div class="flex items-center justify-center flex-wrap gap-2">
+          {TOP_COLORS.map((c) => (
+            <div
+              class="w-11 h-11 md:w-14 md:h-14 rounded-full transition-transform duration-300 hover:scale-110 shadow-md"
+              style={`background-color: ${c.color};`}
+              title={c.name}
+            />
+          ))}
+        </div>
+      </div>
+
+      <!-- Fila inferior -->
+      <div data-animate data-delay="400" class="mt-2">
+        <div class="flex items-center justify-center flex-wrap gap-2">
+          {BOTTOM_COLORS.map((c) => (
+            <div
+              class="w-11 h-11 md:w-14 md:h-14 rounded-full transition-transform duration-300 hover:scale-110 shadow-md"
+              style={`background-color: ${c.color};`}
+              title={c.name}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

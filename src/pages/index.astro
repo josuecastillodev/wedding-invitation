@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { EnvelopeOpening } from '../components/EnvelopeOpening';
+import HeroSection from '../components/HeroSection.astro';
+import VenueSection from '../components/VenueSection.astro';
+import { PhotoGallery } from '../components/PhotoGallery';
+import GiftRegistry from '../components/GiftRegistry.astro';
+import BankDetails from '../components/BankDetails.astro';
+// import { AdultsOnlySection } from '../components/AdultsOnlySection';
+import Footer from '../components/Footer.astro';
+// Secciones opcionales (descomentar si se necesitan):
+import Itinerary from '../components/Itinerary.astro';
+import DressCode from '../components/DressCode.astro';
+import Hospedaje from '../components/Hospedaje.astro';
+---
+
+<Layout>
+  <EnvelopeOpening client:load>
+    <main>
+      <HeroSection />
+      <PhotoGallery client:visible />
+      <VenueSection />
+      <GiftRegistry />
+      <BankDetails />
+      <!-- <AdultsOnlySection client:load /> -->
+      <!-- Secciones opcionales (descomentar si se necesitan): -->
+      <DressCode />
+      <Itinerary /> 
+      <Hospedaje />
+      <Footer />
+    </main>
+  </EnvelopeOpening>
+</Layout>

@@ -1,0 +1,56 @@
+---
+import CountdownTimer from './CountdownTimer.tsx';
+import { EVENT_CONFIG } from '../config/event';
+---
+
+<section class="hero-background relative min-h-screen flex flex-col items-center px-6 pt-20 pb-0 bg-bg-light bg-[position:calc(50%+28vw)] bg-auto md:bg-center bg-no-repeat">
+  <!-- Background overlay -->
+  <div class="absolute inset-0 bg-bg-light/30"></div>
+
+  <!-- Main content -->
+  <div class="relative z-10 text-center flex-1 flex flex-col justify-center">
+    <p
+      data-animate
+      class="font-script text-[#4a4c35] text-5xl md:text-6xl mb-4"
+    >
+      Nuestra Boda
+    </p>
+
+    <h1 class="font-serif text-text-dark">
+      <span
+        data-animate
+        data-delay="100"
+        class="block text-4xl md:text-4xl tracking-[0.3em] uppercase"
+      >
+        {EVENT_CONFIG.brideName}
+      </span>
+      <span
+        data-animate="scale"
+        data-delay="200"
+        class="block font-script text-[#4a4c35] text-5xl md:text-7xl my-2"
+      >
+        &
+      </span>
+      <span
+        data-animate
+        data-delay="300"
+        class="block text-4xl md:text-4xl tracking-[0.3em] uppercase"
+      >
+        {EVENT_CONFIG.groomName}
+      </span>
+    </h1>
+
+    <p
+      data-animate
+      data-delay="400"
+      class="text-[#4a4c35] tracking-[0.10em] uppercase text-md md:text-lg mt-6"
+    >
+      10 de abril de 2026
+    </p>
+  </div>
+
+  <!-- Countdown -->
+  <div data-animate data-delay="500" class="relative z-10 mb-12">
+    <CountdownTimer client:load />
+  </div>
+</section>

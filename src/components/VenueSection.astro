@@ -1,0 +1,57 @@
+---
+import { EVENT_CONFIG } from '../config/event';
+const baseUrl = EVENT_CONFIG.baseUrl;
+---
+
+<section>
+  <div class="flex flex-col md:flex-row md:items-center md:justify-center md:gap-12 md:px-12 lg:px-24 md:py-16">
+    <!-- Text content -->
+    <div
+      data-animate
+      class="text-center flex-1 md:max-w-xl px-6 py-16 md:p-0"
+    >
+      <p class="font-script text-[#4a4c35] text-5xl mb-3">
+        Nos casamos en
+      </p>
+      <h2 class="font-serif text-2xl uppercase tracking-widest md:tracking-[0.2em] text-text-dark">
+        Hacienda Santa Sofía
+      </h2>
+      <p class="text-[#4a4c35] tracking-[0.15em] mt-4 text-2xl">
+        10. 04. 2026
+      </p>
+
+      <img
+        src={`${baseUrl}/images/venue-asset.png`}
+        alt=""
+        loading="lazy"
+        class="mx-auto my-6 h-16 w-auto"
+      />
+
+      <p class="text-[#4a4c35] mt-4 text-md uppercase ">Ceremonia en capilla</p>
+      <p class="text-md">5:00 PM</p>
+
+      <a
+        href="https://maps.app.goo.gl/BYRBWi9MgLoKGs6j7?g_st=ic"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-4 bg-[#847d63] text-white hover:bg-[#847d63]/80 w-full max-w-64 mx-auto text-xl inline-block px-8 py-3 font-serif transition-colors duration-300 text-center"
+      >
+        Ver Mapa
+      </a>
+    </div>
+
+    <!-- Venue photo -->
+    <div
+      data-animate
+      data-delay="200"
+      class="flex-1 md:max-w-lg"
+    >
+      <img
+        src={`${baseUrl}/images/venue.jpg`}
+        alt="Hacienda Santa Sofía"
+        loading="lazy"
+        class="w-full h-auto md:shadow-lg"
+      />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+---
+const baseUrl = "/yareli-y-luis";
+---
+
+<section class="flex items-center justify-center py-16">
+  <div class="relative w-11/12 max-w-[550px] mx-auto">
+    <!-- Decorative flower -->
+    <div class="absolute -top-6 left-1/2 -translate-x-1/2 z-10">
+      <img
+        src={`${baseUrl}/images/assistant-asset.svg`}
+        alt=""
+        loading="lazy"
+        class="w-14 h-14 md:w-16 md:h-16"
+      />
+    </div>
+
+    <!-- Card with custom border -->
+    <div class="relative px-8 py-16 md:py-12 border border-t-0 border-gray-300">
+      <!-- Top border - left segment -->
+      <div class="absolute top-0 left-0 w-[calc(50%-50px)] h-px bg-gray-300"></div>
+      <!-- Top border - right segment -->
+      <div class="absolute top-0 right-0 w-[calc(50%-50px)] h-px bg-gray-300"></div>
+
+      <div class="text-center">
+        <!-- Main heading -->
+        <p data-animate class="font-serif text-xl md:text-2xl text-text-dark mb-2 leading-relaxed">
+          Si deseas apoyarnos con un<br />detalle en efectivo,
+        </p>
+
+        <!-- ¡Gracias! - script font -->
+        <p data-animate data-delay="100" class="font-script text-5xl mb-4">¡Gracias!</p>
+
+        <!-- Subtitle -->
+        <p data-animate data-delay="200" class="font-serif text-base md:text-lg text-[#4a4c35] mb-10 md:mb-8 leading-relaxed">
+          Aquí están nuestros datos bancarios.<br />¡Mil gracias por celebrar con nosotros!
+        </p>
+
+        <!-- Bank details -->
+        <div data-animate data-delay="300" class="space-y-1 text-text-dark">
+          <p class="font-serif text-sm md:text-base">
+            Banco: <span class="font-medium">BBVA</span>
+          </p>
+          <p class="font-serif text-sm md:text-base">
+            Beneficiario: <span class="font-medium">Yareli Nathalie Cárdenas Ayon</span>
+          </p>
+          <p class="font-serif text-sm md:text-base">
+            Número de cuenta: <span class="font-semibold text-base md:text-lg">157 995 9228</span>
+          </p>
+          <p class="font-serif text-sm md:text-base">
+            Cuenta CLABE: <span class="font-semibold text-base md:text-lg">012 180 01579959228 5</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,6 @@
 ---
 import { EVENT_CONFIG } from '../config/event';
+import { CountdownTimer } from './CountdownTimer';
 const baseUrl = EVENT_CONFIG.baseUrl;
 ---
 
@@ -10,31 +11,33 @@ const baseUrl = EVENT_CONFIG.baseUrl;
       data-animate
       class="text-center flex-1 md:max-w-xl px-6 py-16 md:p-0"
     >
-      <p class="font-script text-[#4a4c35] text-5xl mb-3">
-        Nos casamos en
+      <p class="text-[#4a4c35] text-3xl font-script">
+        sábado 16 de mayo de 2026
       </p>
-      <h2 class="font-serif text-2xl uppercase tracking-widest md:tracking-[0.2em] text-text-dark">
-        Hacienda Santa Sofía
-      </h2>
-      <p class="text-[#4a4c35] tracking-[0.15em] mt-4 text-2xl">
-        10. 04. 2026
-      </p>
+
+      <div class="mt-8">
+        <CountdownTimer client:load />
+      </div>
 
       <img
         src={`${baseUrl}/images/venue-asset.png`}
         alt=""
         loading="lazy"
-        class="mx-auto my-6 h-16 w-auto"
+        class="mx-auto h-32 w-auto"
       />
 
-      <p class="text-[#4a4c35] mt-4 text-md uppercase ">Ceremonia en capilla</p>
-      <p class="text-md">5:00 PM</p>
+      <h2 class="font-serif text-2xl uppercase tracking-widest md:tracking-[0.2em] text-text-dark">
+        Hacienda la Huerta
+      </h2>
+
+      <p class="text-[#4a4c35] mt-4 text-md uppercase ">Ameca, Jalisco</p>
+      <!-- <p class="text-md">12:00 PM</p> -->
 
       <a
-        href="https://maps.app.goo.gl/BYRBWi9MgLoKGs6j7?g_st=ic"
+        href="https://share.google/PqOAJpFfDqh1sCroW"
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-4 bg-[#847d63] text-white hover:bg-[#847d63]/80 w-full max-w-64 mx-auto text-xl inline-block px-8 py-3 font-serif transition-colors duration-300 text-center"
+        class="mt-4 bg-[#cf868b] text-white hover:bg-[#cf868b]/80 w-full max-w-64 mx-auto text-xl inline-block px-8 py-3 font-serif transition-colors duration-300 text-center rounded-full"
       >
         Ver Mapa
       </a>

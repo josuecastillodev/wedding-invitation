@@ -31,17 +31,17 @@ export function AdultsOnlySection() {
     <section className="flex items-center justify-center">
       <div className="relative w-11/12 max-w-[550px] mx-auto">
         {/* Decorative flower */}
-        <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute -top-16 left-1/2 -translate-x-1/2 z-10">
           <img
-            src={`${baseUrl}/images/assistant-asset.svg`}
+            src={`${baseUrl}/images/venue-asset.png`}
             alt=""
             loading="lazy"
-            className="w-14 h-14 md:w-16 md:h-16"
+            className="w-24 h-24 md:w-32 md:h-32"
           />
         </div>
 
         {/* Card with custom border */}
-        <div className="relative px-8 py-16 md:py-12 border border-t-0 border-gray-300">
+        <div className="relative px-8 py-16 pt-24 md:py-12 md:pt-16 border border-t-0 border-gray-300">
           {/* Top border - left segment */}
           <div className="absolute top-0 left-0 w-[calc(50%-50px)] h-px bg-gray-300" />
           {/* Top border - right segment */}
@@ -50,31 +50,31 @@ export function AdultsOnlySection() {
           <div className="text-center">
             {/* Main heading */}
             <p className="font-serif text-xl md:text-2xl text-text-dark mb-2">
-              Una celebración
+              Nos encantará compartir este día contigo, por favor confirma tu asistencia.
             </p>
 
             {/* "increíble" - script font */}
-            <p className="font-script text-5xl mb-2">increíble</p>
+            {/* <p className="font-script text-5xl mb-2">increíble</p> */}
 
             {/* Couple names */}
-            <p className="font-serif text-xl md:text-2xl text-text-dark mb-10 md:mb-8">
+            {/* <p className="font-serif text-xl md:text-2xl text-text-dark mb-10 md:mb-8">
               para Yareli & Luis.
-            </p>
+            </p> */}
 
             {/* Adults only notice */}
-            <p className="font-serif text-[#4a4c35] text-xs md:text-sm uppercase tracking-[0.2em] mb-10 md:mb-8 leading-relaxed">
+            {/* <p className="font-serif text-[#4a4c35] text-xs md:text-sm uppercase tracking-[0.2em] mb-10 md:mb-8 leading-relaxed">
               ¡Exclusivamente para adultos!
-            </p>
+            </p> */}
 
             {/* RSVP Button */}
             <a
               href={tallyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[#847d63] hover:bg-[#847d63]/80 transition-all duration-300 px-8 py-4 md:py-3 text-white cursor-pointer hover:scale-105"
+              className="inline-block bg-[#cf868b] hover:bg-[#cf868b]/80 transition-all duration-300 px-8 py-4 md:py-3 text-white cursor-pointer hover:scale-105 mt-4"
             >
               <span className="font-serif text-xl leading-tight">
-                Confirma tu asistencia
+                ¡Aquí! 
               </span>
             </a>
           </div>

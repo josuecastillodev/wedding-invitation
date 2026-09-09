@@ -18,6 +18,8 @@ export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
     if (isOpening || isFullyOpen) return;
     setIsOpening(true);
 
+    window.dispatchEvent(new CustomEvent("bg-music:start"));
+
     setTimeout(() => setFlapBehind(true), 900);
     setTimeout(() => setShowWhiteFlash(true), 1600);
     setTimeout(() => setShowContent(true), 2000);
@@ -190,8 +192,8 @@ export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
             aria-label="Abrir invitación"
           >
             <img
-              src={`${baseUrl}/images/sello-nuestra-boda.png`}
-              alt="Sello de boda"
+              src={`${baseUrl}/images/sello.png`}
+              alt="Sello"
               className="w-full h-full object-contain"
               style={{ filter: "drop-shadow(0 6px 12px rgba(0,0,0,0.4))" }}
             />

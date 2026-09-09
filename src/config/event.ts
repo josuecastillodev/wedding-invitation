@@ -2,15 +2,23 @@
 
 export const EVENT_CONFIG = {
   // ID del formulario de Tally para confirmación de asistencia
-  tallyFormId: "A7vQ80",
+  tallyFormId: "lbWPl5",
 
   // Nombres de los novios
-  groomName: "Luis",
-  brideName: "Yareli",
+  groomName: "Valentina", // Es un bautizo
+  // brideName: "Yareli",
 
   // Fecha del evento
-  eventDate: "2026-04-10",
+  eventDate: "2026-05-16",
 
   // Base URL del sitio
-  baseUrl: "/yareli-y-luis",
+  baseUrl: "/bautizo-valentina",
+
+  // Música de fondo
+  music: {
+    // Ruta al archivo de audio (relativa a /public). Cámbiala cuando tengas el archivo.
+    src: "/audio/background-music.mp3",
+    // Volumen inicial (0.0 - 1.0)
+    volume: 0.35,
+  },
 };

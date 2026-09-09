@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = `${EVENT_CONFIG.brideName} & ${EVENT_CONFIG.groomName} · Nuestra Boda`,
-  description = `Invitación de boda de ${EVENT_CONFIG.brideName} y ${EVENT_CONFIG.groomName}`
+  title = `${EVENT_CONFIG.groomName} · Bautizo`,
+  description = `Invitación de bautizo de ${EVENT_CONFIG.groomName}`
 } = Astro.props;
 
 const baseUrl = EVENT_CONFIG.baseUrl;
@@ -34,8 +34,8 @@ const baseUrl = EVENT_CONFIG.baseUrl;
     <!-- CSS crítico inline -->
     <style is:inline>
       :root {
-        --font-serif: "Tenor Sans", Georgia, "Times New Roman", serif;
-        --font-script: "High Spirited", cursive;
+        --font-serif: "Montserrat", Georgia, "Times New Roman", sans-serif;
+        --font-script: "Great Vibes", cursive;
         --color-bg-light: #F5F5F5;
         --color-text-dark: #191919;
         --color-burgundy: #842A29;

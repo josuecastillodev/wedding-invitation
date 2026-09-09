@@ -2,25 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tenor Sans - Fuente principal serif */
+/* Montserrat - Fuente principal */
 @font-face {
-  font-family: "Tenor Sans";
-  src: url("/yareli-y-luis/fonts/tenor/TenorSans.woff2") format("woff2"),
-    url("/yareli-y-luis/fonts/tenor/TenorSans.woff") format("woff"),
-    url("/yareli-y-luis/fonts/tenor/TenorSans.ttf") format("truetype");
-  font-weight: normal;
+  font-family: "Montserrat";
+  src: url("/bautizo-valentina/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
-/* High Spirited - Fuente decorativa script */
 @font-face {
-  font-family: "High Spirited";
-  src: url("/yareli-y-luis/fonts/high-spirited/HighSpirited.woff2")
-      format("woff2"),
-    url("/yareli-y-luis/fonts/high-spirited/HighSpirited.woff") format("woff"),
-    url("/yareli-y-luis/fonts/high-spirited/HighSpirited.ttf")
-      format("truetype");
+  font-family: "Montserrat";
+  src: url("/bautizo-valentina/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Great Vibes - Fuente decorativa script */
+@font-face {
+  font-family: "Great Vibes";
+  src: url("/bautizo-valentina/fonts/GreatVives/GreatVibes-Regular.woff2") format("woff2"),
+    url("/bautizo-valentina/fonts/GreatVives/GreatVibes-Regular.woff") format("woff"),
+    url("/bautizo-valentina/fonts/GreatVives/GreatVibes-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -29,9 +33,9 @@
 /* Velista - Fuente de firma */
 @font-face {
   font-family: "Velista";
-  src: url("/yareli-y-luis/fonts/velista/VELISTARegular.woff2") format("woff2"),
-    url("/yareli-y-luis/fonts/velista/VELISTARegular.woff") format("woff"),
-    url("/yareli-y-luis/fonts/velista/VELISTARegular.ttf") format("truetype");
+  src: url("/bautizo-valentina/fonts/velista/VELISTARegular.woff2") format("woff2"),
+    url("/bautizo-valentina/fonts/velista/VELISTARegular.woff") format("woff"),
+    url("/bautizo-valentina/fonts/velista/VELISTARegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -44,7 +48,7 @@ html {
 body {
   @apply text-text-dark font-serif;
   background-color: #f5f5f5;
-  background-image: url("/yareli-y-luis/images/bg-fijo.jpg");
+  background-image: url("/bautizo-valentina/images/bg-fijo.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -53,12 +57,12 @@ body {
 
 /* Hero background responsive */
 .hero-background {
-  background-image: url("/yareli-y-luis/images/background-movil.webp");
+  background-image: url("/bautizo-valentina/images/background-movil.webp");
 }
 
 @media (min-width: 768px) {
   .hero-background {
-    background-image: url("/yareli-y-luis/images/background.webp");
+    background-image: url("/bautizo-valentina/images/background.webp");
   }
 }
 

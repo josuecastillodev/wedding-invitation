@@ -13,29 +13,18 @@ interface ItineraryItem {
 const itineraryItems: ItineraryItem[] = [
   {
     icon: `${baseUrl}/images/itinerary-01.svg`,
-    time: "5:00 PM",
+    time: "1:00 PM",
     title: "Ceremonia Religiosa",
-    location: "Parroquia de Santa Sofía",
-    mapUrl: "https://maps.app.goo.gl/zqXC8E8VmT7TNr8eA",
+    location: "Templo de San José",
+    mapUrl: "https://share.google/rf18JijzWPZdHhUI5",
   },
   {
     icon: `${baseUrl}/images/itinerary-02.svg`,
-    time: "6:15 PM",
-    title: "Cóctel de bienvenida",
-    location: "Ingreso a la recepción",
+    time: "2:30 PM",
+    title: "Recepción",
+    location: "Hacienda La Huerta, Ameca",
+    mapUrl: "https://share.google/F6GzyftfsS4m3lShr",
   },
-  {
-    icon: `${baseUrl}/images/itinerary-03.svg`,
-    time: "7:30 PM",
-    title: "Banquete nupcial",
-    location: "Recepción",
-  },
-  // {
-  //   icon: `${baseUrl}/images/itinerary-04.svg`,
-  //   time: "11:30 PM",
-  //   title: "Cena de desvelados",
-  //   location: "Recepción",
-  // },
 ];
 ---
 
@@ -46,10 +35,10 @@ const itineraryItems: ItineraryItem[] = [
     class="flex justify-center mb-6"
   >
     <img
-      src={`${baseUrl}/images/itinerary.svg`}
+      src={`${baseUrl}/images/venue-asset.png`}
       alt=""
       loading="lazy"
-      class="w-12 h-14 md:w-14 md:h-16 object-contain"
+      class="w-32 h-32 md:w-40 md:h-40 object-contain"
     />
   </div>
 
@@ -94,7 +83,7 @@ const itineraryItems: ItineraryItem[] = [
                 href={item.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-block px-4 py-1.5 border border-burgundy text-burgundy text-xs uppercase tracking-wider hover:bg-burgundy hover:text-white transition-colors duration-300"
+                class="inline-block px-4 py-1.5 text-xs uppercase tracking-wider transition-colors duration-300 bg-[#cf868b] text-white rounded-full"
               >
                 Ver Mapa
               </a>

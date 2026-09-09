@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://tudominio.com',
-  base: '/yareli-y-luis',
+  base: '/bautizo-valentina',
   integrations: [
     react(),
     tailwind(),

@@ -1,33 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { EnvelopeOpening } from '../components/EnvelopeOpening';
+import { BackgroundMusic } from '../components/BackgroundMusic';
 import HeroSection from '../components/HeroSection.astro';
 import VenueSection from '../components/VenueSection.astro';
 import { PhotoGallery } from '../components/PhotoGallery';
 import GiftRegistry from '../components/GiftRegistry.astro';
 import BankDetails from '../components/BankDetails.astro';
-// import { AdultsOnlySection } from '../components/AdultsOnlySection';
+import { AdultsOnlySection } from '../components/AdultsOnlySection';
 import Footer from '../components/Footer.astro';
 // Secciones opcionales (descomentar si se necesitan):
+import FamilySection from '../components/FamilySection.astro';
 import Itinerary from '../components/Itinerary.astro';
 import DressCode from '../components/DressCode.astro';
 import Hospedaje from '../components/Hospedaje.astro';
+import { EVENT_CONFIG } from '../config/event';
+
+const baseUrl = EVENT_CONFIG.baseUrl;
 ---
 
 <Layout>
+  <BackgroundMusic client:load />
   <EnvelopeOpening client:load>
     <main>
       <HeroSection />
-      <PhotoGallery client:visible />
+      <!-- <PhotoGallery client:visible /> -->
       <VenueSection />
+      <div class="section-separator">
+        <img src={`${baseUrl}/images/separator.png`} alt="" />
+      </div>
       <GiftRegistry />
-      <BankDetails />
-      <!-- <AdultsOnlySection client:load /> -->
+      <!-- <BankDetails /> -->
+      <AdultsOnlySection client:load />
       <!-- Secciones opcionales (descomentar si se necesitan): -->
-      <DressCode />
-      <Itinerary /> 
-      <Hospedaje />
+      <!-- <DressCode /> -->
+      <div class="section-separator md:hidden separator-mobile">
+        <img src={`${baseUrl}/images/separator.png`} alt="" />
+      </div>
+      <FamilySection />
+      <div class="section-separator hidden md:block">
+        <img src={`${baseUrl}/images/separator.png`} alt="" />
+      </div>
+      <Itinerary />
+      <!-- <Hospedaje /> -->
       <Footer />
     </main>
   </EnvelopeOpening>
 </Layout>
+
+<style>
+  .section-separator {
+    position: relative;
+    height: 1;
+    overflow: visible;
+  }
+  .section-separator img {
+    position: absolute;
+    height: 25vw;
+    left: -5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: -1
+  }
+  .separator-mobile img {
+    top: 0;
+    transform: translateY(0);
+  }
+</style>

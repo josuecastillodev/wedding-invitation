@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        serif: ['"Tenor Sans"', 'Georgia', '"Times New Roman"', 'serif'],
-        script: ['"High Spirited"', 'cursive'],
+        serif: ['"Montserrat"', 'Georgia', '"Times New Roman"', 'sans-serif'],
+        script: ['"Great Vibes"', 'cursive'],
         signature: ['"Velista"', 'cursive'],
       },
       colors: {

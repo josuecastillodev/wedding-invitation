@@ -1,0 +1,57 @@
+---
+const familyGroups = [
+  {
+    title: "Papás",
+    names: [
+      "Angélica Fabiola Vaquera Verdín",
+      "Luis Carlos Loza Nuño",
+    ],
+  },
+  {
+    title: "Padrinos de Bautizo",
+    names: [
+      "Karen Cristina Ochoa Curiel",
+      "Arturo Alonso Vaquera Verdín",
+    ],
+  },
+  {
+    title: "Padrinos de Presentación",
+    names: [
+      "Aida Alejandra Vaquera Verdín",
+      "Hugo David Gómez González",
+    ],
+  },
+];
+---
+
+<section class="px-6 py-16 text-center">
+  <div class="max-w-2xl mx-auto flex flex-col gap-10 md:gap-12">
+    {familyGroups.map((group, index) => (
+      <>
+        <div
+          data-animate
+          data-delay={`${index * 150}`}
+        >
+          <h3 class="text-2xl md:text-3xl text-text-dark/70 mb-4 font-script">
+            {group.title}
+          </h3>
+          {group.names.map((name) => (
+            <p class="text-base md:text-lg text-text-dark leading-loose">
+              {name}
+            </p>
+          ))}
+        </div>
+
+        {index < familyGroups.length - 1 && (
+          <div
+            data-animate
+            data-delay={`${index * 150 + 75}`}
+            class="text-text-dark/30 text-sm tracking-widest"
+          >
+            ──── ✧ ────
+          </div>
+        )}
+      </>
+    ))}
+  </div>
+</section>

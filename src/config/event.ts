@@ -52,7 +52,7 @@ export const EVENT_CONFIG = {
     intro: "Su presencia es nuestro mejor regalo.",
     body: "Si desean obsequiarnos, pueden contribuir a nuestro futuro juntos con un regalo en efectivo a través del siguiente enlace.",
     ctaLabel: "Hacer un regalo",
-    ctaUrl: "https://mesaderegalos.liverpool.com.mx/milistaderegalos/51590751",
+    ctaUrl: "#datos-bancarios",
   },
 
   // Datos bancarios

@@ -48,10 +48,10 @@ export function CountdownTimer() {
       {units.map((unit) => (
         <div key={unit.label} className="flex items-center gap-4 md:gap-6">
           <div className="text-center">
-            <span className="text-3xl md:text-4xl font-serif text-text-dark">
+            <span className="text-3xl md:text-4xl font-serif text-ink">
               {String(unit.value).padStart(2, "0")}
             </span>
-            <p className="text-[10px] uppercase tracking-[0.15em] text-text-dark/70 mt-1">
+            <p className="text-[10px] uppercase tracking-[0.15em] text-ink/70 mt-1">
               {unit.label}
             </p>
           </div>

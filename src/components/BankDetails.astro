@@ -1,10 +1,12 @@
 ---
-const baseUrl = "/yareli-y-luis";
+import { EVENT_CONFIG } from '../config/event';
+const baseUrl = EVENT_CONFIG.baseUrl;
+const { bank } = EVENT_CONFIG;
 ---
 
 <section class="flex items-center justify-center py-16">
   <div class="relative w-11/12 max-w-[550px] mx-auto">
-    <!-- Decorative flower -->
+    <!-- Adorno floral superior -->
     <div class="absolute -top-6 left-1/2 -translate-x-1/2 z-10">
       <img
         src={`${baseUrl}/images/assistant-asset.svg`}
@@ -14,40 +16,34 @@ const baseUrl = "/yareli-y-luis";
       />
     </div>
 
-    <!-- Card with custom border -->
-    <div class="relative px-8 py-16 md:py-12 border border-t-0 border-gray-300">
-      <!-- Top border - left segment -->
-      <div class="absolute top-0 left-0 w-[calc(50%-50px)] h-px bg-gray-300"></div>
-      <!-- Top border - right segment -->
-      <div class="absolute top-0 right-0 w-[calc(50%-50px)] h-px bg-gray-300"></div>
+    <!-- Tarjeta con borde partido arriba -->
+    <div class="relative px-8 py-16 md:py-12 border border-t-0 border-accent/30">
+      <div class="absolute top-0 left-0 w-[calc(50%-50px)] h-px bg-accent/30"></div>
+      <div class="absolute top-0 right-0 w-[calc(50%-50px)] h-px bg-accent/30"></div>
 
       <div class="text-center">
-        <!-- Main heading -->
-        <p data-animate class="font-serif text-xl md:text-2xl text-text-dark mb-2 leading-relaxed">
+        <p data-animate class="font-serif text-xl md:text-2xl text-ink mb-2 leading-relaxed">
           Si deseas apoyarnos con un<br />detalle en efectivo,
         </p>
 
-        <!-- ¡Gracias! - script font -->
-        <p data-animate data-delay="100" class="font-script text-5xl mb-4">¡Gracias!</p>
+        <p data-animate data-delay="100" class="font-script text-accent text-5xl mb-4">¡Gracias!</p>
 
-        <!-- Subtitle -->
-        <p data-animate data-delay="200" class="font-serif text-base md:text-lg text-[#4a4c35] mb-10 md:mb-8 leading-relaxed">
+        <p data-animate data-delay="200" class="font-serif text-base md:text-lg text-ink/80 mb-10 md:mb-8 leading-relaxed">
           Aquí están nuestros datos bancarios.<br />¡Mil gracias por celebrar con nosotros!
         </p>
 
-        <!-- Bank details -->
-        <div data-animate data-delay="300" class="space-y-1 text-text-dark">
+        <div data-animate data-delay="300" class="space-y-1 text-ink">
           <p class="font-serif text-sm md:text-base">
-            Banco: <span class="font-medium">BBVA</span>
+            Banco: <span class="font-medium">{bank.bank}</span>
           </p>
           <p class="font-serif text-sm md:text-base">
-            Beneficiario: <span class="font-medium">Yareli Nathalie Cárdenas Ayon</span>
+            Beneficiario: <span class="font-medium">{bank.beneficiary}</span>
           </p>
           <p class="font-serif text-sm md:text-base">
-            Número de cuenta: <span class="font-semibold text-base md:text-lg">157 995 9228</span>
+            Número de cuenta: <span class="font-semibold text-base md:text-lg">{bank.account}</span>
           </p>
           <p class="font-serif text-sm md:text-base">
-            Cuenta CLABE: <span class="font-semibold text-base md:text-lg">012 180 01579959228 5</span>
+            Cuenta CLABE: <span class="font-semibold text-base md:text-lg">{bank.clabe}</span>
           </p>
         </div>
       </div>

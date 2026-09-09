@@ -42,8 +42,8 @@ html {
 }
 
 body {
-  @apply text-text-dark font-serif;
-  background-color: #f5f5f5;
+  @apply text-ink font-serif;
+  background-color: #f5f1ea;
   background-image: url("/yareli-y-luis/images/bg-fijo.jpg");
   background-attachment: fixed;
   background-size: cover;

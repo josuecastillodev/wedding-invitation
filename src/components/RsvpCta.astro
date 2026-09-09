@@ -1,0 +1,28 @@
+---
+import RsvpButton from './RsvpButton.tsx';
+import { EVENT_CONFIG } from '../config/event';
+const { rsvp, brideName, groomName } = EVENT_CONFIG;
+---
+
+<section class="px-6 py-20 text-center">
+  <p
+    data-animate
+    class="font-serif text-xl md:text-2xl leading-relaxed text-ink"
+  >
+    {rsvp.headline}
+    <br />
+    {rsvp.question}
+  </p>
+
+  <p
+    data-animate
+    data-delay="100"
+    class="font-signature text-accent text-4xl md:text-5xl mt-6"
+  >
+    {brideName} & {groomName}
+  </p>
+
+  <div data-animate data-delay="200" class="mt-8">
+    <RsvpButton label={rsvp.ctaLabel} client:load />
+  </div>
+</section>

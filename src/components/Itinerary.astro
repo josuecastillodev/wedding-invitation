@@ -57,7 +57,7 @@ const itineraryItems: ItineraryItem[] = [
   <h2
     data-animate
     data-delay="100"
-    class="font-serif text-2xl md:text-3xl uppercase tracking-[0.3em] text-text-dark mb-12 md:mb-16"
+    class="font-serif text-2xl md:text-3xl uppercase tracking-[0.3em] text-ink mb-12 md:mb-16"
   >
     Itinerario
   </h2>
@@ -84,11 +84,11 @@ const itineraryItems: ItineraryItem[] = [
 
           <!-- Content -->
           <div class="pl-16">
-            <p class="text-sm md:text-base text-text-dark/80 mb-1">{item.time}</p>
-            <h3 class="font-serif text-base md:text-lg uppercase text-text-dark mb-1">
+            <p class="text-sm md:text-base text-ink/80 mb-1">{item.time}</p>
+            <h3 class="font-serif text-base md:text-lg uppercase text-ink mb-1">
               {item.title}
             </h3>
-            <p class="text-sm text-text-dark/70 mb-3">{item.location}</p>
+            <p class="text-sm text-ink/70 mb-3">{item.location}</p>
             {item.mapUrl && (
               <a
                 href={item.mapUrl}

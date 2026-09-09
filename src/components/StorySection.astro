@@ -1,0 +1,16 @@
+---
+import { EVENT_CONFIG } from '../config/event';
+const { story } = EVENT_CONFIG;
+---
+
+<section class="px-6 py-16 text-center">
+  <p
+    data-animate
+    class="font-serif text-xl md:text-2xl leading-relaxed max-w-xl mx-auto text-ink"
+  >
+    {story.lead}
+    <span class="text-accent italic">{story.highlight}</span>
+    <br />
+    {story.tail}
+  </p>
+</section>

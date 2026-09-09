@@ -1,124 +1,68 @@
 ---
 import { EVENT_CONFIG } from '../config/event';
 const baseUrl = EVENT_CONFIG.baseUrl;
+const { hotels } = EVENT_CONFIG;
 ---
 
-<section class="px-6 py-16 text-center">
-  <!-- Title -->
+<section id="hospedaje" class="px-6 py-16 text-center scroll-mt-8">
   <h2
     data-animate
-    class="font-serif text-2xl md:text-3xl uppercase tracking-[0.15em] text-text-dark"
+    class="font-serif text-2xl md:text-3xl uppercase tracking-[0.15em] text-ink"
   >
     Hospedaje
   </h2>
 
-  <!-- Hotel Name -->
-  <p
-    data-animate
-    data-delay="100"
-    class="font-script text-[#4a4c35] text-3xl md:text-6xl mt-2"
-  >
-    Holiday Inn Express
-    <br>
-    Guadalajara Vallarta Poniente by IHG
-  </p>
-
-  <!-- Content: Image + Buttons -->
-  <div
-    data-animate
-    data-delay="200"
-    class="mt-8 md:mt-12 flex flex-col md:flex-row md:items-center md:justify-center gap-8 md:gap-16"
-  >
-    <!-- Image -->
-    <div class="w-full md:w-auto">
-      <img
-        src={`${baseUrl}/images/hospedaje.jpg`}
-        alt="Hotel"
-        loading="lazy"
-        class="w-full md:w-[400px] lg:w-[500px] h-auto object-cover"
-      />
-    </div>
-
-    <!-- Buttons -->
-    <div class="flex flex-col gap-4 items-center md:items-start w-full max-w-sm">
-      <!-- <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full py-3 px-6 bg-burgundy text-white font-serif text-base md:text-lg tracking-wide text-center hover:bg-burgundy/90 transition-colors"
+  {hotels.map((hotel, index) => (
+    <div class="mt-16 first:mt-10">
+      <p
+        data-animate
+        class="font-serif text-xl md:text-2xl uppercase tracking-[0.15em] text-ink"
       >
-        Quiero Reservar
-      </a> -->
+        {hotel.name}
+      </p>
+      <p
+        data-animate
+        data-delay="100"
+        class="font-script text-accent text-3xl md:text-4xl mt-1"
+      >
+        {hotel.subtitle}
+      </p>
+
+      <div
+        data-animate
+        data-delay="200"
+        class="mt-8 mx-auto max-w-2xl"
+      >
+        <img
+          src={`${baseUrl}${hotel.image}`}
+          alt={hotel.name}
+          loading="lazy"
+          class="w-full h-auto object-cover rounded-lg"
+        />
+      </div>
+
+      <p
+        data-animate
+        data-delay="300"
+        class="font-serif text-base md:text-lg leading-relaxed max-w-xl mx-auto mt-8 text-ink"
+      >
+        {hotel.description}
+      </p>
+
       <a
-        href="https://www.ihg.com/holidayinnexpress/hotels/us/en/guadalajara/gdlqp/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-MX-_-GDLQP"
+        href={hotel.bookingUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full py-3 px-6 bg-[#847d63] text-white font-serif text-base md:text-lg tracking-wide text-center hover:bg-[#847d63]/80 transition-colors"
+        data-animate
+        data-delay="400"
+        class={`mt-8 inline-block px-10 py-4 font-serif text-lg md:text-xl transition-colors duration-300 ${
+          index % 2 === 0
+            ? 'bg-accent text-white hover:bg-accent-soft rounded-sm'
+            : 'border border-accent text-accent hover:bg-accent hover:text-white italic'
+        }`}
       >
-        Más Sobre El Hotel
+        Reservar
       </a>
-      <!-- <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full py-3 px-6 bg-mauve text-burgundy font-serif text-base md:text-lg tracking-wide text-center hover:bg-mauve/80 transition-colors"
-      >
-        Planes De Pago
-      </a> -->
     </div>
-  </div>
-
-  <!-- Hotel Name -->
-  <p
-    data-animate
-    data-delay="100"
-    class="font-script text-[#4a4c35] text-3xl md:text-6xl mt-8"
-  >
-    Hotel NG Ameca
-  </p>
-
-  <!-- Content: Image + Buttons -->
-  <div
-    data-animate
-    data-delay="200"
-    class="mt-8 md:mt-12 flex flex-col md:flex-row md:items-center md:justify-center gap-8 md:gap-16"
-  >
-    <!-- Image -->
-    <div class="w-full md:w-auto">
-      <img
-        src={`${baseUrl}/images/hospedaje02.jpg`}
-        alt="Hotel"
-        loading="lazy"
-        class="w-full md:w-[400px] lg:w-[500px] h-auto object-cover"
-      />
-    </div>
-
-    <!-- Buttons -->
-    <div class="flex flex-col gap-4 items-center md:items-start w-full max-w-sm">
-      <!-- <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full py-3 px-6 bg-burgundy text-white font-serif text-base md:text-lg tracking-wide text-center hover:bg-burgundy/90 transition-colors"
-      >
-        Quiero Reservar
-      </a> -->
-      <a
-        href="https://hotelngameca.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full py-3 px-6 bg-[#847d63] text-white font-serif text-base md:text-lg tracking-wide text-center hover:bg-[#847d63]/80 transition-colors"
-      >
-        Más Sobre El Hotel
-      </a>
-      <!-- <a
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full py-3 px-6 bg-mauve text-burgundy font-serif text-base md:text-lg tracking-wide text-center hover:bg-mauve/80 transition-colors"
-      >
-        Planes De Pago
-      </a> -->
-    </div>
-  </div>
+  ))}
 </section>

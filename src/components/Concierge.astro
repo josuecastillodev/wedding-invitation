@@ -1,9 +1,19 @@
 ---
 import { EVENT_CONFIG } from '../config/event';
+const baseUrl = EVENT_CONFIG.baseUrl;
 const { concierge } = EVENT_CONFIG;
 ---
 
 <section class="px-6 py-20 text-center">
+  <div data-animate class="flex justify-center mb-6">
+    <img
+      src={`${baseUrl}/images/concierge.png`}
+      alt=""
+      loading="lazy"
+      class="w-14 h-14 md:w-16 md:h-16 object-contain"
+    />
+  </div>
+
   <h2
     data-animate
     class="font-serif text-2xl md:text-3xl uppercase tracking-[0.2em] text-ink"

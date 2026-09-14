@@ -9,7 +9,9 @@ export interface Hotel {
   image: string;
   /** Descripción breve, 1-2 líneas */
   description: string;
-  /** URL de reserva */
+  /** Substring exacto de `description` a resaltar en color de acento */
+  highlight?: string;
+  /** URL de reserva (puede ser un enlace de WhatsApp) */
   bookingUrl: string;
 }
 
@@ -73,21 +75,13 @@ export const EVENT_CONFIG = {
   // Hoteles recomendados
   hotels: [
     {
-      name: "Holiday Inn Express",
-      subtitle: "Guadalajara Vallarta Poniente",
-      image: "/images/hospedaje.jpg",
+      name: "One Guadalajara",
+      subtitle: "Periférico Norte",
+      image: "/images/one-guadalajara.jpg",
       description:
-        "Una opción práctica y cómoda para disfrutar Guadalajara, con desayuno incluido y una ubicación conveniente al poniente de la ciudad.",
-      bookingUrl:
-        "https://www.ihg.com/holidayinnexpress/hotels/us/en/guadalajara/gdlqp/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-MX-_-GDLQP",
-    },
-    {
-      name: "Hotel NG",
-      subtitle: "Ameca",
-      image: "/images/hospedaje02.jpg",
-      description:
-        "La opción más cercana al lugar de la celebración, ideal si prefieres quedarte en Ameca la noche del evento.",
-      bookingUrl: "https://hotelngameca.com/",
+        "Una opción práctica y cómoda para disfrutar Guadalajara, con desayuno incluido y una ubicación conveniente al norte de la ciudad.",
+      highlight: "una ubicación conveniente al norte de la ciudad.",
+      bookingUrl: "https://wa.me/523310631395",
     },
   ] as Hotel[],
 

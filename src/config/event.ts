@@ -18,31 +18,26 @@ export const EVENT_CONFIG = {
   tallyFormId: "A7vQ80",
 
   // Nombres de los novios
-  groomName: "Luis",
-  brideName: "Yareli",
+  groomName: "Daniel",
+  brideName: "Liliana",
 
   // Fecha del evento (ISO, para el contador)
-  eventDate: "2026-04-10",
+  eventDate: "2027-05-15",
 
   // Fecha en texto, como se muestra en pantalla
-  displayDate: "10 de abril de 2026",
+  displayDate: "15 de mayo de 2027",
 
   // Base URL del sitio
   baseUrl: "/yareli-y-luis",
 
-  // Párrafo de historia previo al venue
-  story: {
-    lead: "Una historia de amor",
-    highlight: "que comenzó en México.",
-    tail: "Hoy, regresamos para celebrarla.",
-  },
 
   // Lugar de la celebración
   venue: {
-    name: "Hacienda Santa Sofía",
-    city: "Ameca, Jalisco, México.",
+    name: "Hacienda La Magdalena",
+    city: "Guadalajara, Jalisco, México.",
     ceremonyLabel: "Ceremonia en capilla",
     ceremonyTime: "5:00 PM",
+    // TODO: reemplazar por el link real de Google Maps de Hacienda La Magdalena
     mapUrl: "https://maps.app.goo.gl/BYRBWi9MgLoKGs6j7?g_st=ic",
     image: "/images/venue.jpg",
   },
@@ -71,8 +66,6 @@ export const EVENT_CONFIG = {
 
   // Servicio de concierge de los wedding planners
   concierge: {
-    body: "Para que solo se preocupen por disfrutar, nuestros wedding planners ponen a su disposición un servicio de Concierge.",
-    detail: "Te ayudará a organizar todo tu viaje con recomendaciones y gestión de reservas. Estará al tanto de ti durante la planeación, a tu llegada y hasta tu regreso a casa.",
     ctaLabel: "Hoteles recomendados",
     ctaUrl: "#hospedaje",
   },

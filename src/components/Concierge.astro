@@ -1,5 +1,5 @@
 ---
-import { EVENT_CONFIG } from '../config/event';
+import { EVENT_CONFIG } from "../config/event";
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { concierge } = EVENT_CONFIG;
 ---
@@ -14,16 +14,13 @@ const { concierge } = EVENT_CONFIG;
     />
   </div>
 
-  <h2
-    data-animate
-    class="font-serif text-2xl md:text-3xl uppercase tracking-[0.2em] text-ink"
-  >
+  <h2 data-animate class="font-serif text-2xl md:text-3xl text-ink">
     Concierge
   </h2>
   <p
     data-animate
     data-delay="100"
-    class="font-script text-accent text-4xl md:text-5xl mt-1"
+    class="font-script text-accent text-3xl md:text-4xl -mt-2 ml-20"
   >
     Service
   </p>
@@ -34,14 +31,23 @@ const { concierge } = EVENT_CONFIG;
       data-delay="200"
       class="font-serif text-lg md:text-xl leading-relaxed text-ink"
     >
-      {concierge.body}
+      Para que solo se preocupen por disfrutar, nuestros <span
+        class="text-accent font-bold">wedding planners</span
+      > ponen a su disposición un servicio de <span class="text-accent italic"
+        >Concierge.</span
+      >
     </p>
     <p
       data-animate
       data-delay="300"
       class="font-serif text-base md:text-lg leading-relaxed text-ink/85"
     >
-      {concierge.detail}
+      Te ayudará a <span class="text-accent italic font-bold"
+        >organizar todo tu viaje</span
+      > con recomendaciones y gestión de reservas. Estará al tanto de ti <span
+        class="text-accent italic font-bold"
+        >durante la planeación, a tu llegada y hasta tu regreso a casa.</span
+      >
     </p>
   </div>
 

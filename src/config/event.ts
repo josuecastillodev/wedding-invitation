@@ -15,7 +15,7 @@ export interface Hotel {
 
 export const EVENT_CONFIG = {
   // ID del formulario de Tally para confirmación de asistencia
-  tallyFormId: "A7vQ80",
+  tallyFormId: "KYEg0k",
 
   // Nombres de los novios
   groomName: "Daniel",

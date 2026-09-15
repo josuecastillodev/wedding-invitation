@@ -16,18 +16,18 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <!-- <EnvelopeOpening client:load> -->
-  <main>
-    <HeroSection />
-    <StorySection />
-    <VenueSection />
-    <RsvpCta showImage />
-    <GiftRegistry />
-    <DressCode />
-    <Concierge />
-    <Hospedaje />
-    <RsvpCta showSilhouette />
-    <Footer />
-  </main>
-  <!-- </EnvelopeOpening> -->
+  <EnvelopeOpening client:load>
+    <main>
+      <HeroSection />
+      <StorySection />
+      <VenueSection />
+      <RsvpCta showImage />
+      <GiftRegistry />
+      <DressCode />
+      <Concierge />
+      <Hospedaje />
+      <RsvpCta showSilhouette />
+      <Footer />
+    </main>
+  </EnvelopeOpening>
 </Layout>

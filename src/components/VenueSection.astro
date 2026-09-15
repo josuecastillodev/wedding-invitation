@@ -1,7 +1,17 @@
 ---
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
+import { formatEventDate } from "../i18n/date";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const t = translations[lang].venue;
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { venue } = EVENT_CONFIG;
+const displayDate = formatEventDate(EVENT_CONFIG.eventDate, lang);
 
 const cityParts = venue.city.split(", ");
 const cityCountry = cityParts.pop();
@@ -17,12 +27,12 @@ const cityRest = cityParts.join(", ");
       class="mx-auto h-16 w-auto"
     />
 
-    <p class="font-script text-accent text-5xl my-12">Nos casamos en</p>
+    <p class="font-script text-accent text-5xl my-12">{t.eyebrow}</p>
     <h2 class="font-serif text-4xl tracking-[1px] text-ink">
       {venue.name}
     </h2>
     <p class="text-accent text-3xl mt-2 italic tracking-[1px] font-bold">
-      {EVENT_CONFIG.displayDate}
+      {displayDate}
     </p>
     <p class="text-ink/80 mt-8 text-3xl italic">
       {cityRest}, <span class="text-accent font-bold">{cityCountry}</span>
@@ -34,7 +44,7 @@ const cityRest = cityParts.join(", ");
       rel="noopener noreferrer"
       class="mt-12 border-[2px] border-accent text-accent hover:bg-accent hover:text-white rounded-md w-full max-w-48 mx-auto text-3xl inline-block py-3 font-serif italic font-bold transition-colors duration-300 text-center"
     >
-      Ver Mapa
+      {t.mapButton}
     </a>
   </div>
 </section>

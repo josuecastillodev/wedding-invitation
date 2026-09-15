@@ -1,0 +1,23 @@
+---
+// Renderiza un párrafo compuesto por fragmentos de texto plano, spans con
+// clases de Tailwind (acento/cursiva/negritas) y saltos de línea, sin
+// repetir esa lógica en cada sección. El contenido viene de
+// src/i18n/translations.ts (tipo RichSegment).
+import type { RichSegment } from "../i18n/translations";
+
+interface Props {
+  segments: RichSegment[];
+}
+
+const { segments } = Astro.props;
+---
+
+{segments.map((segment) =>
+  segment.br ? (
+    <br />
+  ) : segment.class ? (
+    <span class={segment.class}>{segment.text}</span>
+  ) : (
+    segment.text
+  )
+)}

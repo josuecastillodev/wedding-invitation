@@ -1,6 +1,13 @@
 ---
-import { EVENT_CONFIG } from "../config/event";
-const { story } = EVENT_CONFIG;
+import { translations, type Lang } from "../i18n/translations";
+import RichText from "./RichText.astro";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const { segments } = translations[lang].story;
 ---
 
 <section class="px-6 py-6 text-center">
@@ -8,11 +15,6 @@ const { story } = EVENT_CONFIG;
     data-animate
     class="font-serif text-2xl md:text-3xl leading-relaxed max-w-xl mx-auto text-ink"
   >
-    Una historia de amor
-    <br />
-    que comenzó en <span class="text-accent italic">México.</span>
-    <br />
-    Hoy, regresamos <span class="text-accent italic">para <br />celebrarla</span
-    >
+    <RichText segments={segments} />
   </p>
 </section>

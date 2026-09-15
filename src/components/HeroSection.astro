@@ -26,13 +26,13 @@ const displayDate = formatEventDate(EVENT_CONFIG.eventDate, lang);
     src={`${baseUrl}/images/silueta-lampara.png`}
     alt=""
     aria-hidden="true"
-    class="pointer-events-none select-none absolute z-0 top-0 left-[55%] -translate-x-1/2 h-[55%] md:h-[60%] w-auto object-contain opacity-100"
+    class="pointer-events-none select-none absolute z-0 top-0 left-[55%] -translate-x-[25%] h-[55%] md:h-[60%] w-auto object-contain opacity-100"
   />
   <img
     src={`${baseUrl}/images/silueta-pareja.png`}
     alt=""
     aria-hidden="true"
-    class="pointer-events-none select-none absolute z-0 bottom-0 left-[55%] -translate-x-1/2 h-[50%] md:h-[55%] w-auto object-contain opacity-100"
+    class="pointer-events-none select-none absolute z-0 bottom-0 left-[55%] -translate-x-[25%] h-[50%] md:h-[55%] w-auto object-contain opacity-100"
   />
 
   <!-- Contenido principal -->
@@ -72,12 +72,16 @@ const displayDate = formatEventDate(EVENT_CONFIG.eventDate, lang);
 
   <!-- Días faltantes -->
   <div data-animate data-delay="500" class="relative z-10 mb-16 text-center">
-    <p class="font-script text-accent text-3xl md:text-4xl">{t.countdownLabel}</p>
+    <p class="font-script text-accent text-4xl md:text-5xl">
+      {t.countdownLabel}
+    </p>
     <p class="mt-1">
       <span id="hero-days-left" class="font-serif text-ink text-4xl md:text-5xl"
         >{daysLeft}</span
       >
-      <span class="font-script text-ink text-3xl md:text-4xl ml-1">{t.countdownUnit}</span>
+      <span class="font-script text-ink text-3xl md:text-4xl ml-1"
+        >{t.countdownUnit}</span
+      >
     </p>
   </div>
 </section>

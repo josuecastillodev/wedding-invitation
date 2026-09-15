@@ -1,49 +1,39 @@
 ---
-import { EVENT_CONFIG } from '../config/event';
+import { EVENT_CONFIG } from "../config/event";
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { dressCode } = EVENT_CONFIG;
 ---
 
-<section class="text-center mt-24 px-6">
+<section
+  class="relative text-center min-h-[480px] md:min-h-[560px] flex flex-col items-center justify-center overflow-hidden"
+>
+  <!-- Silueta decorativa de fondo -->
+  <img
+    src={`${baseUrl}/images/silueta-pareja-2.png`}
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[35%] h-auto z-0"
+  />
+
   <!-- Título -->
-  <div data-animate>
-    <h2 class="font-serif text-2xl md:text-3xl uppercase tracking-[0.2em] text-ink">
-      Dress Code
-    </h2>
+  <div data-animate class="relative z-10">
+    <h2 class="font-serif text-2xl md:text-3xl text-ink">Dress Code</h2>
     <p
       data-animate
       data-delay="100"
-      class="font-script text-accent text-4xl md:text-5xl mt-2"
+      class="font-script text-accent text-4xl md:text-5xl -mt-2 ml-28"
     >
       {dressCode.code}
     </p>
-  </div>
-
-  <!-- Ilustración de referencia -->
-  <div
-    data-animate
-    data-delay="200"
-    class="mt-10 mx-auto max-w-xs md:max-w-sm relative"
-  >
-    <img
-      src={`${baseUrl}/images/dresscode-example.png`}
-      alt="Ejemplo de vestimenta formal"
-      loading="lazy"
-      class="w-full h-auto relative z-10"
-    />
-    <!-- Sombra en el piso -->
-    <div
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-8 md:h-10 z-0"
-      style="background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 35%, transparent 65%);"
-    />
   </div>
 
   <!-- Nota -->
   <p
     data-animate
     data-delay="300"
-    class="font-serif text-lg md:text-xl leading-relaxed max-w-xl mx-auto mt-10 text-ink"
+    class="relative z-10 font-serif text-xl md:text-2xl leading-relaxed max-w-72 mx-auto mt-16 text-ink"
   >
-    {dressCode.note}
+    Acompáñanos con un <span class="text-accent">look formal y elegante</span> para
+    celebrar juntos nuestra boda.
   </p>
 </section>

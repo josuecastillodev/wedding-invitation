@@ -1,63 +1,40 @@
 ---
-import { EVENT_CONFIG } from '../config/event';
+import { EVENT_CONFIG } from "../config/event";
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { venue } = EVENT_CONFIG;
+
+const cityParts = venue.city.split(", ");
+const cityCountry = cityParts.pop();
+const cityRest = cityParts.join(", ");
 ---
 
 <section>
-  <div class="flex flex-col md:flex-row md:items-center md:justify-center md:gap-12 md:px-12 lg:px-24 md:py-16">
-    <!-- Texto -->
-    <div
-      data-animate
-      class="text-center flex-1 md:max-w-xl px-6 py-16 md:p-0"
+  <div data-animate class="text-center max-w-xl mx-auto px-6 py-6">
+    <img
+      src={`${baseUrl}/images/venue-asset.png`}
+      alt=""
+      loading="lazy"
+      class="mx-auto h-16 w-auto"
+    />
+
+    <p class="font-script text-accent text-5xl my-12">Nos casamos en</p>
+    <h2 class="font-serif text-4xl tracking-[1px] text-ink">
+      {venue.name}
+    </h2>
+    <p class="text-accent text-3xl mt-2 italic tracking-[1px] font-bold">
+      {EVENT_CONFIG.displayDate}
+    </p>
+    <p class="text-ink/80 mt-8 text-3xl italic">
+      {cityRest}, <span class="text-accent font-bold">{cityCountry}</span>
+    </p>
+
+    <a
+      href={venue.mapUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-12 border-[2px] border-accent text-accent hover:bg-accent hover:text-white rounded-md w-full max-w-48 mx-auto text-3xl inline-block py-3 font-serif italic font-bold transition-colors duration-300 text-center"
     >
-      <p class="font-script text-accent text-5xl mb-3">
-        Nos casamos en
-      </p>
-      <h2 class="font-serif text-2xl uppercase tracking-widest md:tracking-[0.2em] text-ink">
-        {venue.name}
-      </h2>
-      <p class="font-script text-accent text-3xl mt-2">
-        {EVENT_CONFIG.displayDate}
-      </p>
-      <p class="text-ink/80 mt-1 text-lg italic">
-        {venue.city}
-      </p>
-
-      <img
-        src={`${baseUrl}/images/venue-asset.png`}
-        alt=""
-        loading="lazy"
-        class="mx-auto my-6 h-16 w-auto"
-      />
-
-      <p class="text-accent mt-4 text-md uppercase tracking-[0.15em]">
-        {venue.ceremonyLabel}
-      </p>
-      <p class="text-md">{venue.ceremonyTime}</p>
-
-      <a
-        href={venue.mapUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-6 border border-accent text-accent hover:bg-accent hover:text-white w-full max-w-64 mx-auto text-xl inline-block px-8 py-3 font-serif italic transition-colors duration-300 text-center"
-      >
-        Ver Mapa
-      </a>
-    </div>
-
-    <!-- Foto del lugar -->
-    <div
-      data-animate
-      data-delay="200"
-      class="flex-1 md:max-w-lg"
-    >
-      <img
-        src={`${baseUrl}${venue.image}`}
-        alt={venue.name}
-        loading="lazy"
-        class="w-full h-auto rounded-lg md:shadow-lg"
-      />
-    </div>
+      Ver Mapa
+    </a>
   </div>
 </section>

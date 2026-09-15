@@ -5,11 +5,11 @@ const baseUrl = EVENT_CONFIG.baseUrl;
 
 // Lista de imágenes
 const images = [
-  { src: `${baseUrl}/images/novios01.webp`, alt: "Yareli y Luis" },
-  { src: `${baseUrl}/images/novios02.webp`, alt: "Yareli y Luis en el auto" },
+  { src: `${baseUrl}/images/novios01.webp`, alt: "Liliana y Daniel" },
+  { src: `${baseUrl}/images/novios02.webp`, alt: "Liliana y Daniel en el auto" },
   { src: `${baseUrl}/images/novios03.webp`, alt: "Auto en la carretera" },
-  { src: `${baseUrl}/images/novios04.webp`, alt: "Yareli y Luis con el auto" },
-  { src: `${baseUrl}/images/novios05.webp`, alt: "Yareli y Luis" },
+  { src: `${baseUrl}/images/novios04.webp`, alt: "Liliana y Daniel con el auto" },
+  { src: `${baseUrl}/images/novios05.webp`, alt: "Liliana y Daniel" },
 ];
 
 // Duplicar imágenes para efecto infinito
@@ -96,9 +96,8 @@ export function PhotoGallery() {
       <div className="md:hidden relative h-[100vw] overflow-hidden">
         <div
           ref={mobileContainerRef}
-          className={`flex h-full transition-opacity duration-700 ${
-            isInView ? "opacity-100" : "opacity-0"
-          }`}
+          className={`flex h-full transition-opacity duration-700 ${isInView ? "opacity-100" : "opacity-0"
+            }`}
         >
           {duplicatedImages.map((img, index) => (
             <img
@@ -106,9 +105,8 @@ export function PhotoGallery() {
               src={img.src}
               alt={img.alt}
               loading={index < images.length ? "eager" : "lazy"}
-              className={`h-full w-auto object-cover shrink-0 transition-all duration-700 ${
-                isInView ? "opacity-100 scale-100" : "opacity-0 scale-105"
-              }`}
+              className={`h-full w-auto object-cover shrink-0 transition-all duration-700 ${isInView ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                }`}
             />
           ))}
         </div>
@@ -118,9 +116,8 @@ export function PhotoGallery() {
       <div className="hidden md:block h-[25vw] overflow-hidden">
         <div
           ref={desktopContainerRef}
-          className={`flex h-full transition-opacity duration-700 ${
-            isInView ? "opacity-100" : "opacity-0"
-          }`}
+          className={`flex h-full transition-opacity duration-700 ${isInView ? "opacity-100" : "opacity-0"
+            }`}
         >
           {duplicatedImages.map((img, index) => (
             <img
@@ -128,9 +125,8 @@ export function PhotoGallery() {
               src={img.src}
               alt={img.alt}
               loading={index < images.length ? "eager" : "lazy"}
-              className={`h-full w-auto object-cover shrink-0 transition-all duration-700 ${
-                isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+              className={`h-full w-auto object-cover shrink-0 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
               style={{
                 transitionDelay: isInView ? `${(index % 4) * 100}ms` : "0ms",
               }}

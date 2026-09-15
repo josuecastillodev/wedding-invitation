@@ -1,56 +1,81 @@
 ---
-import CountdownTimer from './CountdownTimer.tsx';
-import { EVENT_CONFIG } from '../config/event';
+import { EVENT_CONFIG } from "../config/event";
+
+const baseUrl = EVENT_CONFIG.baseUrl;
+const eventTime = new Date(`${EVENT_CONFIG.eventDate}T17:30:00`).getTime();
+const daysLeft = Math.max(0, Math.ceil((eventTime - Date.now()) / 86_400_000));
 ---
 
-<section class="hero-background relative min-h-screen flex flex-col items-center px-6 pt-20 pb-0 bg-paper bg-[position:calc(50%+28vw)] bg-auto md:bg-center bg-no-repeat">
+<section
+  class="relative min-h-screen flex flex-col items-center px-6 pt-20 pb-0 overflow-hidden"
+>
   <!-- Velo sobre el fondo para que el texto respire -->
-  <div class="absolute inset-0 bg-paper/30"></div>
+  <div class="absolute inset-0"></div>
+
+  <!-- Siluetas decorativas de fondo -->
+  <img
+    src={`${baseUrl}/images/silueta-lampara.png`}
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none select-none absolute z-0 top-0 left-[55%] -translate-x-1/2 h-[55%] md:h-[60%] w-auto object-contain opacity-100"
+  />
+  <img
+    src={`${baseUrl}/images/silueta-pareja.png`}
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none select-none absolute z-0 bottom-0 left-[55%] -translate-x-1/2 h-[50%] md:h-[55%] w-auto object-contain opacity-100"
+  />
 
   <!-- Contenido principal -->
   <div class="relative z-10 text-center flex-1 flex flex-col justify-center">
-    <p
-      data-animate
-      class="font-script text-accent text-5xl md:text-6xl mb-4"
-    >
+    <p data-animate class="font-script text-accent text-4xl md:text-5xl mb-4">
       Nuestra boda
     </p>
 
-    <h1 class="font-serif text-ink">
+    <h1 class="font-serif text-ink inline-block text-left mx-auto my-8">
       <span
         data-animate
         data-delay="100"
-        class="block text-4xl md:text-5xl tracking-[0.3em] uppercase"
+        class="block text-5xl md:text-7xl tracking-[0.12em] uppercase"
       >
         {EVENT_CONFIG.brideName}
       </span>
       <span
-        data-animate="scale"
-        data-delay="200"
-        class="block font-script text-accent text-5xl md:text-7xl my-2"
-      >
-        &
-      </span>
-      <span
         data-animate
-        data-delay="300"
-        class="block text-4xl md:text-5xl tracking-[0.3em] uppercase"
+        data-delay="200"
+        class="block text-5xl md:text-7xl tracking-[0.12em] uppercase"
       >
-        {EVENT_CONFIG.groomName}
+        <span
+          class="font-script normal-case tracking-normal text-6xl md:text-8xl align-baseline"
+          >&amp;</span
+        >{EVENT_CONFIG.groomName}
       </span>
     </h1>
 
     <p
       data-animate
       data-delay="400"
-      class="font-script text-accent text-3xl md:text-4xl mt-6"
+      class="font-script text-accent text-4xl md:text-5xl mt-6"
     >
       {EVENT_CONFIG.displayDate}
     </p>
   </div>
 
-  <!-- Contador -->
-  <div data-animate data-delay="500" class="relative z-10 mb-12">
-    <CountdownTimer client:load />
+  <!-- Días faltantes -->
+  <div data-animate data-delay="500" class="relative z-10 mb-16 text-center">
+    <p class="font-script text-accent text-3xl md:text-4xl">Faltan</p>
+    <p class="mt-1">
+      <span id="hero-days-left" class="font-serif text-ink text-4xl md:text-5xl"
+        >{daysLeft}</span
+      >
+      <span class="font-script text-ink text-3xl md:text-4xl ml-1">Días</span>
+    </p>
   </div>
 </section>
+
+<script define:vars={{ eventDate: EVENT_CONFIG.eventDate }}>
+  const target = new Date(`${eventDate}T17:30:00`).getTime();
+  const days = Math.max(0, Math.ceil((target - Date.now()) / 86_400_000));
+  const el = document.getElementById("hero-days-left");
+  if (el) el.textContent = String(days);
+</script>

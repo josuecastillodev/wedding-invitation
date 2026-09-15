@@ -1,16 +1,18 @@
 ---
-import { EVENT_CONFIG } from '../config/event';
+import { EVENT_CONFIG } from "../config/event";
 const { story } = EVENT_CONFIG;
 ---
 
-<section class="px-6 py-16 text-center">
+<section class="px-6 py-6 text-center">
   <p
     data-animate
-    class="font-serif text-xl md:text-2xl leading-relaxed max-w-xl mx-auto text-ink"
+    class="font-serif text-2xl md:text-3xl leading-relaxed max-w-xl mx-auto text-ink"
   >
-    {story.lead}
-    <span class="text-accent italic">{story.highlight}</span>
+    Una historia de amor
     <br />
-    {story.tail}
+    que comenzó en <span class="text-accent italic">México.</span>
+    <br />
+    Hoy, regresamos <span class="text-accent italic">para <br />celebrarla</span
+    >
   </p>
 </section>

@@ -1,32 +1,43 @@
 ---
-import { EVENT_CONFIG } from '../config/event';
+import { EVENT_CONFIG } from "../config/event";
+const baseUrl = EVENT_CONFIG.baseUrl;
 const { gift } = EVENT_CONFIG;
 ---
 
 <section class="px-6 py-16 text-center">
   <div class="max-w-xl mx-auto">
-    <p
-      data-animate
-      class="font-serif text-xl md:text-2xl leading-relaxed text-ink"
-    >
-      {gift.intro}
-    </p>
+    <h2 data-animate class="font-serif text-3xl text-ink">Mesa de regalos</h2>
 
     <p
       data-animate
       data-delay="100"
-      class="font-serif text-base md:text-lg leading-relaxed text-ink mt-4"
+      class="font-serif text-xl md:text-2xl leading-relaxed text-ink mt-10 mx-auto max-w-96"
     >
-      {gift.body}
+      Su <span class="text-accent italic font-bold">presencia</span> es nuestro mejor
+      <span class="text-accent italic font-bold">regalo</span>. Si desean
+      obsequiarnos, pueden contribuir a nuestro futuro juntos con un
+      <span class="text-accent italic font-bold">regalo en efectivo</span> a través
+      del <span class="text-accent italic font-bold">siguiente enlace.</span>
     </p>
 
-    <a
-      href={gift.ctaUrl}
-      data-animate
-      data-delay="200"
-      class="mt-8 border border-accent text-accent hover:bg-accent hover:text-white inline-block px-10 py-4 font-serif italic text-lg md:text-xl transition-colors duration-300"
-    >
-      {gift.ctaLabel}
-    </a>
+    <div class="relative inline-block mt-10">
+      <a
+        href={gift.ctaUrl}
+        data-animate
+        data-delay="200"
+        class="relative z-10 border-2 border-accent text-accent hover:bg-accent hover:text-white hover:-translate-y-1 hover:shadow-lg rounded-md inline-block w-56 py-2 px-12 font-serif italic font-bold text-3xl leading-none"
+        style="transition: opacity 0.6s ease-out, transform 0.5s ease-out, background-color 0.5s ease-out, color 0.5s ease-out, box-shadow 0.5s ease-out;"
+      >
+        {gift.ctaLabel}
+      </a>
+
+      <img
+        src={`${baseUrl}/images/flower.png`}
+        alt=""
+        aria-hidden="true"
+        class="pointer-events-none select-none absolute w-full h-auto z-10"
+        style={{ right: "-50%", top: "-130%" }}
+      />
+    </div>
   </div>
 </section>

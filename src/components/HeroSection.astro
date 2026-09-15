@@ -1,9 +1,18 @@
 ---
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
+import { formatEventDate } from "../i18n/date";
 
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const t = translations[lang].hero;
 const baseUrl = EVENT_CONFIG.baseUrl;
 const eventTime = new Date(`${EVENT_CONFIG.eventDate}T17:30:00`).getTime();
 const daysLeft = Math.max(0, Math.ceil((eventTime - Date.now()) / 86_400_000));
+const displayDate = formatEventDate(EVENT_CONFIG.eventDate, lang);
 ---
 
 <section
@@ -29,7 +38,7 @@ const daysLeft = Math.max(0, Math.ceil((eventTime - Date.now()) / 86_400_000));
   <!-- Contenido principal -->
   <div class="relative z-10 text-center flex-1 flex flex-col justify-center">
     <p data-animate class="font-script text-accent text-4xl md:text-5xl mb-4">
-      Nuestra boda
+      {t.eyebrow}
     </p>
 
     <h1 class="font-serif text-ink inline-block text-left mx-auto my-8">
@@ -57,18 +66,18 @@ const daysLeft = Math.max(0, Math.ceil((eventTime - Date.now()) / 86_400_000));
       data-delay="400"
       class="font-script text-accent text-4xl md:text-5xl mt-6"
     >
-      {EVENT_CONFIG.displayDate}
+      {displayDate}
     </p>
   </div>
 
   <!-- Días faltantes -->
   <div data-animate data-delay="500" class="relative z-10 mb-16 text-center">
-    <p class="font-script text-accent text-3xl md:text-4xl">Faltan</p>
+    <p class="font-script text-accent text-3xl md:text-4xl">{t.countdownLabel}</p>
     <p class="mt-1">
       <span id="hero-days-left" class="font-serif text-ink text-4xl md:text-5xl"
         >{daysLeft}</span
       >
-      <span class="font-script text-ink text-3xl md:text-4xl ml-1">Días</span>
+      <span class="font-script text-ink text-3xl md:text-4xl ml-1">{t.countdownUnit}</span>
     </p>
   </div>
 </section>

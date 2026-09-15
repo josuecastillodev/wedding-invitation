@@ -1,8 +1,10 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
 
 interface EnvelopeOpeningProps {
   children: ReactNode;
+  lang?: Lang;
 }
 
 const baseUrl = EVENT_CONFIG.baseUrl;
@@ -23,7 +25,8 @@ const watercolorTexture = `data:image/svg+xml,${encodeURIComponent(
   </svg>`
 )}`;
 
-export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
+export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps) {
+  const t = translations[lang].envelope;
   const [isOpening, setIsOpening] = useState(false);
   const [showWhiteFlash, setShowWhiteFlash] = useState(false);
   const [showContent, setShowContent] = useState(false);
@@ -68,10 +71,10 @@ export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
         style={{ opacity: isOpening ? 0 : 1 }}
       >
         <p className="font-serif text-ink text-xl md:text-2xl leading-snug">
-          Querido invitado, se dice que…
+          {t.intro}
         </p>
         <p className="font-script text-accent text-5xl md:text-6xl mt-3">
-          Nos casamos
+          {t.script}
         </p>
       </div>
 
@@ -79,7 +82,7 @@ export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
       <div className="relative w-64 md:w-80">
         <button
           onClick={handleOpen}
-          aria-label="Abrir invitación"
+          aria-label={t.openAriaLabel}
           className="relative block w-full cursor-pointer"
           style={{ perspective: "1000px" }}
         >
@@ -238,7 +241,7 @@ export function EnvelopeOpening({ children }: EnvelopeOpeningProps) {
         className="text-ink/40 font-serif text-xs md:text-sm tracking-[0.25em] uppercase transition-opacity duration-500"
         style={{ opacity: isOpening ? 0 : 1 }}
       >
-        Toca el sobre para abrir
+        {t.prompt}
       </p>
 
       {/* Flash blanco */}

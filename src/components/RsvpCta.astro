@@ -1,15 +1,18 @@
 ---
 import RsvpButton from "./RsvpButton.tsx";
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
 
 interface Props {
+  lang?: Lang;
   showImage?: boolean;
   showSilhouette?: boolean;
 }
 
-const { showImage = false, showSilhouette = false } = Astro.props;
+const { lang = "es", showImage = false, showSilhouette = false } = Astro.props;
 const baseUrl = EVENT_CONFIG.baseUrl;
-const { rsvp, brideName, groomName } = EVENT_CONFIG;
+const { brideName, groomName } = EVENT_CONFIG;
+const t = translations[lang].rsvp;
 ---
 
 <section class="relative px-6 py-20 text-center overflow-hidden">
@@ -40,9 +43,9 @@ const { rsvp, brideName, groomName } = EVENT_CONFIG;
     data-animate
     class="relative z-10 font-serif text-xl md:text-2xl leading-relaxed text-ink"
   >
-    {rsvp.headline}
+    {t.headline}
     <br />
-    {rsvp.question}
+    {t.question}
   </p>
 
   <p
@@ -54,6 +57,6 @@ const { rsvp, brideName, groomName } = EVENT_CONFIG;
   </p>
 
   <div data-animate data-delay="200" class="relative z-10 mt-8">
-    <RsvpButton label={rsvp.ctaLabel} client:load />
+    <RsvpButton label={t.ctaLabel} client:load />
   </div>
 </section>

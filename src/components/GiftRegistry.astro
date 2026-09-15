@@ -1,23 +1,28 @@
 ---
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
+import RichText from "./RichText.astro";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const t = translations[lang].gift;
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { gift } = EVENT_CONFIG;
 ---
 
 <section class="px-6 py-16 text-center">
   <div class="max-w-xl mx-auto">
-    <h2 data-animate class="font-serif text-3xl text-ink">Mesa de regalos</h2>
+    <h2 data-animate class="font-serif text-3xl text-ink">{t.heading}</h2>
 
     <p
       data-animate
       data-delay="100"
       class="font-serif text-xl md:text-2xl leading-relaxed text-ink mt-10 mx-auto max-w-96"
     >
-      Su <span class="text-accent italic font-bold">presencia</span> es nuestro mejor
-      <span class="text-accent italic font-bold">regalo</span>. Si desean
-      obsequiarnos, pueden contribuir a nuestro futuro juntos con un
-      <span class="text-accent italic font-bold">regalo en efectivo</span> a través
-      del <span class="text-accent italic font-bold">siguiente enlace.</span>
+      <RichText segments={t.segments} />
     </p>
 
     <div class="relative inline-block mt-10">
@@ -28,7 +33,7 @@ const { gift } = EVENT_CONFIG;
         class="relative z-10 border-2 border-accent text-accent hover:bg-accent hover:text-white hover:-translate-y-1 hover:shadow-lg rounded-md inline-block w-56 py-2 px-12 font-serif italic font-bold text-3xl leading-none"
         style="transition: opacity 0.6s ease-out, transform 0.5s ease-out, background-color 0.5s ease-out, color 0.5s ease-out, box-shadow 0.5s ease-out;"
       >
-        {gift.ctaLabel}
+        {t.ctaLabel}
       </a>
 
       <img

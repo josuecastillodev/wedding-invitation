@@ -72,6 +72,13 @@ export interface Translations {
     bookNow: string;
     hotels: Record<string, HotelCopy>;
   };
+  nav: {
+    home: string;
+    rsvp: string;
+    gift: string;
+    hospedaje: string;
+    back: string;
+  };
   itinerary: {
     heading: string;
     mapButton: string;
@@ -188,6 +195,13 @@ export const translations: Record<Lang, Translations> = {
             "El hotel cuenta con restaurantes, entretenimiento, spa y piscina.",
         },
       },
+    },
+    nav: {
+      home: "Home",
+      rsvp: "RSVP",
+      gift: "Regalos",
+      hospedaje: "Hospedaje",
+      back: "Volver",
     },
     itinerary: {
       heading: "Itinerario",
@@ -320,6 +334,13 @@ export const translations: Record<Lang, Translations> = {
             "The hotel features restaurants, entertainment, a spa, and a pool.",
         },
       },
+    },
+    nav: {
+      home: "Home",
+      rsvp: "RSVP",
+      gift: "Registry",
+      hospedaje: "Stay",
+      back: "Back",
     },
     itinerary: {
       heading: "Itinerary",

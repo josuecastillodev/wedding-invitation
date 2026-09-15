@@ -9,10 +9,6 @@ export interface Hotel {
   subtitle: string;
   /** Ruta de la imagen relativa a public/, sin baseUrl */
   image: string;
-  /** Descripción breve, 1-2 líneas */
-  description: string;
-  /** Substring exacto de `description` a resaltar en color de acento */
-  highlight?: string;
   /** URL de reserva (puede ser un enlace de WhatsApp) */
   bookingUrl: string;
 }
@@ -25,11 +21,9 @@ export const EVENT_CONFIG = {
   groomName: "Daniel",
   brideName: "Liliana",
 
-  // Fecha del evento (ISO, para el contador)
+  // Fecha del evento (ISO). Se usa para el contador y para formatear la
+  // fecha mostrada en pantalla según el idioma (ver src/i18n/date.ts)
   eventDate: "2027-05-15",
-
-  // Fecha en texto, como se muestra en pantalla
-  displayDate: "15 de mayo de 2027",
 
   // Base URL del sitio
   baseUrl: "/liliana-y-daniel",
@@ -46,11 +40,8 @@ export const EVENT_CONFIG = {
     image: "/images/venue.jpg",
   },
 
-  // Regalo en efectivo / mesa de regalos
+  // Regalo en efectivo / mesa de regalos (el copy vive en src/i18n/translations.ts)
   gift: {
-    intro: "Su presencia es nuestro mejor regalo.",
-    body: "Si desean obsequiarnos, pueden contribuir a nuestro futuro juntos con un regalo en efectivo a través del siguiente enlace.",
-    ctaLabel: "Hacer un regalo",
     ctaUrl: "#datos-bancarios",
   },
 
@@ -65,25 +56,21 @@ export const EVENT_CONFIG = {
   // Código de vestimenta
   dressCode: {
     code: "Formal",
-    note: "Acompáñanos con un look formal y elegante para celebrar juntos nuestra boda.",
   },
 
-  // Servicio de concierge de los wedding planners
+  // Servicio de concierge de los wedding planners (el copy vive en src/i18n/translations.ts)
   concierge: {
-    ctaLabel: "Hoteles recomendados",
     ctaUrl: "#hospedaje",
   },
 
-  // Hoteles recomendados
+  // Hoteles recomendados (nombre/imagen/link no cambian por idioma; su
+  // descripción vive en src/i18n/translations.ts, buscada por `id`)
   hotels: [
     {
       id: "one-guadalajara",
       name: "One Guadalajara",
       subtitle: "Periférico Norte",
       image: "/images/one-guadalajara.jpg",
-      description:
-        "Una opción práctica y cómoda para disfrutar Guadalajara, con desayuno incluido y una ubicación conveniente al norte de la ciudad.",
-      highlight: "una ubicación conveniente al norte de la ciudad.",
       bookingUrl: "https://wa.me/523310631395",
     },
     {
@@ -91,20 +78,9 @@ export const EVENT_CONFIG = {
       name: "Hard Rock",
       subtitle: "Guadalajara",
       image: "/images/hard-rock.jpg",
-      description:
-        "Una experiencia vibrante y contemporánea, ideal para quienes buscan hospedarse, relajarse y disfrutar del ambiente musical de Guadalajara. El hotel cuenta con restaurantes, entretenimiento, spa y piscina.",
-      highlight:
-        "El hotel cuenta con restaurantes, entretenimiento, spa y piscina.",
       bookingUrl: "https://wa.me/523310631395",
     },
   ] as Hotel[],
-
-  // Bloque de cierre con la confirmación de asistencia
-  rsvp: {
-    headline: "Será una celebración increíble",
-    question: "¿Nos acompañas?",
-    ctaLabel: "¡Confirma asistencia!",
-  },
 };
 
 export type EventConfig = typeof EVENT_CONFIG;

@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://dizaru.com',
+  site: 'https://invitacion.dizaru.com',
   base: '/liliana-y-daniel',
   integrations: [
     react(),

@@ -33,8 +33,6 @@ export const EVENT_CONFIG = {
   venue: {
     name: "Hacienda La Magdalena",
     city: "Guadalajara, Jalisco, México.",
-    ceremonyLabel: "Ceremonia en capilla",
-    ceremonyTime: "5:00 PM",
     // TODO: reemplazar por el link real de Google Maps de Hacienda La Magdalena
     mapUrl: "https://maps.app.goo.gl/BYRBWi9MgLoKGs6j7?g_st=ic",
     image: "/images/venue.jpg",

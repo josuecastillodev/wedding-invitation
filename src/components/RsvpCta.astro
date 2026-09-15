@@ -15,7 +15,10 @@ const { brideName, groomName } = EVENT_CONFIG;
 const t = translations[lang].rsvp;
 ---
 
-<section class="relative px-6 py-4 pt-20 pb-8 text-center overflow-hidden">
+<section
+  id={showImage ? "rsvp" : undefined}
+  class="relative px-6 py-4 pt-20 pb-8 text-center overflow-hidden scroll-mt-8"
+>
   {
     showSilhouette && (
       <img

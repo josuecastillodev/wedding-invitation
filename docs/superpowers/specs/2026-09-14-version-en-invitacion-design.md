@@ -138,7 +138,7 @@ para no perder los parámetros `?Nombre=&Pases=` que usa el RSVP.
 ### StorySection
 | ES (con saltos de línea y acentos actuales) | EN |
 |---|---|
-| Una historia de amor<br/>que comenzó en **México.**<br/>Hoy, regresamos **para<br/>celebrarla** | A love story<br/>that began in **Mexico.**<br/>Today, we return to<br/>**celebrate it** |
+| Una historia de amor<br/>que comenzó en **México.**<br/>Hoy, regresamos **para<br/>celebrarla** | A love story<br/>that began in **Mexico.**<br/>Today, we return<br/>**to** **celebrate it** |
 
 ### VenueSection
 | Clave | ES | EN |

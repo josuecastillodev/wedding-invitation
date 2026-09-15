@@ -2,7 +2,7 @@ name: docker
 
 on:
   push:
-    branches: [main]
+    branches: [liliana-y-daniel]
   workflow_dispatch:
 
 permissions:

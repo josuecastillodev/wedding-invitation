@@ -1,30 +1,40 @@
 ---
 import '../styles/global.css';
 import { EVENT_CONFIG } from '../config/event';
+import { translations, type Lang } from '../i18n/translations';
+import LanguageSwitch from '../components/LanguageSwitch.astro';
 
 interface Props {
+  lang?: Lang;
   title?: string;
   description?: string;
 }
 
-const {
-  title = `${EVENT_CONFIG.brideName} & ${EVENT_CONFIG.groomName} · Nuestra Boda`,
-  description = `Invitación de boda de ${EVENT_CONFIG.brideName} y ${EVENT_CONFIG.groomName}`
-} = Astro.props;
+const { lang = 'es', title, description } = Astro.props;
+const t = translations[lang];
+
+const pageTitle =
+  title ??
+  `${EVENT_CONFIG.brideName} & ${EVENT_CONFIG.groomName} · ${t.meta.titleSuffix}`;
+const pageDescription =
+  description ??
+  t.meta.description
+    .replace('{bride}', EVENT_CONFIG.brideName)
+    .replace('{groom}', EVENT_CONFIG.groomName);
 
 const baseUrl = EVENT_CONFIG.baseUrl;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
 
-    <title>{title}</title>
+    <title>{pageTitle}</title>
 
     <!-- Fuentes: Cormorant Garamond (serif) + Allura (script) desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,6 +65,7 @@ const baseUrl = EVENT_CONFIG.baseUrl;
     </style>
   </head>
   <body>
+    <LanguageSwitch lang={lang} />
     <slot />
 
     <!-- Script para animaciones on-scroll (vanilla JS, muy ligero) -->

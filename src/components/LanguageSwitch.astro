@@ -1,0 +1,40 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const targetLang: Lang = lang === "es" ? "en" : "es";
+const targetLabel = targetLang.toUpperCase();
+const targetAriaLabel =
+  targetLang === "en" ? "Switch to English" : "Cambiar a español";
+const targetHref = getRelativeLocaleUrl(targetLang, "");
+---
+
+<div
+  class="fixed top-4 right-4 z-[60] flex items-center gap-1 rounded-full bg-paper/90 border border-accent/30 px-3 py-1 font-serif text-xs uppercase tracking-wider text-ink shadow-md backdrop-blur-sm"
+>
+  <span class="text-accent font-semibold">{lang.toUpperCase()}</span>
+  <span class="text-ink/30">·</span>
+  <a
+    id="language-switch-link"
+    href={targetHref}
+    aria-label={targetAriaLabel}
+    class="hover:text-accent transition-colors duration-200"
+  >
+    {targetLabel}
+  </a>
+</div>
+
+<script>
+  // Conserva los parámetros de la URL actual (ej. ?Nombre=&Pases= del RSVP)
+  // al cambiar de idioma. No se puede resolver en build time porque el
+  // sitio es estático (no hay request real durante `astro build`).
+  const link = document.getElementById("language-switch-link");
+  if (link instanceof HTMLAnchorElement && window.location.search) {
+    link.href += window.location.search;
+  }
+</script>

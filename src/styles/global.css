@@ -41,9 +41,25 @@ html {
 
 body {
   @apply text-ink font-serif;
+  position: relative;
   background-color: #f5f1ea;
+}
+
+/*
+ * Textura de fondo como capa fija e independiente en vez de
+ * background-attachment: fixed en body. Con fixed, "cover" se calcula
+ * contra el alto real del documento (miles de px en una página tan
+ * larga), no contra el viewport — en móvil eso se ve como un zoom
+ * enorme sobre una porción mínima de la textura. Un pseudo-elemento
+ * position: fixed sí se dimensiona contra el viewport siempre, en
+ * cualquier navegador.
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background-image: url("/liliana-y-daniel/images/bg-fijo.jpg");
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

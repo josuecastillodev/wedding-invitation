@@ -1,5 +1,14 @@
 ---
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
+import RichText from "./RichText.astro";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const t = translations[lang].concierge;
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { concierge } = EVENT_CONFIG;
 ---
@@ -22,7 +31,7 @@ const { concierge } = EVENT_CONFIG;
     data-delay="100"
     class="font-script text-accent text-3xl md:text-4xl -mt-2 ml-20"
   >
-    Service
+    {t.subtitle}
   </p>
 
   <div class="max-w-96 mx-auto mt-10 space-y-6">
@@ -31,23 +40,14 @@ const { concierge } = EVENT_CONFIG;
       data-delay="200"
       class="font-serif text-lg md:text-xl leading-relaxed text-ink"
     >
-      Para que solo se preocupen por disfrutar, nuestros <span
-        class="text-accent font-bold">wedding planners</span
-      > ponen a su disposición un servicio de <span class="text-accent italic"
-        >Concierge.</span
-      >
+      <RichText segments={t.paragraph1} />
     </p>
     <p
       data-animate
       data-delay="300"
       class="font-serif text-lg md:text-xl leading-relaxed text-ink/85"
     >
-      Te ayudará a <span class="text-accent italic font-bold"
-        >organizar todo tu viaje</span
-      > con recomendaciones y gestión de reservas. Estará al tanto de ti <span
-        class="text-accent italic font-bold"
-        >durante la planeación, a tu llegada y hasta tu regreso a casa.</span
-      >
+      <RichText segments={t.paragraph2} />
     </p>
   </div>
 
@@ -57,6 +57,6 @@ const { concierge } = EVENT_CONFIG;
     data-delay="400"
     class="mt-10 bg-accent text-white hover:bg-accent-soft inline-block py-2 font-serif text-2xl md:text-3xl transition-colors duration-300 rounded-md w-64"
   >
-    {concierge.ctaLabel}
+    {t.ctaLabel}
   </a>
 </section>

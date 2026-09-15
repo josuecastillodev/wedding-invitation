@@ -1,6 +1,8 @@
 // Configuración del evento - cambiar estos valores para reciclar la invitación
 
 export interface Hotel {
+  /** Identificador usado para buscar su copy traducido en src/i18n/translations.ts */
+  id: string;
   /** Nombre del hotel, en serif mayúsculas */
   name: string;
   /** Segunda línea en script (zona, sucursal) */
@@ -75,6 +77,7 @@ export const EVENT_CONFIG = {
   // Hoteles recomendados
   hotels: [
     {
+      id: "one-guadalajara",
       name: "One Guadalajara",
       subtitle: "Periférico Norte",
       image: "/images/one-guadalajara.jpg",
@@ -84,6 +87,7 @@ export const EVENT_CONFIG = {
       bookingUrl: "https://wa.me/523310631395",
     },
     {
+      id: "hard-rock",
       name: "Hard Rock",
       subtitle: "Guadalajara",
       image: "/images/hard-rock.jpg",

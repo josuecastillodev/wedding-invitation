@@ -1,5 +1,13 @@
 ---
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const t = translations[lang].hospedaje;
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { hotels } = EVENT_CONFIG;
 ---
@@ -9,14 +17,15 @@ const { hotels } = EVENT_CONFIG;
     data-animate
     class="font-serif text-2xl md:text-3xl uppercase tracking-[0.15em] text-ink"
   >
-    Hospedaje
+    {t.heading}
   </h2>
 
   {
     hotels.map((hotel, index) => {
-      const [before, after] = hotel.highlight
-        ? hotel.description.split(hotel.highlight)
-        : [hotel.description, undefined];
+      const copy = t.hotels[hotel.id];
+      const [before, after] = copy.highlight
+        ? copy.description.split(copy.highlight)
+        : [copy.description, undefined];
 
       return (
         <div class="mt-16 first:mt-10">
@@ -52,7 +61,7 @@ const { hotels } = EVENT_CONFIG;
             {before}
             {after !== undefined && (
               <>
-                <span class="text-accent">{hotel.highlight}</span>
+                <span class="text-accent">{copy.highlight}</span>
                 {after}
               </>
             )}
@@ -71,7 +80,7 @@ const { hotels } = EVENT_CONFIG;
                   : "border-2 border-accent text-accent italic font-bold hover:bg-accent hover:text-white"
               }`}
             >
-              Reservar
+              {t.bookNow}
             </a>
 
             {index % 2 !== 0 && (

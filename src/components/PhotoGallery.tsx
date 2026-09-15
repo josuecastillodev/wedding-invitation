@@ -1,21 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
 
 const baseUrl = EVENT_CONFIG.baseUrl;
 
-// Lista de imágenes
-const images = [
-  { src: `${baseUrl}/images/novios01.webp`, alt: "Liliana y Daniel" },
-  { src: `${baseUrl}/images/novios02.webp`, alt: "Liliana y Daniel en el auto" },
-  { src: `${baseUrl}/images/novios03.webp`, alt: "Auto en la carretera" },
-  { src: `${baseUrl}/images/novios04.webp`, alt: "Liliana y Daniel con el auto" },
-  { src: `${baseUrl}/images/novios05.webp`, alt: "Liliana y Daniel" },
+// Rutas de las imágenes (el alt text sale del diccionario según el idioma)
+const imagePaths = [
+  `${baseUrl}/images/novios01.webp`,
+  `${baseUrl}/images/novios02.webp`,
+  `${baseUrl}/images/novios03.webp`,
+  `${baseUrl}/images/novios04.webp`,
+  `${baseUrl}/images/novios05.webp`,
 ];
 
-// Duplicar imágenes para efecto infinito
-const duplicatedImages = [...images, ...images];
+interface PhotoGalleryProps {
+  lang?: Lang;
+}
 
-export function PhotoGallery() {
+export function PhotoGallery({ lang = "es" }: PhotoGalleryProps) {
+  const alts = translations[lang].gallery.alts;
+  const images = imagePaths.map((src, index) => ({ src, alt: alts[index] }));
+  // Duplicar imágenes para efecto infinito
+  const duplicatedImages = [...images, ...images];
+
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const mobileContainerRef = useRef<HTMLDivElement>(null);

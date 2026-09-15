@@ -1,36 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { EnvelopeOpening } from '../components/EnvelopeOpening';
-import HeroSection from '../components/HeroSection.astro';
-import StorySection from '../components/StorySection.astro';
-import VenueSection from '../components/VenueSection.astro';
-import { PhotoGallery } from '../components/PhotoGallery';
-import RsvpCta from '../components/RsvpCta.astro';
-import GiftRegistry from '../components/GiftRegistry.astro';
-import BankDetails from '../components/BankDetails.astro';
-import DressCode from '../components/DressCode.astro';
-import Itinerary from '../components/Itinerary.astro';
-import Concierge from '../components/Concierge.astro';
-import Hospedaje from '../components/Hospedaje.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import { EnvelopeOpening } from "../components/EnvelopeOpening";
+import HeroSection from "../components/HeroSection.astro";
+import StorySection from "../components/StorySection.astro";
+import VenueSection from "../components/VenueSection.astro";
+import { PhotoGallery } from "../components/PhotoGallery";
+import RsvpCta from "../components/RsvpCta.astro";
+import GiftRegistry from "../components/GiftRegistry.astro";
+import BankDetails from "../components/BankDetails.astro";
+import DressCode from "../components/DressCode.astro";
+import Itinerary from "../components/Itinerary.astro";
+import Concierge from "../components/Concierge.astro";
+import Hospedaje from "../components/Hospedaje.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <EnvelopeOpening client:load>
-    <main>
-      <HeroSection />
-      <StorySection />
-      <VenueSection />
-      <PhotoGallery client:visible />
-      <RsvpCta />
-      <GiftRegistry />
-      <BankDetails />
-      <DressCode />
-      <Itinerary />
-      <Concierge />
-      <Hospedaje />
-      <RsvpCta />
-      <Footer />
-    </main>
-  </EnvelopeOpening>
+  <!-- <EnvelopeOpening client:load> -->
+  <main>
+    <HeroSection />
+    <StorySection />
+    <VenueSection />
+    <RsvpCta showImage />
+    <GiftRegistry />
+    <DressCode />
+    <Concierge />
+    <Hospedaje />
+    <RsvpCta showSilhouette />
+    <Footer />
+  </main>
+  <!-- </EnvelopeOpening> -->
 </Layout>

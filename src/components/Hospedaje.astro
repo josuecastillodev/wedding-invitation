@@ -1,5 +1,5 @@
 ---
-import { EVENT_CONFIG } from '../config/event';
+import { EVENT_CONFIG } from "../config/event";
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { hotels } = EVENT_CONFIG;
 ---
@@ -12,66 +12,80 @@ const { hotels } = EVENT_CONFIG;
     Hospedaje
   </h2>
 
-  {hotels.map((hotel, index) => {
-    const [before, after] = hotel.highlight
-      ? hotel.description.split(hotel.highlight)
-      : [hotel.description, undefined];
+  {
+    hotels.map((hotel, index) => {
+      const [before, after] = hotel.highlight
+        ? hotel.description.split(hotel.highlight)
+        : [hotel.description, undefined];
 
-    return (
-      <div class="mt-16 first:mt-10">
-        <p data-animate class="font-serif text-2xl md:text-3xl text-ink">
-          {hotel.name}
-        </p>
-        <p
-          data-animate
-          data-delay="100"
-          class="font-script text-accent text-3xl md:text-4xl mt-1"
-        >
-          {hotel.subtitle}
-        </p>
+      return (
+        <div class="mt-16 first:mt-10">
+          <p data-animate class="font-serif text-2xl md:text-3xl text-ink">
+            {hotel.name}
+          </p>
+          <p
+            data-animate
+            data-delay="100"
+            class="font-script text-accent text-3xl md:text-4xl mt-1"
+          >
+            {hotel.subtitle}
+          </p>
 
-        <div
-          data-animate
-          data-delay="200"
-          class="mt-8 mx-auto max-w-sm rounded-lg shadow-md overflow-hidden"
-        >
-          <img
-            src={`${baseUrl}${hotel.image}`}
-            alt={hotel.name}
-            loading="lazy"
-            class="w-full h-auto object-cover"
-          />
+          <div
+            data-animate
+            data-delay="200"
+            class="mt-8 mx-auto max-w-sm rounded-lg shadow-md overflow-hidden"
+          >
+            <img
+              src={`${baseUrl}${hotel.image}`}
+              alt={hotel.name}
+              loading="lazy"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+
+          <p
+            data-animate
+            data-delay="300"
+            class="font-serif text-lg md:text-xl leading-relaxed max-w-sm mx-auto mt-8 text-ink"
+          >
+            {before}
+            {after !== undefined && (
+              <>
+                <span class="text-accent">{hotel.highlight}</span>
+                {after}
+              </>
+            )}
+          </p>
+
+          <div class="relative inline-block mt-8">
+            <a
+              href={hotel.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-animate
+              data-delay="400"
+              class={`relative z-10 inline-block px-12 py-2 font-serif text-xl md:text-2xl rounded-md transition-colors duration-300 ${
+                index % 2 === 0
+                  ? "bg-accent text-white hover:bg-accent-soft"
+                  : "border-2 border-accent text-accent italic font-bold hover:bg-accent hover:text-white"
+              }`}
+            >
+              Reservar
+            </a>
+
+            {index % 2 !== 0 && (
+              <img
+                src={`${baseUrl}/images/flower.png`}
+                alt=""
+                aria-hidden="true"
+                class="pointer-events-none select-none absolute w-32 h-auto z-10"
+                style={{ right: "-4rem", top: "-3.5rem" }}
+              />
+            )}
+          </div>
         </div>
-
-        <p
-          data-animate
-          data-delay="300"
-          class="font-serif text-lg md:text-xl leading-relaxed max-w-sm mx-auto mt-8 text-ink"
-        >
-          {before}
-          {after !== undefined && (
-            <>
-              <span class="text-accent">{hotel.highlight}</span>
-              {after}
-            </>
-          )}
-        </p>
-
-        <a
-          href={hotel.bookingUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          data-animate
-          data-delay="400"
-          class={`mt-8 inline-block px-12 py-4 font-serif text-lg md:text-xl rounded-md transition-colors duration-300 ${
-            index % 2 === 0
-              ? 'bg-accent text-white hover:bg-accent-soft'
-              : 'border border-accent text-accent hover:bg-accent hover:text-white'
-          }`}
-        >
-          Reservar
-        </a>
-      </div>
-    );
-  })}
+      );
+    })
+  }
 </section>

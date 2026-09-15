@@ -83,6 +83,16 @@ export const EVENT_CONFIG = {
       highlight: "una ubicación conveniente al norte de la ciudad.",
       bookingUrl: "https://wa.me/523310631395",
     },
+    {
+      name: "Hard Rock",
+      subtitle: "Guadalajara",
+      image: "/images/hard-rock.jpg",
+      description:
+        "Una experiencia vibrante y contemporánea, ideal para quienes buscan hospedarse, relajarse y disfrutar del ambiente musical de Guadalajara. El hotel cuenta con restaurantes, entretenimiento, spa y piscina.",
+      highlight:
+        "El hotel cuenta con restaurantes, entretenimiento, spa y piscina.",
+      bookingUrl: "https://wa.me/523310631395",
+    },
   ] as Hotel[],
 
   // Bloque de cierre con la confirmación de asistencia

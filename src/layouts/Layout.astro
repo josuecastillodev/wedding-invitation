@@ -26,23 +26,28 @@ const baseUrl = EVENT_CONFIG.baseUrl;
 
     <title>{title}</title>
 
-    <!-- Preload fuentes críticas -->
-    <link rel="preload" href={`${baseUrl}/fonts/tenor/TenorSans.woff2`} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={`${baseUrl}/fonts/high-spirited/HighSpirited.woff2`} as="font" type="font/woff2" crossorigin />
+    <!-- Fuentes: Cormorant Garamond (serif) + Allura (script) desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    />
     <link rel="preload" href={`${baseUrl}/fonts/velista/VELISTARegular.woff2`} as="font" type="font/woff2" crossorigin />
 
     <!-- CSS crítico inline -->
     <style is:inline>
       :root {
-        --font-serif: "Tenor Sans", Georgia, "Times New Roman", serif;
-        --font-script: "High Spirited", cursive;
-        --color-accent: #842A29;
-        --color-accent-soft: #A85A52;
+        --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        --font-script: "Allura", cursive;
+        --color-accent: #9c3829;
+        --color-accent-soft: #b8514a;
         --color-paper: #F5F1EA;
-        --color-ink: #191919;
+        --color-ink: #403a35;
       }
       body {
         font-family: var(--font-serif);
+        font-optical-sizing: auto;
         color: var(--color-ink);
         background-color: var(--color-paper);
         margin: 0;

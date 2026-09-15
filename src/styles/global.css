@@ -5,9 +5,9 @@
 /* Tenor Sans - Fuente principal serif */
 @font-face {
   font-family: "Tenor Sans";
-  src: url("/yareli-y-luis/fonts/tenor/TenorSans.woff2") format("woff2"),
-    url("/yareli-y-luis/fonts/tenor/TenorSans.woff") format("woff"),
-    url("/yareli-y-luis/fonts/tenor/TenorSans.ttf") format("truetype");
+  src: url("/liliana-y-daniel/fonts/tenor/TenorSans.woff2") format("woff2"),
+    url("/liliana-y-daniel/fonts/tenor/TenorSans.woff") format("woff"),
+    url("/liliana-y-daniel/fonts/tenor/TenorSans.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -16,11 +16,9 @@
 /* High Spirited - Fuente decorativa script */
 @font-face {
   font-family: "High Spirited";
-  src: url("/yareli-y-luis/fonts/high-spirited/HighSpirited.woff2")
-      format("woff2"),
-    url("/yareli-y-luis/fonts/high-spirited/HighSpirited.woff") format("woff"),
-    url("/yareli-y-luis/fonts/high-spirited/HighSpirited.ttf")
-      format("truetype");
+  src: url("/liliana-y-daniel/fonts/high-spirited/HighSpirited.woff2") format("woff2"),
+    url("/liliana-y-daniel/fonts/high-spirited/HighSpirited.woff") format("woff"),
+    url("/liliana-y-daniel/fonts/high-spirited/HighSpirited.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -29,9 +27,9 @@
 /* Velista - Fuente de firma */
 @font-face {
   font-family: "Velista";
-  src: url("/yareli-y-luis/fonts/velista/VELISTARegular.woff2") format("woff2"),
-    url("/yareli-y-luis/fonts/velista/VELISTARegular.woff") format("woff"),
-    url("/yareli-y-luis/fonts/velista/VELISTARegular.ttf") format("truetype");
+  src: url("/liliana-y-daniel/fonts/velista/VELISTARegular.woff2") format("woff2"),
+    url("/liliana-y-daniel/fonts/velista/VELISTARegular.woff") format("woff"),
+    url("/liliana-y-daniel/fonts/velista/VELISTARegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -44,7 +42,7 @@ html {
 body {
   @apply text-ink font-serif;
   background-color: #f5f1ea;
-  background-image: url("/yareli-y-luis/images/bg-fijo.jpg");
+  background-image: url("/liliana-y-daniel/images/bg-fijo.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -53,12 +51,12 @@ body {
 
 /* Hero background responsive */
 .hero-background {
-  background-image: url("/yareli-y-luis/images/background-movil.webp");
+  background-image: url("/liliana-y-daniel/images/background-movil.webp");
 }
 
 @media (min-width: 768px) {
   .hero-background {
-    background-image: url("/yareli-y-luis/images/background.webp");
+    background-image: url("/liliana-y-daniel/images/background.webp");
   }
 }
 
@@ -68,6 +66,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -78,6 +77,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -88,6 +88,7 @@ body {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -131,15 +132,19 @@ body {
 [data-delay="100"] {
   transition-delay: 100ms;
 }
+
 [data-delay="200"] {
   transition-delay: 200ms;
 }
+
 [data-delay="300"] {
   transition-delay: 300ms;
 }
+
 [data-delay="400"] {
   transition-delay: 400ms;
 }
+
 [data-delay="500"] {
   transition-delay: 500ms;
 }
@@ -151,6 +156,7 @@ img {
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

@@ -30,7 +30,7 @@ export const EVENT_CONFIG = {
   displayDate: "15 de mayo de 2027",
 
   // Base URL del sitio
-  baseUrl: "/yareli-y-luis",
+  baseUrl: "/liliana-y-daniel",
 
 
   // Lugar de la celebración
@@ -53,12 +53,12 @@ export const EVENT_CONFIG = {
   },
 
   // Datos bancarios
-  bank: {
-    bank: "BBVA",
-    beneficiary: "Yareli Nathalie Cárdenas Ayon",
-    account: "157 995 9228",
-    clabe: "012 180 01579959228 5",
-  },
+  // bank: {
+  //   bank: "BBVA",
+  //   beneficiary: "Yareli Nathalie Cárdenas Ayon",
+  //   account: "157 995 9228",
+  //   clabe: "012 180 01579959228 5",
+  // },
 
   // Código de vestimenta
   dressCode: {

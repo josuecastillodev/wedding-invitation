@@ -1,0 +1,42 @@
+---
+// Cuerpo compartido de la invitación: arma Layout + EnvelopeOpening +
+// todas las secciones, parametrizado por idioma. Usado por
+// src/pages/index.astro (es) y src/pages/en/index.astro (en) para no
+// duplicar este árbol de componentes entre las dos rutas.
+import Layout from "../layouts/Layout.astro";
+import { EnvelopeOpening } from "./EnvelopeOpening";
+import HeroSection from "./HeroSection.astro";
+import StorySection from "./StorySection.astro";
+import VenueSection from "./VenueSection.astro";
+import RsvpCta from "./RsvpCta.astro";
+import GiftRegistry from "./GiftRegistry.astro";
+import DressCode from "./DressCode.astro";
+import Itinerary from "./Itinerary.astro";
+import Concierge from "./Concierge.astro";
+import Hospedaje from "./Hospedaje.astro";
+import Footer from "./Footer.astro";
+import type { Lang } from "../i18n/translations";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+---
+
+<Layout lang={lang}>
+  <EnvelopeOpening client:load lang={lang}>
+    <main>
+      <HeroSection lang={lang} />
+      <StorySection lang={lang} />
+      <VenueSection lang={lang} />
+      <RsvpCta lang={lang} showImage />
+      <GiftRegistry lang={lang} />
+      <DressCode lang={lang} />
+      <Concierge lang={lang} />
+      <Hospedaje lang={lang} />
+      <RsvpCta lang={lang} showSilhouette />
+      <Footer lang={lang} />
+    </main>
+  </EnvelopeOpening>
+</Layout>

@@ -77,7 +77,6 @@ export interface Translations {
     rsvp: string;
     gift: string;
     hospedaje: string;
-    back: string;
   };
   itinerary: {
     heading: string;
@@ -201,7 +200,6 @@ export const translations: Record<Lang, Translations> = {
       rsvp: "RSVP",
       gift: "Regalos",
       hospedaje: "Hospedaje",
-      back: "Volver",
     },
     itinerary: {
       heading: "Itinerario",
@@ -340,7 +338,6 @@ export const translations: Record<Lang, Translations> = {
       rsvp: "RSVP",
       gift: "Registry",
       hospedaje: "Stay",
-      back: "Back",
     },
     itinerary: {
       heading: "Itinerary",

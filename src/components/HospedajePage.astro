@@ -8,6 +8,7 @@ import Layout from "../layouts/Layout.astro";
 import Hospedaje from "./Hospedaje.astro";
 import Footer from "./Footer.astro";
 import type { Lang } from "../i18n/translations";
+import RsvpCta from "./RsvpCta.astro";
 
 interface Props {
   lang?: Lang;
@@ -20,6 +21,7 @@ const { lang = "es" } = Astro.props;
   <main>
     <div class="pt-16"></div>
     <Hospedaje lang={lang} />
+    <RsvpCta lang={lang} showSilhouette />
     <Footer lang={lang} />
   </main>
 </Layout>

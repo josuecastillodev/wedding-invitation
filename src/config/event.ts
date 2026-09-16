@@ -56,11 +56,6 @@ export const EVENT_CONFIG = {
     code: "Formal",
   },
 
-  // Servicio de concierge de los wedding planners (el copy vive en src/i18n/translations.ts)
-  concierge: {
-    ctaUrl: "#hospedaje",
-  },
-
   // Hoteles recomendados (nombre/imagen/link no cambian por idioma; su
   // descripción vive en src/i18n/translations.ts, buscada por `id`)
   hotels: [

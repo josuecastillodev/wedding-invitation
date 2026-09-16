@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import { EVENT_CONFIG } from "../config/event";
 import { translations, type Lang } from "../i18n/translations";
 import RichText from "./RichText.astro";
@@ -10,7 +11,7 @@ interface Props {
 const { lang = "es" } = Astro.props;
 const t = translations[lang].concierge;
 const baseUrl = EVENT_CONFIG.baseUrl;
-const { concierge } = EVENT_CONFIG;
+const hospedajeHref = getRelativeLocaleUrl(lang, "hospedaje");
 ---
 
 <section class="px-6 text-center">
@@ -52,7 +53,7 @@ const { concierge } = EVENT_CONFIG;
   </div>
 
   <a
-    href={concierge.ctaUrl}
+    href={hospedajeHref}
     data-animate
     data-delay="400"
     class="mt-10 bg-accent text-white hover:bg-accent-soft inline-block py-2 font-serif text-2xl md:text-3xl transition-colors duration-300 rounded-md w-64"

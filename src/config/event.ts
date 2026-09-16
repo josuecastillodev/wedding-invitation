@@ -34,13 +34,13 @@ export const EVENT_CONFIG = {
     name: "Hacienda La Magdalena",
     city: "Guadalajara, Jalisco, México.",
     // TODO: reemplazar por el link real de Google Maps de Hacienda La Magdalena
-    mapUrl: "https://maps.app.goo.gl/BYRBWi9MgLoKGs6j7?g_st=ic",
+    mapUrl: "https://maps.app.goo.gl/78J8hNFfUyXs7hce9",
     image: "/images/venue.jpg",
   },
 
   // Regalo en efectivo / mesa de regalos (el copy vive en src/i18n/translations.ts)
   gift: {
-    ctaUrl: "#datos-bancarios",
+    ctaUrl: "https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiREFOSUVMIiwiYWN0aW9uIjoicGF5bWVudCIsInRva2VuIjoiNDE1NDI0MzU0NCJ9",
   },
 
   // Datos bancarios

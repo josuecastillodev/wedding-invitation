@@ -14,14 +14,73 @@ const baseUrl = EVENT_CONFIG.baseUrl;
 <footer data-animate class="relative mt-16">
   <!-- Main Section - Burgundy Background -->
   <div class="bg-accent text-white text-center relative">
+    <div class="relative text-center px-6 pt-2">
+      <!-- Greeting -->
+      <p
+        data-animate
+        data-delay="100"
+        class="font-script text-3xl md:text-4xl mt-8"
+      >
+        {t.greeting}
+      </p>
+
+      <!-- Name -->
+      <h3
+        data-animate
+        data-delay="200"
+        class="font-serif text-sm md:text-base uppercase tracking-[0.2em] mt-4"
+      >
+        {t.introName}
+      </h3>
+
+      <!-- Description -->
+      <div
+        data-animate
+        data-delay="300"
+        class="max-w-2xl mx-auto mt-6 space-y-4 text-xs md:text-sm leading-relaxed text-center md:text-left"
+      >
+        <p>{t.paragraph1}</p>
+        <p>{t.paragraph2}</p>
+      </div>
+    </div>
+
+    <!-- Logo -->
+    <div
+      data-animate
+      data-delay="400"
+      class="w-20 h-20 md:w-24 md:h-24 mx-auto my-6"
+    >
+      <img
+        src={`${baseUrl}/images/logotipo.png`}
+        alt="Conceptos Finos"
+        loading="lazy"
+        class="w-full h-full object-contain"
+      />
+    </div>
+
     <!-- Contact Info -->
+    <p
+      data-animate
+      data-delay="500"
+      class="font-serif text-sm md:text-base uppercase tracking-[0.15em]"
+    >
+      {t.contactName}
+    </p>
     <a
-      href="tel:+523310631395"
+      href="mailto:gerencia@conceptosfinos.com.mx"
+      data-animate
+      data-delay="500"
+      class="block text-sm md:text-base mt-2 hover:underline"
+    >
+      gerencia@conceptosfinos.com.mx
+    </a>
+    <a
+      href="tel:+523332233868"
       data-animate
       data-delay="500"
       class="block text-sm md:text-base mt-1 hover:underline"
     >
-      33 1063 1395
+      33 3223 3868
     </a>
 
     <!-- Instagram -->

@@ -84,6 +84,11 @@ export interface Translations {
     items: ItineraryItemCopy[];
   };
   footer: {
+    greeting: string;
+    introName: string;
+    paragraph1: string;
+    paragraph2: string;
+    contactName: string;
     instagram: string;
     credits: string;
   };
@@ -211,6 +216,13 @@ export const translations: Record<Lang, Translations> = {
       ],
     },
     footer: {
+      greeting: "—Hola,",
+      introName: "Soy Miguel Angel Ramírez",
+      paragraph1:
+        "Estoy aquí para acompañarte en cada paso hacia ese día tan especial. Si tienes dudas sobre el evento, paquetes o reservaciones, no dudes en escribirme. Será un placer ayudarte a que vivas esta experiencia de forma sencilla, clara y sin complicaciones.",
+      paragraph2:
+        "En Conceptos Finos, cada proyecto es una historia que merece ser contada de forma inolvidable. Me especializo en transformar tus ideas en una experiencia que trasciende el tiempo, asegurando que cada detalle refleje la singularidad de tu celebración.",
+      contactName: "Miguel Angel Ramírez",
       instagram: "Sigue nuestras bodas en Instagram",
       credits: "© Diseñado por Dizaru. 2025.",
     },
@@ -349,6 +361,13 @@ export const translations: Record<Lang, Translations> = {
       ],
     },
     footer: {
+      greeting: "—Hi,",
+      introName: "I'm Miguel Angel Ramírez",
+      paragraph1:
+        "I'm here to walk with you through every step toward that special day. If you have questions about the event, packages, or reservations, feel free to reach out. It will be my pleasure to help you enjoy this experience in a simple, clear, and hassle-free way.",
+      paragraph2:
+        "At Conceptos Finos, every project is a story worth telling in an unforgettable way. I specialize in turning your ideas into an experience that transcends time, making sure every detail reflects the uniqueness of your celebration.",
+      contactName: "Miguel Angel Ramírez",
       instagram: "Follow our weddings on Instagram",
       credits: "© Designed by Dizaru. 2025.",
     },

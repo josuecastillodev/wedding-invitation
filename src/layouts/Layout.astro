@@ -5,6 +5,7 @@ import { EVENT_CONFIG } from '../config/event';
 import { translations, type Lang } from '../i18n/translations';
 import LanguageSwitch from '../components/LanguageSwitch.astro';
 import NavMenu from '../components/NavMenu';
+import WhatsappButton from '../components/WhatsappButton.astro';
 
 interface Props {
   lang?: Lang;
@@ -85,6 +86,7 @@ const navHospedajeHref = getRelativeLocaleUrl(lang, 'hospedaje');
       labels={t.nav}
       startHidden={hasEnvelope}
     />
+    <WhatsappButton lang={lang} />
     <slot />
 
     <!-- Script para animaciones on-scroll (vanilla JS, muy ligero) -->

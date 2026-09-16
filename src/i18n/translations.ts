@@ -95,6 +95,10 @@ export interface Translations {
   gallery: {
     alts: string[];
   };
+  whatsapp: {
+    message: string;
+    ariaLabel: string;
+  };
 }
 
 export const translations: Record<Lang, Translations> = {
@@ -224,7 +228,7 @@ export const translations: Record<Lang, Translations> = {
         "En Conceptos Finos, cada proyecto es una historia que merece ser contada de forma inolvidable. Me especializo en transformar tus ideas en una experiencia que trasciende el tiempo, asegurando que cada detalle refleje la singularidad de tu celebración.",
       contactName: "Miguel Angel Ramírez",
       instagram: "Sigue nuestras bodas en Instagram",
-      credits: "© Diseñado por Dizaru. 2025.",
+      credits: "© Diseñado por Dizaru. 2026.",
     },
     gallery: {
       alts: [
@@ -234,6 +238,10 @@ export const translations: Record<Lang, Translations> = {
         "Liliana y Daniel con el auto",
         "Liliana y Daniel",
       ],
+    },
+    whatsapp: {
+      message: "¡Hola! 😊 Buen día.\n\nSoy invitado a la boda de Liliana & Daniel. ¿Podrían ayudarme, por favor?",
+      ariaLabel: "Escríbenos por WhatsApp",
     },
   },
   en: {
@@ -369,7 +377,7 @@ export const translations: Record<Lang, Translations> = {
         "At Conceptos Finos, every project is a story worth telling in an unforgettable way. I specialize in turning your ideas into an experience that transcends time, making sure every detail reflects the uniqueness of your celebration.",
       contactName: "Miguel Angel Ramírez",
       instagram: "Follow our weddings on Instagram",
-      credits: "© Designed by Dizaru. 2025.",
+      credits: "© Designed by Dizaru. 2026.",
     },
     gallery: {
       alts: [
@@ -379,6 +387,10 @@ export const translations: Record<Lang, Translations> = {
         "Liliana and Daniel with the car",
         "Liliana and Daniel",
       ],
+    },
+    whatsapp: {
+      message: "Hi! 😊 Good day.\n\nI'm a guest at Liliana & Daniel's wedding. Could you please help me?",
+      ariaLabel: "Message us on WhatsApp",
     },
   },
 };

@@ -1,8 +1,10 @@
 ---
 import '../styles/global.css';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { EVENT_CONFIG } from '../config/event';
 import { translations, type Lang } from '../i18n/translations';
 import LanguageSwitch from '../components/LanguageSwitch.astro';
+import NavMenu from '../components/NavMenu';
 
 interface Props {
   lang?: Lang;
@@ -23,6 +25,12 @@ const pageDescription =
     .replace('{groom}', EVENT_CONFIG.groomName);
 
 const baseUrl = EVENT_CONFIG.baseUrl;
+
+const homeUrl = getRelativeLocaleUrl(lang, '');
+const navHomeHref = `${homeUrl}#home`;
+const navRsvpHref = `${homeUrl}#rsvp`;
+const navGiftHref = `${homeUrl}#regalos`;
+const navHospedajeHref = getRelativeLocaleUrl(lang, 'hospedaje');
 ---
 
 <!doctype html>
@@ -66,6 +74,15 @@ const baseUrl = EVENT_CONFIG.baseUrl;
   </head>
   <body>
     <LanguageSwitch lang={lang} />
+    <NavMenu
+      client:load
+      lang={lang}
+      homeHref={navHomeHref}
+      rsvpHref={navRsvpHref}
+      giftHref={navGiftHref}
+      hospedajeHref={navHospedajeHref}
+      labels={t.nav}
+    />
     <slot />
 
     <!-- Script para animaciones on-scroll (vanilla JS, muy ligero) -->

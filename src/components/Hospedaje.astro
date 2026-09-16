@@ -65,14 +65,14 @@ const { hotels } = EVENT_CONFIG;
             )}
           </p>
 
-          <div class="relative inline-block mt-8">
+          <div class="relative inline-block mt-12">
             <a
               href={hotel.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
               data-animate
               data-delay="400"
-              class={`relative z-10 inline-block px-12 py-2 font-serif text-xl md:text-2xl rounded-md transition-colors duration-300 ${
+              class={`relative z-10 inline-block w-48 mx-auto py-3 font-serif text-3xl rounded-md transition-colors duration-300 ${
                 index % 2 === 0
                   ? "bg-accent text-white hover:bg-accent-soft"
                   : "border-2 border-accent text-accent italic font-bold hover:bg-accent hover:text-white"

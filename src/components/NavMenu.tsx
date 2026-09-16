@@ -15,6 +15,7 @@ interface NavMenuProps {
   giftHref: string;
   hospedajeHref: string;
   labels: NavMenuLabels;
+  startHidden?: boolean;
 }
 
 export function NavMenu({
@@ -24,8 +25,10 @@ export function NavMenu({
   giftHref,
   hospedajeHref,
   labels,
+  startHidden = false,
 }: NavMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuVisible, setIsMenuVisible] = useState(!startHidden);
   const openAriaLabel = lang === "en" ? "Open menu" : "Abrir menú";
   const closeAriaLabel = lang === "en" ? "Close menu" : "Cerrar menú";
 
@@ -38,12 +41,21 @@ export function NavMenu({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isMenuVisible) return;
+    const handleEnvelopeOpened = () => setIsMenuVisible(true);
+    window.addEventListener("envelope-opened", handleEnvelopeOpened);
+    return () => window.removeEventListener("envelope-opened", handleEnvelopeOpened);
+  }, [isMenuVisible]);
+
   const links = [
     { href: homeHref, label: labels.home },
     { href: rsvpHref, label: labels.rsvp },
     { href: giftHref, label: labels.gift },
     { href: hospedajeHref, label: labels.hospedaje },
   ];
+
+  if (!isMenuVisible) return null;
 
   return (
     <>
@@ -63,6 +75,7 @@ export function NavMenu({
 
       <div
         className="fixed inset-0 z-[70]"
+        inert={!isOpen}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
         <button

@@ -22,7 +22,7 @@ interface Props {
 const { lang = "es" } = Astro.props;
 ---
 
-<Layout lang={lang}>
+<Layout lang={lang} hasEnvelope>
   <EnvelopeOpening client:load lang={lang}>
     <main>
       <HeroSection lang={lang} />

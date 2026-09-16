@@ -10,9 +10,10 @@ interface Props {
   lang?: Lang;
   title?: string;
   description?: string;
+  hasEnvelope?: boolean;
 }
 
-const { lang = 'es', title, description } = Astro.props;
+const { lang = 'es', title, description, hasEnvelope = false } = Astro.props;
 const t = translations[lang];
 
 const pageTitle =
@@ -82,6 +83,7 @@ const navHospedajeHref = getRelativeLocaleUrl(lang, 'hospedaje');
       giftHref={navGiftHref}
       hospedajeHref={navHospedajeHref}
       labels={t.nav}
+      startHidden={hasEnvelope}
     />
     <slot />
 

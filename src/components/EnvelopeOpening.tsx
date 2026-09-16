@@ -52,6 +52,28 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
     };
   }, [isFullyOpen]);
 
+  useEffect(() => {
+    if (window.location.hash) {
+      setIsFullyOpen(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isFullyOpen) {
+      window.dispatchEvent(new Event("envelope-opened"));
+    }
+  }, [isFullyOpen]);
+
+  useEffect(() => {
+    if (!isFullyOpen) return;
+    const hash = window.location.hash;
+    if (!hash) return;
+    const target = document.getElementById(hash.slice(1));
+    if (target) {
+      requestAnimationFrame(() => target.scrollIntoView());
+    }
+  }, [isFullyOpen]);
+
   if (isFullyOpen) {
     return <>{children}</>;
   }

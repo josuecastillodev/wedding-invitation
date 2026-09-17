@@ -40,7 +40,7 @@ export function RsvpButton({ label, variant = "solid" }: RsvpButtonProps) {
       href={tallyUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-block px-10 py-2 font-serif text-2xl md:text-3xl text-center transition-colors duration-300 max-w-64 rounded-md ${styles}`}
+      className={`inline-block px-10 py-2 font-serif font-bold text-2xl md:text-3xl text-center transition-colors duration-300 max-w-64 rounded-md ${styles}`}
     >
       {label}
     </a>

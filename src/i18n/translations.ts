@@ -138,7 +138,7 @@ export const translations: Record<Lang, Translations> = {
     rsvp: {
       headline: "Será una celebración increíble",
       question: "¿Nos acompañas?",
-      ctaLabel: "¡Confirma asistencia!",
+      ctaLabel: "¡Confirmar asistencia!",
     },
     gift: {
       heading: "Mesa de regalos",

@@ -1,20 +1,49 @@
 ---
+import { EVENT_CONFIG } from "../config/event";
 import { translations, type Lang } from "../i18n/translations";
-import RichText from "./RichText.astro";
 
 interface Props {
   lang?: Lang;
 }
 
 const { lang = "es" } = Astro.props;
-const { segments } = translations[lang].story;
+const { daysLabel, weeksLabel } = translations[lang].story;
+const eventTime = new Date(`${EVENT_CONFIG.eventDate}T17:30:00`).getTime();
+const daysLeft = Math.max(0, Math.ceil((eventTime - Date.now()) / 86_400_000));
+const weeksLeft = Math.floor(daysLeft / 7);
 ---
 
-<section class="px-6 py-6 text-center">
-  <p
+<section class="px-6 pt-10 pb-6 text-center bg-gradient-to-b from-[#dedb98] to-paper to-90%">
+  <div
     data-animate
-    class="font-serif text-2xl md:text-3xl leading-tight max-w-xl mx-auto text-ink"
+    class="grid grid-cols-[1fr_auto_1fr] gap-x-5 max-w-xl mx-auto"
   >
-    <RichText segments={segments} />
-  </p>
+    <span
+      id="story-days-left"
+      class="font-serif text-ink text-5xl md:text-6xl leading-none justify-self-end"
+      >{daysLeft}</span
+    >
+    <div class="w-px h-12 md:h-14 bg-accent/60"></div>
+    <span
+      id="story-weeks-left"
+      class="font-serif text-ink text-5xl md:text-6xl leading-none justify-self-start"
+      >{weeksLeft}</span
+    >
+    <span class="font-script text-accent text-3xl md:text-4xl mt-2 justify-self-end"
+      >{daysLabel}</span
+    >
+    <span></span>
+    <span class="font-script text-accent text-3xl md:text-4xl mt-2 justify-self-start"
+      >{weeksLabel}</span
+    >
+  </div>
 </section>
+
+<script define:vars={{ eventDate: EVENT_CONFIG.eventDate }}>
+  const target = new Date(`${eventDate}T17:30:00`).getTime();
+  const days = Math.max(0, Math.ceil((target - Date.now()) / 86_400_000));
+  const daysEl = document.getElementById("story-days-left");
+  const weeksEl = document.getElementById("story-weeks-left");
+  if (daysEl) daysEl.textContent = String(days);
+  if (weeksEl) weeksEl.textContent = String(Math.floor(days / 7));
+</script>

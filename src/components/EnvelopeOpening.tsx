@@ -87,11 +87,18 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
         className="text-center transition-opacity duration-500"
         style={{ opacity: isOpening ? 0 : 1 }}
       >
-        <p className="font-serif text-ink text-xl md:text-2xl leading-snug">
-          {t.intro}
-        </p>
-        <p className="font-script text-accent text-5xl md:text-6xl mt-3">
-          {t.script}
+        <p className="font-serif text-ink text-3xl md:text-4xl leading-tight">
+          {t.segments.map((segment, i) =>
+            segment.br ? (
+              <br key={i} />
+            ) : segment.class ? (
+              <span key={i} className={segment.class}>
+                {segment.text}
+              </span>
+            ) : (
+              segment.text
+            ),
+          )}
         </p>
       </div>
 

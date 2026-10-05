@@ -32,8 +32,7 @@ export interface Translations {
     description: string;
   };
   envelope: {
-    intro: string;
-    script: string;
+    segments: RichSegment[];
     prompt: string;
     openAriaLabel: string;
   };
@@ -118,8 +117,15 @@ export const translations: Record<Lang, Translations> = {
       description: "Invitación de boda de {bride} y {groom}",
     },
     envelope: {
-      intro: "Querido invitado, se dice que…",
-      script: "Nos casamos",
+      segments: [
+        { text: "Nuestro amor siempre" },
+        { br: true },
+        { text: "encontró el camino de regreso." },
+        { br: true },
+        { text: "Hoy, " },
+        { text: "anunciamos nuestra boda", class: "text-accent italic font-bold" },
+        { text: ".", class: "text-[#d98a74]" },
+      ],
       prompt: "Toca el sobre para abrir",
       openAriaLabel: "Abrir invitación",
     },
@@ -261,8 +267,15 @@ export const translations: Record<Lang, Translations> = {
       description: "Wedding invitation for {bride} and {groom}",
     },
     envelope: {
-      intro: "Dear guest, they say that…",
-      script: "We are getting married",
+      segments: [
+        { text: "Our love always" },
+        { br: true },
+        { text: "found its way back." },
+        { br: true },
+        { text: "Today, " },
+        { text: "we announce our wedding", class: "text-accent italic font-bold" },
+        { text: ".", class: "text-[#d98a74]" },
+      ],
       prompt: "Tap the envelope to open",
       openAriaLabel: "Open invitation",
     },

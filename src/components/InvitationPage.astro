@@ -9,6 +9,7 @@ import HeroSection from "./HeroSection.astro";
 import StorySection from "./StorySection.astro";
 import VenueSection from "./VenueSection.astro";
 import RsvpCta from "./RsvpCta.astro";
+import BlessingSection from "./BlessingSection.astro";
 import GiftRegistry from "./GiftRegistry.astro";
 import DressCode from "./DressCode.astro";
 import Concierge from "./Concierge.astro";
@@ -23,16 +24,17 @@ const { lang = "es" } = Astro.props;
 ---
 
 <Layout lang={lang} hasEnvelope>
-  <EnvelopeOpening client:load lang={lang}>
-    <main>
-      <HeroSection lang={lang} />
-      <StorySection lang={lang} />
-      <VenueSection lang={lang} />
-      <RsvpCta lang={lang} showImage />
-      <GiftRegistry lang={lang} />
-      <DressCode lang={lang} />
-      <Concierge lang={lang} />
-      <Footer lang={lang} />
-    </main>
-  </EnvelopeOpening>
+  <!-- <EnvelopeOpening client:load lang={lang}> -->
+  <main>
+    <HeroSection lang={lang} />
+    <StorySection lang={lang} />
+    <VenueSection lang={lang} />
+    <RsvpCta lang={lang} showImage />
+    <BlessingSection lang={lang} />
+    <GiftRegistry lang={lang} />
+    <DressCode lang={lang} />
+    <Concierge lang={lang} />
+    <Footer lang={lang} />
+  </main>
+  <!-- </EnvelopeOpening> -->
 </Layout>

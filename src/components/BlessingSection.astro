@@ -1,0 +1,93 @@
+---
+import { EVENT_CONFIG } from "../config/event";
+import { translations, type Lang } from "../i18n/translations";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "es" } = Astro.props;
+const t = translations[lang].blessing;
+const baseUrl = EVENT_CONFIG.baseUrl;
+const { parents } = EVENT_CONFIG;
+
+const families = [
+  { label: t.brideParents, names: parents.bride, flower: true },
+  { label: t.groomParents, names: parents.groom, flower: false },
+];
+---
+
+<section class="px-6 text-center pt-8 pb-12">
+  <div class="max-w-xl mx-auto">
+    <img
+      data-animate
+      src={`${baseUrl}/images/flowers-separator.png`}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      class="mx-auto h-48 w-auto"
+    />
+
+    <div data-animate class="-mt-2">
+      <h2 class="font-serif text-3xl text-accent">{t.eyebrow}</h2>
+      <p class="font-script text-accent text-3xl ml-24 -mt-1">
+        {t.subtitle}
+      </p>
+    </div>
+
+    <div class="mt-14 mx-auto max-w-xs">
+      {
+        families.map((family, i) => {
+          const staggered = family.names.some((n) => n.startsWith("&"));
+          return (
+            <div
+              data-animate
+              data-delay={100 + i * 100}
+              class={i > 0 ? "mt-8 pt-8 border-t border-accent" : ""}
+            >
+              <p class="relative inline-block font-script text-accent text-3xl">
+                {family.label}
+                {family.flower && (
+                  <img
+                    src={`${baseUrl}/images/flor-morada.png`}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    class="absolute -right-[22px] -top-6 h-12 w-auto rotate-[20deg]"
+                  />
+                )}
+              </p>
+              <div
+                class={
+                  staggered
+                    ? "mt-6 inline-flex flex-col text-left"
+                    : "mt-6 flex flex-col"
+                }
+              >
+                {family.names.map((name) => (
+                  <p
+                    class={`font-serif text-3xl text-ink leading-snug ${
+                      name.startsWith("&") ? "pl-14" : ""
+                    } ${staggered ? "" : "mt-2 first:mt-0"}`}
+                  >
+                    {name}
+                  </p>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <!-- Móvil: a todo el ancho (sale del padding de la sección).
+       Escritorio: limitada a un ancho cómodo para no ampliar de más la foto vertical. -->
+  <img
+    data-animate
+    src={`${baseUrl}/images/foto-pareja.png`}
+    alt=""
+    loading="lazy"
+    class="mt-16 -mx-6 w-[calc(100%+3rem)] max-w-none md:mx-auto md:w-full md:max-w-md md:rounded-lg"
+  />
+</section>

@@ -16,7 +16,8 @@ export interface RichSegment {
 
 export interface HotelCopy {
   description: string;
-  highlight: string;
+  /** Fragmentos de `description` que se resaltan (en orden de aparición). */
+  highlights: string[];
 }
 
 export interface ItineraryItemCopy {
@@ -38,11 +39,10 @@ export interface Translations {
   };
   hero: {
     eyebrow: string;
-    countdownLabel: string;
-    countdownUnit: string;
   };
   story: {
-    segments: RichSegment[];
+    daysLabel: string;
+    weeksLabel: string;
   };
   venue: {
     eyebrow: string;
@@ -53,13 +53,23 @@ export interface Translations {
     question: string;
     ctaLabel: string;
   };
+  blessing: {
+    eyebrow: string;
+    subtitle: string;
+    brideParents: string;
+    groomParents: string;
+  };
   gift: {
     heading: string;
     segments: RichSegment[];
-    ctaLabel: string;
+    nameLabel: string;
+    accountLabel: string;
+    clabeLabel: string;
   };
   dressCode: {
     segments: RichSegment[];
+    womenLabel: string;
+    menLabel: string;
   };
   concierge: {
     subtitle: string;
@@ -115,21 +125,10 @@ export const translations: Record<Lang, Translations> = {
     },
     hero: {
       eyebrow: "Nuestra boda",
-      countdownLabel: "Faltan",
-      countdownUnit: "Días",
     },
     story: {
-      segments: [
-        { text: "Una historia de amor" },
-        { br: true },
-        { text: "que comenzó en " },
-        { text: "México.", class: "text-accent italic" },
-        { br: true },
-        { text: "Hoy, regresamos " },
-        { text: "para ", class: "text-accent italic" },
-        { br: true },
-        { text: "celebrarla", class: "text-accent italic" },
-      ],
+      daysLabel: "Días",
+      weeksLabel: "Semanas",
     },
     venue: {
       eyebrow: "Nos casamos en",
@@ -140,21 +139,25 @@ export const translations: Record<Lang, Translations> = {
       question: "¿Nos acompañas?",
       ctaLabel: "¡Confirmar asistencia!",
     },
+    blessing: {
+      eyebrow: "Con la bendición de",
+      subtitle: "nuestros padres",
+      brideParents: "Padres de Estefannia",
+      groomParents: "Padres de Alfredo",
+    },
     gift: {
       heading: "Mesa de regalos",
       segments: [
-        { text: "Su " },
-        { text: "presencia", class: "text-accent italic font-bold" },
-        { text: " es nuestro mejor " },
-        { text: "regalo", class: "text-accent italic font-bold" },
-        {
-          text: ". Si desean obsequiarnos, pueden contribuir a nuestro futuro juntos con un ",
-        },
+        { text: "Su presencia es nuestro mejor regalo." },
+        { br: true },
+        { text: "Si desean obsequiarnos un detalle, pueden contribuir a nuestro futuro juntos con un " },
         { text: "regalo en efectivo", class: "text-accent italic font-bold" },
-        { text: " a través del " },
-        { text: "siguiente enlace.", class: "text-accent italic font-bold" },
+        { text: " a través de la " },
+        { text: "siguiente cuenta bancaria.", class: "text-accent italic font-bold" },
       ],
-      ctaLabel: "Hacer un regalo",
+      nameLabel: "Nombre",
+      accountLabel: "Cuenta",
+      clabeLabel: "Clabe",
     },
     dressCode: {
       segments: [
@@ -162,6 +165,8 @@ export const translations: Record<Lang, Translations> = {
         { text: "look formal y elegante", class: "text-accent" },
         { text: " para celebrar juntos nuestra boda." },
       ],
+      womenLabel: "Mujeres",
+      menLabel: "Hombres",
     },
     concierge: {
       subtitle: "Service",
@@ -191,16 +196,22 @@ export const translations: Record<Lang, Translations> = {
       heading: "Hospedaje",
       bookNow: "Reservar",
       hotels: {
-        "one-guadalajara": {
+        "hotel-ng": {
           description:
-            "Una opción práctica y cómoda para disfrutar Guadalajara, con desayuno incluido y una ubicación conveniente al norte de la ciudad.",
-          highlight: "una ubicación conveniente al norte de la ciudad.",
+            "Una opción práctica y cómoda, ideal para quienes priorizan el descanso y estar a pocos minutos de la locación de la boda, evitando largos traslados.",
+          highlights: ["opción práctica", "pocos minutos de la locación de la boda"],
         },
         "hard-rock": {
           description:
             "Una experiencia vibrante y contemporánea, ideal para quienes buscan hospedarse, relajarse y disfrutar del ambiente musical de Guadalajara. El hotel cuenta con restaurantes, entretenimiento, spa y piscina.",
-          highlight:
+          highlights: [
             "El hotel cuenta con restaurantes, entretenimiento, spa y piscina.",
+          ],
+        },
+        "hyatt-andares": {
+          description:
+            "Lujo y sofisticación en la zona más exclusiva de la ciudad. Perfecto para quienes buscan comodidad de primer nivel y rodeados de los mejores restaurantes.",
+          highlights: ["Lujo y sofisticación", "rodeados de los mejores restaurantes."],
         },
       },
     },
@@ -232,15 +243,15 @@ export const translations: Record<Lang, Translations> = {
     },
     gallery: {
       alts: [
-        "Liliana y Daniel",
-        "Liliana y Daniel en el auto",
+        "Estefannia y Alfredo",
+        "Estefannia y Alfredo en el auto",
         "Auto en la carretera",
-        "Liliana y Daniel con el auto",
-        "Liliana y Daniel",
+        "Estefannia y Alfredo con el auto",
+        "Estefannia y Alfredo",
       ],
     },
     whatsapp: {
-      message: "¡Hola! 😊 Buen día.\n\nSoy invitado a la boda de Liliana & Daniel. ¿Podrían ayudarme, por favor?",
+      message: "¡Hola! 😊 Buen día.\n\nSoy invitado a la boda de Estefannia & Alfredo. ¿Podrían ayudarme, por favor?",
       ariaLabel: "Escríbenos por WhatsApp",
     },
   },
@@ -257,21 +268,10 @@ export const translations: Record<Lang, Translations> = {
     },
     hero: {
       eyebrow: "Our Wedding",
-      countdownLabel: "Only",
-      countdownUnit: "Days",
     },
     story: {
-      segments: [
-        { text: "A love story" },
-        { br: true },
-        { text: "that began in " },
-        { text: "Mexico.", class: "text-accent italic" },
-        { br: true },
-        { text: "Today, we return " },
-        { text: "to ", class: "text-accent italic" },
-        { br: true },
-        { text: "celebrate it", class: "text-accent italic" },
-      ],
+      daysLabel: "Days",
+      weeksLabel: "Weeks",
     },
     venue: {
       eyebrow: "We are getting married at",
@@ -282,24 +282,25 @@ export const translations: Record<Lang, Translations> = {
       question: "Will you join us?",
       ctaLabel: "RSVP Here",
     },
+    blessing: {
+      eyebrow: "With the blessing of",
+      subtitle: "our parents",
+      brideParents: "Estefannia's parents",
+      groomParents: "Alfredo's parents",
+    },
     gift: {
       heading: "Gift Registry",
       segments: [
-        { text: "Your presence", class: "text-accent italic font-bold" },
-        { text: " is our greatest gift. However, if you wish to " },
-        {
-          text: "honor us with a present",
-          class: "text-accent italic font-bold",
-        },
-        {
-          text: ", a contribution to our Honeymoon Fund to start our future together ",
-        },
-        {
-          text: "would be deeply appreciated.",
-          class: "text-accent italic font-bold",
-        },
+        { text: "Your presence is our greatest gift." },
+        { br: true },
+        { text: "If you wish to give us a gift, you may contribute to our future together with a " },
+        { text: "cash gift", class: "text-accent italic font-bold" },
+        { text: " through the " },
+        { text: "following bank account.", class: "text-accent italic font-bold" },
       ],
-      ctaLabel: "Contribute",
+      nameLabel: "Name",
+      accountLabel: "Account",
+      clabeLabel: "CLABE",
     },
     dressCode: {
       segments: [
@@ -308,6 +309,8 @@ export const translations: Record<Lang, Translations> = {
         { text: "most elegant formal", class: "text-accent" },
         { text: " attire to celebrate our special day." },
       ],
+      womenLabel: "Women",
+      menLabel: "Men",
     },
     concierge: {
       subtitle: "Service",
@@ -340,16 +343,22 @@ export const translations: Record<Lang, Translations> = {
       heading: "Recommended Hotels",
       bookNow: "Book Now",
       hotels: {
-        "one-guadalajara": {
+        "hotel-ng": {
           description:
-            "A practical and comfortable option to enjoy Guadalajara, featuring complimentary breakfast and a convenient location in the north of the city.",
-          highlight: "a convenient location in the north of the city.",
+            "A practical and comfortable option, ideal for those who prioritize rest and being just minutes from the wedding venue, avoiding long commutes.",
+          highlights: ["practical and comfortable option", "just minutes from the wedding venue"],
         },
         "hard-rock": {
           description:
             "A vibrant and contemporary experience, ideal for those looking to stay, relax, and enjoy the musical atmosphere of Guadalajara. The hotel features restaurants, entertainment, a spa, and a pool.",
-          highlight:
+          highlights: [
             "The hotel features restaurants, entertainment, a spa, and a pool.",
+          ],
+        },
+        "hyatt-andares": {
+          description:
+            "Luxury and sophistication in the most exclusive area of the city. Perfect for those seeking top-tier comfort surrounded by the best restaurants.",
+          highlights: ["Luxury and sophistication", "surrounded by the best restaurants."],
         },
       },
     },
@@ -381,15 +390,15 @@ export const translations: Record<Lang, Translations> = {
     },
     gallery: {
       alts: [
-        "Liliana and Daniel",
-        "Liliana and Daniel in the car",
+        "Estefannia and Alfredo",
+        "Estefannia and Alfredo in the car",
         "Car on the road",
-        "Liliana and Daniel with the car",
-        "Liliana and Daniel",
+        "Estefannia and Alfredo with the car",
+        "Estefannia and Alfredo",
       ],
     },
     whatsapp: {
-      message: "Hi! 😊 Good day.\n\nI'm a guest at Liliana & Daniel's wedding. Could you please help me?",
+      message: "Hi! 😊 Good day.\n\nI'm a guest at Estefannia & Alfredo's wedding. Could you please help me?",
       ariaLabel: "Message us on WhatsApp",
     },
   },

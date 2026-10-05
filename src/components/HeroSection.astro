@@ -10,8 +10,6 @@ interface Props {
 const { lang = "es" } = Astro.props;
 const t = translations[lang].hero;
 const baseUrl = EVENT_CONFIG.baseUrl;
-const eventTime = new Date(`${EVENT_CONFIG.eventDate}T17:30:00`).getTime();
-const daysLeft = Math.max(0, Math.ceil((eventTime - Date.now()) / 86_400_000));
 const displayDate = formatEventDate(EVENT_CONFIG.eventDate, lang);
 ---
 
@@ -19,41 +17,46 @@ const displayDate = formatEventDate(EVENT_CONFIG.eventDate, lang);
   id="home"
   class="relative min-h-screen flex flex-col items-center px-6 pt-20 pb-0 overflow-hidden scroll-mt-8"
 >
-  <!-- Velo sobre el fondo para que el texto respire -->
-  <div class="absolute inset-0"></div>
-
-  <!-- Siluetas decorativas de fondo -->
+  <!-- Imagen de fondo -->
   <img
-    src={`${baseUrl}/images/silueta-lampara.png`}
+    src={`${baseUrl}/images/hero.png`}
     alt=""
     aria-hidden="true"
-    class="pointer-events-none select-none absolute z-0 top-0 left-[55%] -translate-x-[25%] h-[55%] md:h-[60%] w-auto object-contain opacity-100"
+    class="pointer-events-none select-none absolute inset-0 z-0 h-full w-full object-cover object-center"
   />
+
+  <!-- Degradado oscuro para que el texto blanco se lea -->
+  <div
+    class="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
+  >
+  </div>
+
+  <!-- Flores decorativas en la esquina inferior (se recortan con el borde del hero) -->
   <img
-    src={`${baseUrl}/images/silueta-pareja.png`}
+    src={`${baseUrl}/images/flowers-separator.png`}
     alt=""
     aria-hidden="true"
-    class="pointer-events-none select-none absolute z-0 bottom-0 left-[55%] -translate-x-[25%] h-[50%] md:h-[55%] w-auto object-contain opacity-100"
+    class="pointer-events-none select-none absolute z-[5] h-auto max-w-none -translate-x-1/2 [--flores-w:min(116vw,640px)] w-[--flores-w] left-[87%] bottom-[calc(var(--flores-w)*-0.69)]"
   />
 
   <!-- Contenido principal -->
   <div class="relative z-10 text-center flex-1 flex flex-col justify-center">
-    <p data-animate class="font-script text-accent text-4xl md:text-5xl mb-4">
+    <p data-animate class="font-script text-white text-4xl md:text-5xl mb-4">
       {t.eyebrow}
     </p>
 
-    <h1 class="font-serif text-ink inline-block text-left mx-auto my-8">
+    <h1 class="font-serif text-white inline-block text-right mx-auto my-8">
       <span
         data-animate
         data-delay="100"
-        class="block text-5xl md:text-7xl tracking-[0.12em] uppercase"
+        class="block text-5xl md:text-7xl uppercase"
       >
         {EVENT_CONFIG.brideName}
       </span>
       <span
         data-animate
         data-delay="200"
-        class="block text-5xl md:text-7xl tracking-[0.12em] uppercase"
+        class="block text-5xl md:text-7xl uppercase"
       >
         <span
           class="font-script normal-case tracking-normal text-6xl md:text-8xl align-baseline"
@@ -61,35 +64,12 @@ const displayDate = formatEventDate(EVENT_CONFIG.eventDate, lang);
         >{EVENT_CONFIG.groomName}
       </span>
     </h1>
+  </div>
 
-    <p
-      data-animate
-      data-delay="400"
-      class="font-script text-accent text-4xl md:text-5xl mt-6"
-    >
+  <!-- Fecha de la boda -->
+  <div data-animate data-delay="400" class="relative z-10 mb-16 text-center">
+    <p class="font-script text-white text-4xl md:text-5xl">
       {displayDate}
     </p>
   </div>
-
-  <!-- Días faltantes -->
-  <div data-animate data-delay="500" class="relative z-10 mb-16 text-center">
-    <p class="font-script text-accent text-4xl md:text-5xl">
-      {t.countdownLabel}
-    </p>
-    <p class="mt-1">
-      <span id="hero-days-left" class="font-serif text-ink text-4xl md:text-5xl"
-        >{daysLeft}</span
-      >
-      <span class="font-script text-ink text-3xl md:text-4xl ml-1"
-        >{t.countdownUnit}</span
-      >
-    </p>
-  </div>
 </section>
-
-<script define:vars={{ eventDate: EVENT_CONFIG.eventDate }}>
-  const target = new Date(`${eventDate}T17:30:00`).getTime();
-  const days = Math.max(0, Math.ceil((target - Date.now()) / 86_400_000));
-  const el = document.getElementById("hero-days-left");
-  if (el) el.textContent = String(days);
-</script>

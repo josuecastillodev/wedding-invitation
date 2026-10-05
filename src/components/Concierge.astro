@@ -15,22 +15,20 @@ const hospedajeHref = getRelativeLocaleUrl(lang, "hospedaje");
 ---
 
 <section class="px-6 text-center">
-  <div data-animate class="flex justify-center mb-6">
+  <div data-animate class="flex justify-center">
     <img
-      src={`${baseUrl}/images/concierge.png`}
+      src={`${baseUrl}/images/flowers-separator.png`}
       alt=""
       loading="lazy"
-      class="w-14 h-14 md:w-16 md:h-16 object-contain"
+      class="h-48 object-contain"
     />
   </div>
 
-  <h2 data-animate class="font-serif text-2xl md:text-3xl text-ink">
-    Concierge
-  </h2>
+  <h2 data-animate class="font-serif text-3xl text-ink">Concierge</h2>
   <p
     data-animate
     data-delay="100"
-    class="font-script text-accent text-3xl md:text-4xl -mt-2 ml-20"
+    class="font-script text-accent text-3xl -mt-2 ml-20"
   >
     {t.subtitle}
   </p>
@@ -39,14 +37,14 @@ const hospedajeHref = getRelativeLocaleUrl(lang, "hospedaje");
     <p
       data-animate
       data-delay="200"
-      class="font-serif text-xl md:text-2xl leading-relaxed text-ink"
+      class="font-serif text-3xl leading-9 text-ink"
     >
       <RichText segments={t.paragraph1} />
     </p>
     <p
       data-animate
       data-delay="300"
-      class="font-serif text-xl md:text-2xl leading-relaxed text-ink/85"
+      class="font-serif text-3xl leading-9 text-ink/85"
     >
       <RichText segments={t.paragraph2} />
     </p>

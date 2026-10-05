@@ -66,9 +66,9 @@ const navHospedajeHref = getRelativeLocaleUrl(lang, 'hospedaje');
       :root {
         --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
         --font-script: "Allura", cursive;
-        --color-accent: #9c3829;
-        --color-accent-soft: #b8514a;
-        --color-paper: #F5F1EA;
+        --color-accent: #6b7548;
+        --color-accent-soft: #848e60;
+        --color-paper: #F9F6F1;
         --color-ink: #403a35;
       }
       body {
@@ -111,7 +111,7 @@ const navHospedajeHref = getRelativeLocaleUrl(lang, 'hospedaje');
       );
 
       // Función para observar elementos con data-animate
-      function observeAnimatedElements(root = document) {
+      function observeAnimatedElements(root: Document | Element = document) {
         root.querySelectorAll('[data-animate]:not(.in-view)').forEach((el) => {
           intersectionObserver.observe(el);
         });

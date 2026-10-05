@@ -81,11 +81,6 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-10 px-6 bg-paper"
-      style={{
-        backgroundImage: `url("${baseUrl}/images/bg-fijo.jpg")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
     >
       {/* Texto */}
       <div
@@ -117,19 +112,19 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
             }}
           >
             {/* Cuerpo del sobre */}
-            <div className="absolute inset-0 rounded-lg bg-[#a8362f]" />
+            <div className="absolute inset-0 rounded-lg bg-[#6b7548]" />
 
             {/* Pliegues laterales e inferior */}
             <div
-              className="absolute inset-0 bg-[#8f2c26]"
+              className="absolute inset-0 bg-[#5b643d]"
               style={{ clipPath: "polygon(0 0, 50% 58%, 0 100%)" }}
             />
             <div
-              className="absolute inset-0 bg-[#8f2c26]"
+              className="absolute inset-0 bg-[#5b643d]"
               style={{ clipPath: "polygon(100% 0, 50% 58%, 100% 100%)" }}
             />
             <div
-              className="absolute inset-0 bg-[#98322b]"
+              className="absolute inset-0 bg-[#606a41]"
               style={{ clipPath: "polygon(0 100%, 50% 38%, 100% 100%)" }}
             />
 
@@ -139,7 +134,7 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
               style={{
                 height: "60%",
                 clipPath: "polygon(0 0, 100% 0, 50% 100%)",
-                background: "linear-gradient(160deg, #c2453d 0%, #a8362f 100%)",
+                background: "linear-gradient(160deg, #848e60 0%, #6b7548 100%)",
                 filter: "drop-shadow(0 10px 12px rgba(0,0,0,0.55))",
                 transform: isOpening ? "rotateX(-160deg)" : "rotateX(0deg)",
                 transformStyle: "preserve-3d",
@@ -227,11 +222,11 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
               aria-hidden="true"
               className="pointer-events-none select-none absolute left-1/2 -translate-x-1/2"
               style={{
-                top: "55%",
+                top: "59%",
                 transform: isOpening
-                  ? "translate(-50%, -50%) scale(0.7)"
-                  : "translate(-50%, -50%) scale(1)",
-                width: "38%",
+                  ? "translate(-53%, -50%) scale(0.7)"
+                  : "translate(-53%, -50%) scale(1)",
+                width: "40%",
                 filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.35))",
                 opacity: isOpening ? 0 : 1,
                 transition: "opacity 0.4s ease-out, transform 0.4s ease-out",

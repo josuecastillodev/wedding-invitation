@@ -10,38 +10,45 @@ interface Props {
 const { lang = "es" } = Astro.props;
 const t = translations[lang].dressCode;
 const baseUrl = EVENT_CONFIG.baseUrl;
-const { dressCode } = EVENT_CONFIG;
+
+const labels = [t.womenLabel, t.menLabel];
 ---
 
-<section
-  class="relative text-center pt-20 pb-10 flex flex-col items-center justify-center overflow-hidden"
->
-  <!-- Silueta decorativa de fondo -->
-  <img
-    src={`${baseUrl}/images/silueta-pareja-2.png`}
-    alt=""
-    aria-hidden="true"
-    class="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] max-w-[85%] h-auto z-0"
-  />
+<section class="px-6 text-center pt-8 pb-12">
+  <div class="max-w-xl mx-auto">
+    <img
+      data-animate
+      src={`${baseUrl}/images/flowers-separator.png`}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      class="mx-auto h-48 w-auto"
+    />
 
-  <!-- Título -->
-  <div data-animate class="relative z-10">
-    <h2 class="font-serif text-2xl md:text-3xl text-ink">Dress Code</h2>
+    <h2 data-animate class="font-serif text-4xl text-accent -mt-2">
+      Dress Code
+    </h2>
+
     <p
       data-animate
       data-delay="100"
-      class="font-script text-accent text-4xl md:text-5xl -mt-2 ml-28"
+      class="font-serif text-3xl leading-snug text-ink mt-10 mx-auto max-w-[22rem]"
     >
-      {dressCode.code}
+      <RichText segments={t.segments} />
     </p>
-  </div>
 
-  <!-- Nota -->
-  <p
-    data-animate
-    data-delay="300"
-    class="relative z-10 font-serif text-xl md:text-2xl leading-relaxed max-w-72 mx-auto mt-16 text-ink"
-  >
-    <RichText segments={t.segments} />
-  </p>
+    <div class="mt-10 flex flex-col items-center gap-4">
+      {
+        labels.map((label, i) => (
+          <div
+            data-animate
+            data-delay={200 + i * 100}
+            class="w-72 max-w-full bg-accent text-white rounded-md py-3 font-serif text-3xl leading-tight"
+          >
+            {label}
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </section>

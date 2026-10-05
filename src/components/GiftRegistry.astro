@@ -10,41 +10,73 @@ interface Props {
 const { lang = "es" } = Astro.props;
 const t = translations[lang].gift;
 const baseUrl = EVENT_CONFIG.baseUrl;
-const { gift } = EVENT_CONFIG;
+const { bank } = EVENT_CONFIG;
 ---
 
-<section id="regalos" class="px-6 text-center scroll-mt-8 pt-8">
+<section id="regalos" class="px-6 text-center scroll-mt-8 pt-8 pb-10">
   <div class="max-w-xl mx-auto">
-    <h2 data-animate class="font-serif text-3xl text-ink">{t.heading}</h2>
+    <img
+      data-animate
+      src={`${baseUrl}/images/flowers-separator.png`}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+      class="mx-auto h-48 w-auto"
+    />
+
+    <h2 data-animate class="font-serif text-4xl text-accent -mt-2">
+      {t.heading}
+    </h2>
 
     <p
       data-animate
       data-delay="100"
-      class="font-serif text-xl md:text-2xl leading-relaxed text-ink mt-10 mx-auto max-w-96"
+      class="font-serif text-xl md:text-2xl leading-snug text-ink mt-10 mx-auto max-w-[22rem]"
     >
       <RichText segments={t.segments} />
     </p>
 
-    <div class="relative inline-block mt-12">
-      <a
-        href={gift.ctaUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-animate
-        data-delay="200"
-        class="relative z-10 border-2 border-accent text-accent hover:bg-accent hover:text-white hover:-translate-y-1 hover:shadow-lg rounded-md inline-block w-48 mx-auto py-3 font-serif italic font-bold text-3xl leading-none"
-        style="transition: opacity 0.6s ease-out, transform 0.5s ease-out, background-color 0.5s ease-out, color 0.5s ease-out, box-shadow 0.5s ease-out;"
-      >
-        {t.ctaLabel}
-      </a>
-
+    <!-- Tarjeta con borde superior partido para la flor -->
+    <div data-animate data-delay="200" class="relative mt-24 mx-auto max-w-sm">
       <img
-        src={`${baseUrl}/images/flower.png`}
+        src={`${baseUrl}/images/flor-morada.png`}
         alt=""
         aria-hidden="true"
-        class="pointer-events-none select-none absolute w-full h-auto z-10"
-        style={{ right: "-55%", top: "-180%" }}
+        loading="lazy"
+        class="absolute left-1/2 -translate-x-1/2 -top-[3.5rem] h-20 w-auto z-10"
       />
+
+      <div class="relative border border-t-0 border-accent px-6 pt-14 pb-8">
+        <div class="absolute top-0 left-0 w-[calc(50%-48px)] h-px bg-accent">
+        </div>
+        <div class="absolute top-0 right-0 w-[calc(50%-48px)] h-px bg-accent">
+        </div>
+
+        <p class="font-serif text-2xl text-ink leading-tight">
+          {bank.beneficiary}
+        </p>
+        <p class="font-script text-ink text-3xl leading-none mt-1">
+          {t.nameLabel}
+        </p>
+
+        <p
+          class="font-serif text-white bg-accent rounded-md text-2xl md:text-3xl tracking-wide py-2 mt-7 mx-auto w-[85%]"
+        >
+          {bank.account}
+        </p>
+        <p class="font-script text-ink text-3xl leading-none mt-4">
+          {t.accountLabel}
+        </p>
+
+        <p
+          class="font-serif text-white bg-accent rounded-md text-2xl md:text-3xl tracking-wide py-2 mt-7 mx-auto w-[92%]"
+        >
+          {bank.clabe}
+        </p>
+        <p class="font-script text-ink text-3xl leading-none mt-4">
+          {t.clabeLabel}
+        </p>
+      </div>
     </div>
   </div>
 </section>

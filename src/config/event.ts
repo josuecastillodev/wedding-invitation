@@ -15,7 +15,7 @@ export interface Hotel {
 
 export const EVENT_CONFIG = {
   // ID del formulario de Tally para confirmación de asistencia
-  tallyFormId: "KYEg0k",
+  tallyFormId: "zxa1Kk",
 
   // Nombres de los novios
   groomName: "Alfredo",
@@ -41,7 +41,7 @@ export const EVENT_CONFIG = {
     name: "Rancho Santa María",
     city: "Hidalgo, Jalisco, México.",
     // TODO: reemplazar por el link real de Google Maps de Rancho Santa María
-    mapUrl: "https://maps.app.goo.gl/78J8hNFfUyXs7hce9",
+    mapUrl: "https://share.google/SIvi823y7KdDOu6Ue",
     image: "/images/venue.jpg",
   },
 

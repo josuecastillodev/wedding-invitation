@@ -15,15 +15,15 @@ const targetHref = getRelativeLocaleUrl(targetLang, "");
 ---
 
 <div
-  class="fixed top-4 right-4 z-[60] flex items-center gap-1 rounded-full bg-paper/90 border border-accent/30 px-3 py-1 font-serif text-xs uppercase tracking-wider text-ink shadow-md backdrop-blur-sm"
+  class="fixed top-4 right-4 z-[60] flex items-center gap-1.5 rounded-full bg-accent border border-accent px-4 py-2 font-serif text-sm uppercase tracking-wider text-white shadow-md"
 >
-  <span class="text-accent font-semibold">{lang.toUpperCase()}</span>
-  <span class="text-ink/30">·</span>
+  <span class="font-semibold">{lang.toUpperCase()}</span>
+  <span class="text-white/50">·</span>
   <a
     id="language-switch-link"
     href={targetHref}
     aria-label={targetAriaLabel}
-    class="hover:text-accent transition-colors duration-200"
+    class="text-white/80 hover:text-white transition-colors duration-200"
   >
     {targetLabel}
   </a>

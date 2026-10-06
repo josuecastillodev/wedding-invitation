@@ -111,7 +111,7 @@ export function NavMenu({
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="font-serif text-xl text-ink hover:text-accent transition-colors duration-200"
+              className="font-serif text-4xl text-accent hover:text-accent-soft transition-colors duration-200"
             >
               {link.label}
             </a>

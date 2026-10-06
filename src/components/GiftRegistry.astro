@@ -59,20 +59,28 @@ const { bank } = EVENT_CONFIG;
           {t.nameLabel}
         </p>
 
-        <p
-          class="font-serif text-white bg-accent rounded-md text-2xl md:text-3xl tracking-wide py-2 mt-7 mx-auto w-[85%]"
+        <button
+          type="button"
+          data-copy={bank.account.replace(/\s/g, "")}
+          data-copied-label={t.copied}
+          aria-label={`${t.copyAria} ${t.accountLabel}`}
+          class="block cursor-pointer font-[family-name:var(--font-numeric)] text-white bg-accent rounded-md text-xl md:text-2xl tracking-wide py-2 mt-7 mx-auto w-[85%] active:bg-accent-soft transition-colors"
         >
-          {bank.account}
-        </p>
+          <span>{bank.account}</span>
+        </button>
         <p class="font-script text-ink text-3xl leading-none mt-4">
           {t.accountLabel}
         </p>
 
-        <p
-          class="font-serif text-white bg-accent rounded-md text-2xl md:text-3xl tracking-wide py-2 mt-7 mx-auto w-[92%]"
+        <button
+          type="button"
+          data-copy={bank.clabe.replace(/\s/g, "")}
+          data-copied-label={t.copied}
+          aria-label={`${t.copyAria} ${t.clabeLabel}`}
+          class="block cursor-pointer font-[family-name:var(--font-numeric)] text-white bg-accent rounded-md text-xl md:text-2xl tracking-wide py-2 mt-7 mx-auto w-[92%] active:bg-accent-soft transition-colors"
         >
-          {bank.clabe}
-        </p>
+          <span>{bank.clabe}</span>
+        </button>
         <p class="font-script text-ink text-3xl leading-none mt-4">
           {t.clabeLabel}
         </p>
@@ -80,3 +88,36 @@ const { bank } = EVENT_CONFIG;
     </div>
   </div>
 </section>
+
+<script>
+  // Copia el número (sin espacios) al portapapeles y muestra la confirmación
+  // dentro del mismo recuadro durante un momento.
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((btn) => {
+    const label = btn.querySelector("span");
+    const original = label?.textContent ?? "";
+    let timer: number | undefined;
+
+    btn.addEventListener("click", async () => {
+      const value = btn.dataset.copy ?? "";
+      try {
+        await navigator.clipboard.writeText(value);
+      } catch {
+        // Fallback para navegadores sin Clipboard API (o sin contexto seguro)
+        const input = document.createElement("textarea");
+        input.value = value;
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        input.remove();
+      }
+      if (!label) return;
+      label.textContent = btn.dataset.copiedLabel ?? "";
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        label.textContent = original;
+      }, 1500);
+    });
+  });
+</script>

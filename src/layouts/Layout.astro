@@ -55,12 +55,12 @@ const navHospedajeHref = getRelativeLocaleUrl(lang, 'hospedaje');
 
     <title>{pageTitle}</title>
 
-    <!-- Fuentes: Cormorant Garamond (serif) + Allura (script) desde Google Fonts -->
+    <!-- Fuentes: Cormorant Garamond (serif) + Allura (script) + Lora (números) desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Lora:wght@400..700&display=swap"
     />
     <link rel="preload" href={`${baseUrl}/fonts/velista/VELISTARegular.woff2`} as="font" type="font/woff2" crossorigin />
 
@@ -69,6 +69,7 @@ const navHospedajeHref = getRelativeLocaleUrl(lang, 'hospedaje');
       :root {
         --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
         --font-script: "Allura", cursive;
+        --font-numeric: "Lora", Georgia, serif;
         --color-accent: #6b7548;
         --color-accent-soft: #848e60;
         --color-paper: #F9F6F1;

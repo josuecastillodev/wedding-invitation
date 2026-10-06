@@ -64,6 +64,8 @@ export interface Translations {
     nameLabel: string;
     accountLabel: string;
     clabeLabel: string;
+    copied: string;
+    copyAria: string;
   };
   dressCode: {
     segments: RichSegment[];
@@ -164,6 +166,8 @@ export const translations: Record<Lang, Translations> = {
       nameLabel: "Nombre",
       accountLabel: "Cuenta",
       clabeLabel: "Clabe",
+      copied: "¡Copiado!",
+      copyAria: "Copiar",
     },
     dressCode: {
       segments: [
@@ -315,6 +319,8 @@ export const translations: Record<Lang, Translations> = {
       nameLabel: "Name",
       accountLabel: "Account",
       clabeLabel: "CLABE",
+      copied: "Copied!",
+      copyAria: "Copy",
     },
     dressCode: {
       segments: [

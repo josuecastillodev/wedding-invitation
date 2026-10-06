@@ -250,9 +250,10 @@ export const translations: Record<Lang, Translations> = {
     gallery: {
       alts: [
         "Estefannia y Alfredo",
-        "Estefannia y Alfredo en el auto",
-        "Auto en la carretera",
-        "Estefannia y Alfredo con el auto",
+        "Estefannia y Alfredo",
+        "Estefannia y Alfredo",
+        "Estefannia y Alfredo",
+        "Estefannia y Alfredo",
         "Estefannia y Alfredo",
       ],
     },
@@ -404,9 +405,10 @@ export const translations: Record<Lang, Translations> = {
     gallery: {
       alts: [
         "Estefannia and Alfredo",
-        "Estefannia and Alfredo in the car",
-        "Car on the road",
-        "Estefannia and Alfredo with the car",
+        "Estefannia and Alfredo",
+        "Estefannia and Alfredo",
+        "Estefannia and Alfredo",
+        "Estefannia and Alfredo",
         "Estefannia and Alfredo",
       ],
     },

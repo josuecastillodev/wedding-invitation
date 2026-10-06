@@ -11,6 +11,7 @@ const imagePaths = [
   `${baseUrl}/images/novios03.webp`,
   `${baseUrl}/images/novios04.webp`,
   `${baseUrl}/images/novios05.webp`,
+  `${baseUrl}/images/novios06.webp`,
 ];
 
 interface PhotoGalleryProps {
@@ -54,7 +55,7 @@ export function PhotoGallery({ lang = "es" }: PhotoGalleryProps) {
   useEffect(() => {
     if (!isInView) return;
 
-    const speed = 1.5;
+    const speed = 0.7;
 
     const animate = () => {
       // Mobile

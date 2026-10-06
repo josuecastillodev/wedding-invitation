@@ -1,5 +1,6 @@
 ---
 import { EVENT_CONFIG } from "../config/event";
+import { PhotoGallery } from "./PhotoGallery";
 import { translations, type Lang } from "../i18n/translations";
 
 interface Props {
@@ -81,13 +82,8 @@ const families = [
     </div>
   </div>
 
-  <!-- Móvil: a todo el ancho (sale del padding de la sección).
-       Escritorio: limitada a un ancho cómodo para no ampliar de más la foto vertical. -->
-  <img
-    data-animate
-    src={`${baseUrl}/images/foto-pareja.png`}
-    alt=""
-    loading="lazy"
-    class="mt-16 -mx-6 w-[calc(100%+3rem)] max-w-none md:mx-auto md:w-full md:max-w-md md:rounded-lg"
-  />
+  <!-- Carrusel a todo el ancho (sale del padding de la sección) -->
+  <div class="mt-16 -mx-6">
+    <PhotoGallery client:visible lang={lang} />
+  </div>
 </section>

@@ -87,7 +87,7 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
         className="text-center transition-opacity duration-500"
         style={{ opacity: isOpening ? 0 : 1 }}
       >
-        <p className="font-serif text-ink text-3xl md:text-4xl leading-tight">
+        <p className="font-serif text-ink text-[1.65rem] md:text-3xl leading-[1.1]">
           {t.segments.map((segment, i) =>
             segment.br ? (
               <br key={i} />
@@ -252,7 +252,7 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
           className="pointer-events-none select-none absolute w-[100%] h-auto"
           style={{
             right: "-50%",
-            bottom: "-80%",
+            bottom: "-95%",
             filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.25))",
             opacity: isOpening ? 0 : 1,
             transition: "opacity 0.4s ease-out",

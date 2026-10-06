@@ -120,9 +120,7 @@ export const translations: Record<Lang, Translations> = {
     },
     envelope: {
       segments: [
-        { text: "Nuestro amor siempre" },
-        { br: true },
-        { text: "encontró el camino de regreso." },
+        { text: "Nuestro amor siempre encontró el camino de regreso." },
         { br: true },
         { text: "Hoy, " },
         { text: "anunciamos nuestra boda", class: "text-accent italic font-bold" },
@@ -273,9 +271,7 @@ export const translations: Record<Lang, Translations> = {
     },
     envelope: {
       segments: [
-        { text: "Our love always" },
-        { br: true },
-        { text: "found its way back." },
+        { text: "Our love always found its way back." },
         { br: true },
         { text: "Today, " },
         { text: "we announce our wedding", class: "text-accent italic font-bold" },

@@ -13,6 +13,9 @@ const { lang = "es", showImage = false, showSilhouette = false } = Astro.props;
 const baseUrl = EVENT_CONFIG.baseUrl;
 const { brideName, groomName } = EVENT_CONFIG;
 const t = translations[lang].rsvp;
+// Ancho aproximado del titular en em (~0.43em por carácter en Cormorant Garamond),
+// para escalar la fuente en pantallas chicas y que quede siempre en una línea.
+const headlineEm = t.headline.length * 0.43;
 ---
 
 <section
@@ -46,8 +49,11 @@ const t = translations[lang].rsvp;
     data-animate
     class="relative z-10 font-serif text-3xl leading-relaxed text-ink"
   >
-    {t.headline}
-    <br />
+    <span
+      class="block whitespace-nowrap"
+      style={`font-size: min(1.875rem, calc((100vw - 3rem) / ${headlineEm.toFixed(1)}))`}
+      >{t.headline}</span
+    >
     {t.question}
   </p>
 

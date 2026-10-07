@@ -10,6 +10,7 @@ interface Props {
 const { lang = "es" } = Astro.props;
 const t = translations[lang].dressCode;
 const baseUrl = EVENT_CONFIG.baseUrl;
+const { inspirationUrl } = EVENT_CONFIG.dressCode;
 
 const labels = [t.womenLabel, t.menLabel];
 ---
@@ -40,13 +41,16 @@ const labels = [t.womenLabel, t.menLabel];
     <div class="mt-10 flex flex-col items-center gap-4">
       {
         labels.map((label, i) => (
-          <div
+          <a
             data-animate
             data-delay={200 + i * 100}
-            class="w-72 max-w-full bg-accent text-white rounded-md py-3 font-serif text-3xl leading-tight"
+            href={inspirationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-72 max-w-full bg-accent text-white rounded-md py-3 font-serif text-3xl leading-tight active:bg-accent-soft transition-colors"
           >
             {label}
-          </div>
+          </a>
         ))
       }
     </div>

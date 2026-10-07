@@ -61,6 +61,8 @@ export const EVENT_CONFIG = {
   // Código de vestimenta
   dressCode: {
     code: "Formal",
+    // Tablero de inspiración al que llevan los botones de Mujeres y Hombres
+    inspirationUrl: "https://pin.it/6TnwOFyDO",
   },
 
   // Hoteles recomendados (nombre/imagen/link no cambian por idioma; su

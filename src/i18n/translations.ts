@@ -50,6 +50,7 @@ export interface Translations {
   rsvp: {
     headline: string;
     question: string;
+    adultsOnly: string;
     ctaLabel: string;
   };
   blessing: {
@@ -143,6 +144,7 @@ export const translations: Record<Lang, Translations> = {
     rsvp: {
       headline: "Será una celebración increíble",
       question: "¿Nos acompañas?",
+      adultsOnly: "Evento solo para adultos",
       ctaLabel: "¡Confirmar asistencia!",
     },
     blessing: {
@@ -294,6 +296,7 @@ export const translations: Record<Lang, Translations> = {
     rsvp: {
       headline: "It will be an incredible celebration",
       question: "Will you join us?",
+      adultsOnly: "Adults-only event",
       ctaLabel: "RSVP Here",
     },
     blessing: {

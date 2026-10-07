@@ -19,7 +19,7 @@ export const EVENT_CONFIG = {
 
   // Nombres de los novios
   groomName: "Alfredo",
-  brideName: "Estefannia",
+  brideName: "Estefania",
 
   // Padres de los novios (una línea por nombre; si alguna empieza con "&"
   // se muestra escalonada, como en el diseño)

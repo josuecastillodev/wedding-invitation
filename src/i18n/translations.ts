@@ -148,7 +148,7 @@ export const translations: Record<Lang, Translations> = {
     blessing: {
       eyebrow: "Con la bendición de",
       subtitle: "nuestros padres",
-      brideParents: "Padres de Estefannia",
+      brideParents: "Padres de Estefania",
       groomParents: "Padres de Alfredo",
     },
     gift: {
@@ -251,16 +251,16 @@ export const translations: Record<Lang, Translations> = {
     },
     gallery: {
       alts: [
-        "Estefannia y Alfredo",
-        "Estefannia y Alfredo",
-        "Estefannia y Alfredo",
-        "Estefannia y Alfredo",
-        "Estefannia y Alfredo",
-        "Estefannia y Alfredo",
+        "Estefania y Alfredo",
+        "Estefania y Alfredo",
+        "Estefania y Alfredo",
+        "Estefania y Alfredo",
+        "Estefania y Alfredo",
+        "Estefania y Alfredo",
       ],
     },
     whatsapp: {
-      message: "¡Hola! 😊 Buen día.\n\nSoy invitado a la boda de Estefannia & Alfredo. ¿Podrían ayudarme, por favor?",
+      message: "¡Hola! 😊 Buen día.\n\nSoy invitado a la boda de Estefania & Alfredo. ¿Podrían ayudarme, por favor?",
       ariaLabel: "Escríbenos por WhatsApp",
     },
   },
@@ -299,7 +299,7 @@ export const translations: Record<Lang, Translations> = {
     blessing: {
       eyebrow: "With the blessing of",
       subtitle: "our parents",
-      brideParents: "Estefannia's parents",
+      brideParents: "Estefania's parents",
       groomParents: "Alfredo's parents",
     },
     gift: {
@@ -406,16 +406,16 @@ export const translations: Record<Lang, Translations> = {
     },
     gallery: {
       alts: [
-        "Estefannia and Alfredo",
-        "Estefannia and Alfredo",
-        "Estefannia and Alfredo",
-        "Estefannia and Alfredo",
-        "Estefannia and Alfredo",
-        "Estefannia and Alfredo",
+        "Estefania and Alfredo",
+        "Estefania and Alfredo",
+        "Estefania and Alfredo",
+        "Estefania and Alfredo",
+        "Estefania and Alfredo",
+        "Estefania and Alfredo",
       ],
     },
     whatsapp: {
-      message: "Hi! 😊 Good day.\n\nI'm a guest at Estefannia & Alfredo's wedding. Could you please help me?",
+      message: "Hi! 😊 Good day.\n\nI'm a guest at Estefania & Alfredo's wedding. Could you please help me?",
       ariaLabel: "Message us on WhatsApp",
     },
   },

@@ -33,7 +33,7 @@ export const EVENT_CONFIG = {
   eventDate: "2027-01-16",
 
   // Base URL del sitio
-  baseUrl: "/estefannia-y-alfredo",
+  baseUrl: "/estefania-y-alfredo",
 
 
   // Lugar de la celebración

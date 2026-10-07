@@ -5,9 +5,9 @@
 /* Tenor Sans - Fuente principal serif */
 @font-face {
   font-family: "Tenor Sans";
-  src: url("/estefannia-y-alfredo/fonts/tenor/TenorSans.woff2") format("woff2"),
-    url("/estefannia-y-alfredo/fonts/tenor/TenorSans.woff") format("woff"),
-    url("/estefannia-y-alfredo/fonts/tenor/TenorSans.ttf") format("truetype");
+  src: url("/estefania-y-alfredo/fonts/tenor/TenorSans.woff2") format("woff2"),
+    url("/estefania-y-alfredo/fonts/tenor/TenorSans.woff") format("woff"),
+    url("/estefania-y-alfredo/fonts/tenor/TenorSans.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -16,9 +16,9 @@
 /* High Spirited - Fuente decorativa script */
 @font-face {
   font-family: "High Spirited";
-  src: url("/estefannia-y-alfredo/fonts/high-spirited/HighSpirited.woff2") format("woff2"),
-    url("/estefannia-y-alfredo/fonts/high-spirited/HighSpirited.woff") format("woff"),
-    url("/estefannia-y-alfredo/fonts/high-spirited/HighSpirited.ttf") format("truetype");
+  src: url("/estefania-y-alfredo/fonts/high-spirited/HighSpirited.woff2") format("woff2"),
+    url("/estefania-y-alfredo/fonts/high-spirited/HighSpirited.woff") format("woff"),
+    url("/estefania-y-alfredo/fonts/high-spirited/HighSpirited.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -27,9 +27,9 @@
 /* Velista - Fuente de firma */
 @font-face {
   font-family: "Velista";
-  src: url("/estefannia-y-alfredo/fonts/velista/VELISTARegular.woff2") format("woff2"),
-    url("/estefannia-y-alfredo/fonts/velista/VELISTARegular.woff") format("woff"),
-    url("/estefannia-y-alfredo/fonts/velista/VELISTARegular.ttf") format("truetype");
+  src: url("/estefania-y-alfredo/fonts/velista/VELISTARegular.woff2") format("woff2"),
+    url("/estefania-y-alfredo/fonts/velista/VELISTARegular.woff") format("woff"),
+    url("/estefania-y-alfredo/fonts/velista/VELISTARegular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

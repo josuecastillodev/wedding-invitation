@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://invitacion.dizaru.com',
-  base: '/estefannia-y-alfredo',
+  base: '/estefania-y-alfredo',
   i18n: {
     defaultLocale: 'es',
     locales: ['es', 'en'],

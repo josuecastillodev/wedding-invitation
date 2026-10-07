@@ -262,7 +262,7 @@ export function EnvelopeOpening({ children, lang = "es" }: EnvelopeOpeningProps)
       </div>
 
       <p
-        className="text-[#403a35] font-serif text-xs md:text-sm tracking-[0.25em] uppercase transition-opacity duration-500"
+        className="relative top-28 z-20 text-[#403a35] font-serif text-xs md:text-sm tracking-[0.25em] uppercase transition-opacity duration-500"
         style={{ opacity: isOpening ? 0 : 1 }}
       >
         {t.prompt}

@@ -39,7 +39,7 @@ export const EVENT_CONFIG = {
   // Lugar de la celebración
   venue: {
     name: "Rancho Santa María",
-    city: "Hidalgo, Jalisco, México.",
+    city: "San Martín de Hidalgo, Jalisco.",
     // TODO: reemplazar por el link real de Google Maps de Rancho Santa María
     mapUrl: "https://share.google/SIvi823y7KdDOu6Ue",
     image: "/images/venue.jpg",

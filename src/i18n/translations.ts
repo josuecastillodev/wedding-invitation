@@ -144,7 +144,7 @@ export const translations: Record<Lang, Translations> = {
     rsvp: {
       headline: "Será una celebración increíble",
       question: "¿Nos acompañas?",
-      adultsOnly: "Evento solo para adultos",
+      adultsOnly: "Evento exclusivo para adultos",
       ctaLabel: "¡Confirmar asistencia!",
     },
     blessing: {
@@ -296,7 +296,7 @@ export const translations: Record<Lang, Translations> = {
     rsvp: {
       headline: "It will be an incredible celebration",
       question: "Will you join us?",
-      adultsOnly: "Adults-only event",
+      adultsOnly: "Event exclusively for adults",
       ctaLabel: "RSVP Here",
     },
     blessing: {
